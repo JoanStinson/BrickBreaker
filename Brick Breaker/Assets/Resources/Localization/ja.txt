@@ -1,0 +1,8 @@
+﻿TID_GAME_TITLE=Tatedrez
+TID_PLAY=プレイ
+TID_QUIT=終了
+TID_PLAYER_TURN=プレイヤー [X]
+TID_PLAYER_CANNOT_MOVE=プレイヤー [X] 動\nイーをプレイ！
+TID_PLAYER_WINS=プレイヤー [X]！
+TID_PLAY_AGAIN=プレイ
+TID_MAIN_MENU=イープヤ

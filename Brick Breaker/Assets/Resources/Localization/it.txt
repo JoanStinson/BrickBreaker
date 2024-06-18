@@ -1,0 +1,8 @@
+﻿TID_GAME_TITLE=Tatedrez
+TID_PLAY=Gioca
+TID_QUIT=Esci
+TID_PLAYER_TURN=Turno del giocatore [X]
+TID_PLAYER_CANNOT_MOVE=Giocatore [X] non può muoversi\nCambia turno!
+TID_PLAYER_WINS=Giocatore [X] vince!
+TID_PLAY_AGAIN=Gioca di nuovo
+TID_MAIN_MENU=Menu principale

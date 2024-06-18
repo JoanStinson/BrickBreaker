@@ -1,0 +1,1837 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &1
+MonoBehaviour:
+  m_ObjectHideFlags: 52
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 1
+  m_Script: {fileID: 12004, guid: 0000000000000000e000000000000000, type: 0}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_PixelRect:
+    serializedVersion: 2
+    x: 0
+    y: 43
+    width: 1920
+    height: 1037
+  m_ShowMode: 4
+  m_Title: Console
+  m_RootView: {fileID: 6}
+  m_MinSize: {x: 875, y: 371}
+  m_MaxSize: {x: 10000, y: 10000}
+  m_Maximized: 1
+--- !u!114 &2
+MonoBehaviour:
+  m_ObjectHideFlags: 52
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 1
+  m_Script: {fileID: 12010, guid: 0000000000000000e000000000000000, type: 0}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Children:
+  - {fileID: 9}
+  - {fileID: 3}
+  m_Position:
+    serializedVersion: 2
+    x: 0
+    y: 30
+    width: 1920
+    height: 987
+  m_MinSize: {x: 300, y: 200}
+  m_MaxSize: {x: 24288, y: 16192}
+  vertical: 0
+  controlID: 90
+--- !u!114 &3
+MonoBehaviour:
+  m_ObjectHideFlags: 52
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 1
+  m_Script: {fileID: 12006, guid: 0000000000000000e000000000000000, type: 0}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Children: []
+  m_Position:
+    serializedVersion: 2
+    x: 1437
+    y: 0
+    width: 483
+    height: 987
+  m_MinSize: {x: 276, y: 71}
+  m_MaxSize: {x: 4001, y: 4021}
+  m_ActualView: {fileID: 14}
+  m_Panes:
+  - {fileID: 14}
+  m_Selected: 0
+  m_LastSelected: 0
+--- !u!114 &4
+MonoBehaviour:
+  m_ObjectHideFlags: 52
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 1
+  m_Script: {fileID: 12006, guid: 0000000000000000e000000000000000, type: 0}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Children: []
+  m_Position:
+    serializedVersion: 2
+    x: 0
+    y: 0
+    width: 343
+    height: 584
+  m_MinSize: {x: 201, y: 221}
+  m_MaxSize: {x: 4001, y: 4021}
+  m_ActualView: {fileID: 15}
+  m_Panes:
+  - {fileID: 15}
+  m_Selected: 0
+  m_LastSelected: 0
+--- !u!114 &5
+MonoBehaviour:
+  m_ObjectHideFlags: 52
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 1
+  m_Script: {fileID: 12006, guid: 0000000000000000e000000000000000, type: 0}
+  m_Name: ConsoleWindow
+  m_EditorClassIdentifier: 
+  m_Children: []
+  m_Position:
+    serializedVersion: 2
+    x: 0
+    y: 584
+    width: 1437
+    height: 403
+  m_MinSize: {x: 101, y: 121}
+  m_MaxSize: {x: 4001, y: 4021}
+  m_ActualView: {fileID: 17}
+  m_Panes:
+  - {fileID: 13}
+  - {fileID: 17}
+  - {fileID: 12}
+  m_Selected: 1
+  m_LastSelected: 0
+--- !u!114 &6
+MonoBehaviour:
+  m_ObjectHideFlags: 52
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 1
+  m_Script: {fileID: 12008, guid: 0000000000000000e000000000000000, type: 0}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Children:
+  - {fileID: 7}
+  - {fileID: 2}
+  - {fileID: 8}
+  m_Position:
+    serializedVersion: 2
+    x: 0
+    y: 0
+    width: 1920
+    height: 1037
+  m_MinSize: {x: 875, y: 300}
+  m_MaxSize: {x: 10000, y: 10000}
+  m_UseTopView: 1
+  m_TopViewHeight: 30
+  m_UseBottomView: 1
+  m_BottomViewHeight: 20
+--- !u!114 &7
+MonoBehaviour:
+  m_ObjectHideFlags: 52
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 1
+  m_Script: {fileID: 12011, guid: 0000000000000000e000000000000000, type: 0}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Children: []
+  m_Position:
+    serializedVersion: 2
+    x: 0
+    y: 0
+    width: 1920
+    height: 30
+  m_MinSize: {x: 0, y: 0}
+  m_MaxSize: {x: 0, y: 0}
+  m_LastLoadedLayoutName: 
+--- !u!114 &8
+MonoBehaviour:
+  m_ObjectHideFlags: 52
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 1
+  m_Script: {fileID: 12042, guid: 0000000000000000e000000000000000, type: 0}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Children: []
+  m_Position:
+    serializedVersion: 2
+    x: 0
+    y: 1017
+    width: 1920
+    height: 20
+  m_MinSize: {x: 0, y: 0}
+  m_MaxSize: {x: 0, y: 0}
+--- !u!114 &9
+MonoBehaviour:
+  m_ObjectHideFlags: 52
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 1
+  m_Script: {fileID: 12010, guid: 0000000000000000e000000000000000, type: 0}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Children:
+  - {fileID: 10}
+  - {fileID: 5}
+  m_Position:
+    serializedVersion: 2
+    x: 0
+    y: 0
+    width: 1437
+    height: 987
+  m_MinSize: {x: 200, y: 200}
+  m_MaxSize: {x: 16192, y: 16192}
+  vertical: 1
+  controlID: 91
+--- !u!114 &10
+MonoBehaviour:
+  m_ObjectHideFlags: 52
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 1
+  m_Script: {fileID: 12010, guid: 0000000000000000e000000000000000, type: 0}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Children:
+  - {fileID: 4}
+  - {fileID: 11}
+  m_Position:
+    serializedVersion: 2
+    x: 0
+    y: 0
+    width: 1437
+    height: 584
+  m_MinSize: {x: 200, y: 100}
+  m_MaxSize: {x: 16192, y: 8096}
+  vertical: 0
+  controlID: 92
+--- !u!114 &11
+MonoBehaviour:
+  m_ObjectHideFlags: 52
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 1
+  m_Script: {fileID: 12006, guid: 0000000000000000e000000000000000, type: 0}
+  m_Name: SimulatorWindow
+  m_EditorClassIdentifier: 
+  m_Children: []
+  m_Position:
+    serializedVersion: 2
+    x: 343
+    y: 0
+    width: 1094
+    height: 584
+  m_MinSize: {x: 202, y: 221}
+  m_MaxSize: {x: 4002, y: 4021}
+  m_ActualView: {fileID: 18}
+  m_Panes:
+  - {fileID: 16}
+  - {fileID: 18}
+  m_Selected: 1
+  m_LastSelected: 0
+--- !u!114 &12
+MonoBehaviour:
+  m_ObjectHideFlags: 52
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 13401, guid: 0000000000000000e000000000000000, type: 0}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_MinSize: {x: 100, y: 100}
+  m_MaxSize: {x: 4000, y: 4000}
+  m_TitleContent:
+    m_Text: Test Runner
+    m_Image: {fileID: 0}
+    m_Tooltip: 
+  m_Pos:
+    serializedVersion: 2
+    x: -1920
+    y: 657
+    width: 1507
+    height: 382
+  m_ViewDataDictionary: {fileID: 0}
+  m_OverlayCanvas:
+    m_LastAppliedPresetName: Default
+    m_SaveData: []
+    m_OverlaysVisible: 1
+  m_Spl:
+    ID: 103
+    splitterInitialOffset: 0
+    currentActiveSplitter: -1
+    realSizes:
+    - 234
+    - 78
+    relativeSizes:
+    - 0.75
+    - 0.25
+    minSizes:
+    - 32
+    - 32
+    maxSizes:
+    - 0
+    - 0
+    lastTotalSize: 312
+    splitSize: 6
+    xOffset: 0
+    m_Version: 1
+    oldRealSizes: 
+    oldMinSizes: 
+    oldMaxSizes: 
+    oldSplitSize: 0
+  m_TestTypeToolbarIndex: 1
+  m_PlayModeTestListGUI:
+    m_Window: {fileID: 12}
+    m_NewResultList:
+    - id: 2641
+      uniqueId: '[Tatedrez][suite]'
+      name: Tatedrez
+      fullName: Tatedrez
+      resultStatus: 1
+      duration: 3.2234848
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 1
+      categories: []
+      parentId: 
+      parentUniqueId: 
+    m_ResultText: 'TestScene (2.490s)
+
+      ---
+
+      Loading scene ''TestSceneContextEvents''
+      for testing'
+    m_ResultStacktrace: 
+    m_TestListState:
+      scrollPos: {x: 0, y: 0}
+      m_SelectedIDs: 82cdc55a
+      m_LastClickedID: 1522912642
+      m_ExpandedIDs: ce91fd8519c3ef87344c948cd6646895be95c895dc889898791b40a527c860a7c30c7aa7247a0bad8cb207b3f5a5b2b467bea2bfdbe0e6bf6e811fc24ba1e5d1ebab89ecc1a216f3233320f3330266fb820e000083b30c0affedab179ed8dc247f7585274d0df4361a4a753d87be6e3e1300753f5390d1400e5fc841d261b64604bb4b4fb38490510e7900542bca5858733fd067d9746071c2d06778fa14837dffffff7f
+      m_RenameOverlay:
+        m_UserAcceptedRename: 0
+        m_Name: 
+        m_OriginalName: 
+        m_EditFieldRect:
+          serializedVersion: 2
+          x: 0
+          y: 0
+          width: 0
+          height: 0
+        m_UserData: 0
+        m_IsWaitingForDelay: 0
+        m_IsRenaming: 0
+        m_OriginalEventType: 11
+        m_IsRenamingFilename: 0
+        m_ClientGUIView: {fileID: 0}
+      m_SearchString: 
+    m_TestRunnerUIFilter:
+      PassedHidden: 0
+      FailedHidden: 0
+      NotRunHidden: 0
+      m_SearchString: 
+      selectedCategoryMask: 0
+      availableCategories:
+      - Uncategorized
+    m_SelectedOption: 0
+  m_EditModeTestListGUI:
+    m_Window: {fileID: 12}
+    m_NewResultList:
+    - id: 1000
+      uniqueId: '[Tatedrez][suite]'
+      name: Tatedrez
+      fullName: Tatedrez
+      resultStatus: 1
+      duration: 0.5661445
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 1
+      categories: []
+      parentId: 
+      parentUniqueId: 
+    - id: 1320
+      uniqueId: '[JGM.GameTests.dll][suite]'
+      name: JGM.GameTests.dll
+      fullName: C:/Users/Freee/Documents/GitHub/Tatedrez/Tatedrez/Library/ScriptAssemblies/JGM.GameTests.dll
+      resultStatus: 1
+      duration: 0.5347692
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 1
+      categories: []
+      parentId: 1313
+      parentUniqueId: '[Tatedrez][suite]'
+    - id: 1321
+      uniqueId: JGM.GameTests.dll/[JGM][suite]
+      name: JGM
+      fullName: JGM
+      resultStatus: 1
+      duration: 0.5335795
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 1
+      categories: []
+      parentId: 1320
+      parentUniqueId: '[JGM.GameTests.dll][suite]'
+    - id: 1322
+      uniqueId: JGM.GameTests.dll/JGM/[JGM.GameTests][JGM.GameTests][suite]
+      name: GameTests
+      fullName: JGM.GameTests
+      resultStatus: 1
+      duration: 0.532778
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 1
+      categories: []
+      parentId: 1321
+      parentUniqueId: JGM.GameTests.dll/[JGM][suite]
+    - id: 1318
+      uniqueId: JGM.GameTests.dll/JGM/GameTests/[JGM.GameTests][JGM.GameTests.AudioServiceTest][suite]
+      name: AudioServiceTest
+      fullName: JGM.GameTests.AudioServiceTest
+      resultStatus: 1
+      duration: 0.4189481
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 1
+      categories: []
+      parentId: 1322
+      parentUniqueId: JGM.GameTests.dll/JGM/[JGM.GameTests][JGM.GameTests][suite]
+    - id: 1319
+      uniqueId: JGM.GameTests.dll/JGM/GameTests/AudioServiceTest/[JGM.GameTests][JGM.GameTests.AudioServiceTest.When_PlayWithNonExistingAudio_Expect_WarningLogged]
+      name: When_PlayWithNonExistingAudio_Expect_WarningLogged
+      fullName: JGM.GameTests.AudioServiceTest.When_PlayWithNonExistingAudio_Expect_WarningLogged
+      resultStatus: 1
+      duration: 0.4027429
+      messages: 
+      output: 'Trying to play a clip that doesn''t exist!
+
+'
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentId: 1318
+      parentUniqueId: JGM.GameTests.dll/JGM/GameTests/[JGM.GameTests][JGM.GameTests.AudioServiceTest][suite]
+    - id: 1001
+      uniqueId: JGM.GameTests.dll/JGM/GameTests/[JGM.GameTests][JGM.GameTests.BoardModelTest][suite]
+      name: BoardModelTest
+      fullName: JGM.GameTests.BoardModelTest
+      resultStatus: 1
+      duration: 0.0575501
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 1
+      categories: []
+      parentId: 1032
+      parentUniqueId: JGM.GameTests.dll/JGM/[JGM.GameTests][JGM.GameTests][suite]
+    - id: 1005
+      uniqueId: JGM.GameTests.dll/JGM/GameTests/BoardModelTest/[JGM.GameTests][JGM.GameTests.BoardModelTest.BoardModel_Constructor_ShouldInitializeGrid][suite]
+      name: BoardModel_Constructor_ShouldInitializeGrid
+      fullName: JGM.GameTests.BoardModelTest.BoardModel_Constructor_ShouldInitializeGrid
+      resultStatus: 1
+      duration: 0.016919
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 1
+      categories: []
+      parentId: 1001
+      parentUniqueId: JGM.GameTests.dll/JGM/GameTests/[JGM.GameTests][JGM.GameTests.BoardModelTest][suite]
+    - id: 1002
+      uniqueId: JGM.GameTests.dll/JGM/GameTests/BoardModelTest/BoardModel_Constructor_ShouldInitializeGrid/[JGM.GameTests][JGM.GameTests.BoardModelTest.BoardModel_Constructor_ShouldInitializeGrid(3,3)]
+      name: BoardModel_Constructor_ShouldInitializeGrid(3,3)
+      fullName: JGM.GameTests.BoardModelTest.BoardModel_Constructor_ShouldInitializeGrid(3,3)
+      resultStatus: 1
+      duration: 0.0099789
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentId: 1005
+      parentUniqueId: JGM.GameTests.dll/JGM/GameTests/BoardModelTest/[JGM.GameTests][JGM.GameTests.BoardModelTest.BoardModel_Constructor_ShouldInitializeGrid][suite]
+    - id: 1003
+      uniqueId: JGM.GameTests.dll/JGM/GameTests/BoardModelTest/BoardModel_Constructor_ShouldInitializeGrid/[JGM.GameTests][JGM.GameTests.BoardModelTest.BoardModel_Constructor_ShouldInitializeGrid(5,5)]
+      name: BoardModel_Constructor_ShouldInitializeGrid(5,5)
+      fullName: JGM.GameTests.BoardModelTest.BoardModel_Constructor_ShouldInitializeGrid(5,5)
+      resultStatus: 1
+      duration: 0.0002296
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentId: 1005
+      parentUniqueId: JGM.GameTests.dll/JGM/GameTests/BoardModelTest/[JGM.GameTests][JGM.GameTests.BoardModelTest.BoardModel_Constructor_ShouldInitializeGrid][suite]
+    - id: 1004
+      uniqueId: JGM.GameTests.dll/JGM/GameTests/BoardModelTest/BoardModel_Constructor_ShouldInitializeGrid/[JGM.GameTests][JGM.GameTests.BoardModelTest.BoardModel_Constructor_ShouldInitializeGrid(1,1)]
+      name: BoardModel_Constructor_ShouldInitializeGrid(1,1)
+      fullName: JGM.GameTests.BoardModelTest.BoardModel_Constructor_ShouldInitializeGrid(1,1)
+      resultStatus: 1
+      duration: 0.0001114
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentId: 1005
+      parentUniqueId: JGM.GameTests.dll/JGM/GameTests/BoardModelTest/[JGM.GameTests][JGM.GameTests.BoardModelTest.BoardModel_Constructor_ShouldInitializeGrid][suite]
+    - id: 1013
+      uniqueId: JGM.GameTests.dll/JGM/GameTests/BoardModelTest/[JGM.GameTests][JGM.GameTests.BoardModelTest.BoardModel_GetCell_ShouldReturnCorrectCell][suite]
+      name: BoardModel_GetCell_ShouldReturnCorrectCell
+      fullName: JGM.GameTests.BoardModelTest.BoardModel_GetCell_ShouldReturnCorrectCell
+      resultStatus: 1
+      duration: 0.0096189
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 1
+      categories: []
+      parentId: 1001
+      parentUniqueId: JGM.GameTests.dll/JGM/GameTests/[JGM.GameTests][JGM.GameTests.BoardModelTest][suite]
+    - id: 1010
+      uniqueId: JGM.GameTests.dll/JGM/GameTests/BoardModelTest/BoardModel_GetCell_ShouldReturnCorrectCell/[JGM.GameTests][JGM.GameTests.BoardModelTest.BoardModel_GetCell_ShouldReturnCorrectCell(3,3,1,1)]
+      name: BoardModel_GetCell_ShouldReturnCorrectCell(3,3,1,1)
+      fullName: JGM.GameTests.BoardModelTest.BoardModel_GetCell_ShouldReturnCorrectCell(3,3,1,1)
+      resultStatus: 1
+      duration: 0.0013318
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentId: 1013
+      parentUniqueId: JGM.GameTests.dll/JGM/GameTests/BoardModelTest/[JGM.GameTests][JGM.GameTests.BoardModelTest.BoardModel_GetCell_ShouldReturnCorrectCell][suite]
+    - id: 1011
+      uniqueId: JGM.GameTests.dll/JGM/GameTests/BoardModelTest/BoardModel_GetCell_ShouldReturnCorrectCell/[JGM.GameTests][JGM.GameTests.BoardModelTest.BoardModel_GetCell_ShouldReturnCorrectCell(5,5,2,3)]
+      name: BoardModel_GetCell_ShouldReturnCorrectCell(5,5,2,3)
+      fullName: JGM.GameTests.BoardModelTest.BoardModel_GetCell_ShouldReturnCorrectCell(5,5,2,3)
+      resultStatus: 1
+      duration: 0.0001409
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentId: 1013
+      parentUniqueId: JGM.GameTests.dll/JGM/GameTests/BoardModelTest/[JGM.GameTests][JGM.GameTests.BoardModelTest.BoardModel_GetCell_ShouldReturnCorrectCell][suite]
+    - id: 1012
+      uniqueId: JGM.GameTests.dll/JGM/GameTests/BoardModelTest/BoardModel_GetCell_ShouldReturnCorrectCell/[JGM.GameTests][JGM.GameTests.BoardModelTest.BoardModel_GetCell_ShouldReturnCorrectCell(1,1,0,0)]
+      name: BoardModel_GetCell_ShouldReturnCorrectCell(1,1,0,0)
+      fullName: JGM.GameTests.BoardModelTest.BoardModel_GetCell_ShouldReturnCorrectCell(1,1,0,0)
+      resultStatus: 1
+      duration: 0.0001073
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentId: 1013
+      parentUniqueId: JGM.GameTests.dll/JGM/GameTests/BoardModelTest/[JGM.GameTests][JGM.GameTests.BoardModelTest.BoardModel_GetCell_ShouldReturnCorrectCell][suite]
+    - id: 1009
+      uniqueId: JGM.GameTests.dll/JGM/GameTests/BoardModelTest/[JGM.GameTests][JGM.GameTests.BoardModelTest.BoardModel_SetCell_ShouldSetCellCorrectly][suite]
+      name: BoardModel_SetCell_ShouldSetCellCorrectly
+      fullName: JGM.GameTests.BoardModelTest.BoardModel_SetCell_ShouldSetCellCorrectly
+      resultStatus: 1
+      duration: 0.007918
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 1
+      categories: []
+      parentId: 1001
+      parentUniqueId: JGM.GameTests.dll/JGM/GameTests/[JGM.GameTests][JGM.GameTests.BoardModelTest][suite]
+    - id: 1006
+      uniqueId: JGM.GameTests.dll/JGM/GameTests/BoardModelTest/BoardModel_SetCell_ShouldSetCellCorrectly/[JGM.GameTests][JGM.GameTests.BoardModelTest.BoardModel_SetCell_ShouldSetCellCorrectly(3,3,1,1)]
+      name: BoardModel_SetCell_ShouldSetCellCorrectly(3,3,1,1)
+      fullName: JGM.GameTests.BoardModelTest.BoardModel_SetCell_ShouldSetCellCorrectly(3,3,1,1)
+      resultStatus: 1
+      duration: 0.0004804
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentId: 1009
+      parentUniqueId: JGM.GameTests.dll/JGM/GameTests/BoardModelTest/[JGM.GameTests][JGM.GameTests.BoardModelTest.BoardModel_SetCell_ShouldSetCellCorrectly][suite]
+    - id: 1007
+      uniqueId: JGM.GameTests.dll/JGM/GameTests/BoardModelTest/BoardModel_SetCell_ShouldSetCellCorrectly/[JGM.GameTests][JGM.GameTests.BoardModelTest.BoardModel_SetCell_ShouldSetCellCorrectly(5,5,2,3)]
+      name: BoardModel_SetCell_ShouldSetCellCorrectly(5,5,2,3)
+      fullName: JGM.GameTests.BoardModelTest.BoardModel_SetCell_ShouldSetCellCorrectly(5,5,2,3)
+      resultStatus: 1
+      duration: 0.0001166
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentId: 1009
+      parentUniqueId: JGM.GameTests.dll/JGM/GameTests/BoardModelTest/[JGM.GameTests][JGM.GameTests.BoardModelTest.BoardModel_SetCell_ShouldSetCellCorrectly][suite]
+    - id: 1008
+      uniqueId: JGM.GameTests.dll/JGM/GameTests/BoardModelTest/BoardModel_SetCell_ShouldSetCellCorrectly/[JGM.GameTests][JGM.GameTests.BoardModelTest.BoardModel_SetCell_ShouldSetCellCorrectly(1,1,0,0)]
+      name: BoardModel_SetCell_ShouldSetCellCorrectly(1,1,0,0)
+      fullName: JGM.GameTests.BoardModelTest.BoardModel_SetCell_ShouldSetCellCorrectly(1,1,0,0)
+      resultStatus: 1
+      duration: 0.000101
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentId: 1009
+      parentUniqueId: JGM.GameTests.dll/JGM/GameTests/BoardModelTest/[JGM.GameTests][JGM.GameTests.BoardModelTest.BoardModel_SetCell_ShouldSetCellCorrectly][suite]
+    - id: 1014
+      uniqueId: JGM.GameTests.dll/JGM/GameTests/[JGM.GameTests][JGM.GameTests.ColumnsResultTest][suite]
+      name: ColumnsResultTest
+      fullName: JGM.GameTests.ColumnsResultTest
+      resultStatus: 1
+      duration: 0.0134512
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 1
+      categories: []
+      parentId: 1036
+      parentUniqueId: JGM.GameTests.dll/JGM/[JGM.GameTests][JGM.GameTests][suite]
+    - id: 1020
+      uniqueId: JGM.GameTests.dll/JGM/GameTests/ColumnsResultTest/[JGM.GameTests][JGM.GameTests.ColumnsResultTest.CheckTicTacToe_ShouldReturnFalse_WhenColumnIsEmpty]
+      name: CheckTicTacToe_ShouldReturnFalse_WhenColumnIsEmpty
+      fullName: JGM.GameTests.ColumnsResultTest.CheckTicTacToe_ShouldReturnFalse_WhenColumnIsEmpty
+      resultStatus: 1
+      duration: 0.0014541
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentId: 1014
+      parentUniqueId: JGM.GameTests.dll/JGM/GameTests/[JGM.GameTests][JGM.GameTests.ColumnsResultTest][suite]
+    - id: 1019
+      uniqueId: JGM.GameTests.dll/JGM/GameTests/ColumnsResultTest/[JGM.GameTests][JGM.GameTests.ColumnsResultTest.CheckTicTacToe_ShouldReturnFalse_WhenColumnsHaveMixedPlayerPieces]
+      name: CheckTicTacToe_ShouldReturnFalse_WhenColumnsHaveMixedPlayerPieces
+      fullName: JGM.GameTests.ColumnsResultTest.CheckTicTacToe_ShouldReturnFalse_WhenColumnsHaveMixedPlayerPieces
+      resultStatus: 1
+      duration: 0.0007474
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentId: 1014
+      parentUniqueId: JGM.GameTests.dll/JGM/GameTests/[JGM.GameTests][JGM.GameTests.ColumnsResultTest][suite]
+    - id: 1016
+      uniqueId: JGM.GameTests.dll/JGM/GameTests/ColumnsResultTest/[JGM.GameTests][JGM.GameTests.ColumnsResultTest.CheckTicTacToe_ShouldReturnFalse_WhenNoColumnsHaveSamePlayerPieces]
+      name: CheckTicTacToe_ShouldReturnFalse_WhenNoColumnsHaveSamePlayerPieces
+      fullName: JGM.GameTests.ColumnsResultTest.CheckTicTacToe_ShouldReturnFalse_WhenNoColumnsHaveSamePlayerPieces
+      resultStatus: 1
+      duration: 0.0002843
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentId: 1014
+      parentUniqueId: JGM.GameTests.dll/JGM/GameTests/[JGM.GameTests][JGM.GameTests.ColumnsResultTest][suite]
+    - id: 1015
+      uniqueId: JGM.GameTests.dll/JGM/GameTests/ColumnsResultTest/[JGM.GameTests][JGM.GameTests.ColumnsResultTest.CheckTicTacToe_ShouldReturnTrue_WhenColumnHasSamePlayerPieces]
+      name: CheckTicTacToe_ShouldReturnTrue_WhenColumnHasSamePlayerPieces
+      fullName: JGM.GameTests.ColumnsResultTest.CheckTicTacToe_ShouldReturnTrue_WhenColumnHasSamePlayerPieces
+      resultStatus: 1
+      duration: 0.0005987
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentId: 1014
+      parentUniqueId: JGM.GameTests.dll/JGM/GameTests/[JGM.GameTests][JGM.GameTests.ColumnsResultTest][suite]
+    - id: 1018
+      uniqueId: JGM.GameTests.dll/JGM/GameTests/ColumnsResultTest/[JGM.GameTests][JGM.GameTests.ColumnsResultTest.CheckTicTacToe_ShouldReturnTrue_WhenLastColumnHasSamePlayerPieces]
+      name: CheckTicTacToe_ShouldReturnTrue_WhenLastColumnHasSamePlayerPieces
+      fullName: JGM.GameTests.ColumnsResultTest.CheckTicTacToe_ShouldReturnTrue_WhenLastColumnHasSamePlayerPieces
+      resultStatus: 1
+      duration: 0.0002917
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentId: 1014
+      parentUniqueId: JGM.GameTests.dll/JGM/GameTests/[JGM.GameTests][JGM.GameTests.ColumnsResultTest][suite]
+    - id: 1017
+      uniqueId: JGM.GameTests.dll/JGM/GameTests/ColumnsResultTest/[JGM.GameTests][JGM.GameTests.ColumnsResultTest.CheckTicTacToe_ShouldReturnTrue_WhenMiddleColumnHasSamePlayerPieces]
+      name: CheckTicTacToe_ShouldReturnTrue_WhenMiddleColumnHasSamePlayerPieces
+      fullName: JGM.GameTests.ColumnsResultTest.CheckTicTacToe_ShouldReturnTrue_WhenMiddleColumnHasSamePlayerPieces
+      resultStatus: 1
+      duration: 0.0002956
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentId: 1014
+      parentUniqueId: JGM.GameTests.dll/JGM/GameTests/[JGM.GameTests][JGM.GameTests.ColumnsResultTest][suite]
+    - id: 1314
+      uniqueId: JGM.GameTests.dll/JGM/GameTests/[JGM.GameTests][JGM.GameTests.ComponentPoolTest][suite]
+      name: ComponentPoolTest
+      fullName: JGM.GameTests.ComponentPoolTest
+      resultStatus: 1
+      duration: 0.0156067
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 1
+      categories: []
+      parentId: 1322
+      parentUniqueId: JGM.GameTests.dll/JGM/[JGM.GameTests][JGM.GameTests][suite]
+    - id: 1315
+      uniqueId: JGM.GameTests.dll/JGM/GameTests/ComponentPoolTest/[JGM.GameTests][JGM.GameTests.ComponentPoolTest.When_Get_Expect_ReturnPooledComponent]
+      name: When_Get_Expect_ReturnPooledComponent
+      fullName: JGM.GameTests.ComponentPoolTest.When_Get_Expect_ReturnPooledComponent
+      resultStatus: 1
+      duration: 0.0048298
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentId: 1314
+      parentUniqueId: JGM.GameTests.dll/JGM/GameTests/[JGM.GameTests][JGM.GameTests.ComponentPoolTest][suite]
+    - id: 1317
+      uniqueId: JGM.GameTests.dll/JGM/GameTests/ComponentPoolTest/[JGM.GameTests][JGM.GameTests.ComponentPoolTest.When_GetFromEmptyPool_Expect_NullComponent]
+      name: When_GetFromEmptyPool_Expect_NullComponent
+      fullName: JGM.GameTests.ComponentPoolTest.When_GetFromEmptyPool_Expect_NullComponent
+      resultStatus: 1
+      duration: 0.0007256
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentId: 1314
+      parentUniqueId: JGM.GameTests.dll/JGM/GameTests/[JGM.GameTests][JGM.GameTests.ComponentPoolTest][suite]
+    - id: 1316
+      uniqueId: JGM.GameTests.dll/JGM/GameTests/ComponentPoolTest/[JGM.GameTests][JGM.GameTests.ComponentPoolTest.When_Return_Expect_ComponentReturnedToPool]
+      name: When_Return_Expect_ComponentReturnedToPool
+      fullName: JGM.GameTests.ComponentPoolTest.When_Return_Expect_ComponentReturnedToPool
+      resultStatus: 1
+      duration: 0.0005909
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentId: 1314
+      parentUniqueId: JGM.GameTests.dll/JGM/GameTests/[JGM.GameTests][JGM.GameTests.ComponentPoolTest][suite]
+    - id: 1021
+      uniqueId: JGM.GameTests.dll/JGM/GameTests/[JGM.GameTests][JGM.GameTests.DiagonalsResultTest][suite]
+      name: DiagonalsResultTest
+      fullName: JGM.GameTests.DiagonalsResultTest
+      resultStatus: 1
+      duration: 0.0105799
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 1
+      categories: []
+      parentId: 1042
+      parentUniqueId: JGM.GameTests.dll/JGM/[JGM.GameTests][JGM.GameTests][suite]
+    - id: 1025
+      uniqueId: JGM.GameTests.dll/JGM/GameTests/DiagonalsResultTest/[JGM.GameTests][JGM.GameTests.DiagonalsResultTest.CheckTicTacToe_ShouldReturnFalse_WhenDiagonalsAreEmpty]
+      name: CheckTicTacToe_ShouldReturnFalse_WhenDiagonalsAreEmpty
+      fullName: JGM.GameTests.DiagonalsResultTest.CheckTicTacToe_ShouldReturnFalse_WhenDiagonalsAreEmpty
+      resultStatus: 1
+      duration: 0.0009285
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentId: 1021
+      parentUniqueId: JGM.GameTests.dll/JGM/GameTests/[JGM.GameTests][JGM.GameTests.DiagonalsResultTest][suite]
+    - id: 1026
+      uniqueId: JGM.GameTests.dll/JGM/GameTests/DiagonalsResultTest/[JGM.GameTests][JGM.GameTests.DiagonalsResultTest.CheckTicTacToe_ShouldReturnFalse_WhenDiagonalsHaveMixedPlayerPieces]
+      name: CheckTicTacToe_ShouldReturnFalse_WhenDiagonalsHaveMixedPlayerPieces
+      fullName: JGM.GameTests.DiagonalsResultTest.CheckTicTacToe_ShouldReturnFalse_WhenDiagonalsHaveMixedPlayerPieces
+      resultStatus: 1
+      duration: 0.0002505
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentId: 1021
+      parentUniqueId: JGM.GameTests.dll/JGM/GameTests/[JGM.GameTests][JGM.GameTests.DiagonalsResultTest][suite]
+    - id: 1024
+      uniqueId: JGM.GameTests.dll/JGM/GameTests/DiagonalsResultTest/[JGM.GameTests][JGM.GameTests.DiagonalsResultTest.CheckTicTacToe_ShouldReturnFalse_WhenNoDiagonalsHaveSamePlayerPieces]
+      name: CheckTicTacToe_ShouldReturnFalse_WhenNoDiagonalsHaveSamePlayerPieces
+      fullName: JGM.GameTests.DiagonalsResultTest.CheckTicTacToe_ShouldReturnFalse_WhenNoDiagonalsHaveSamePlayerPieces
+      resultStatus: 1
+      duration: 0.0002235
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentId: 1021
+      parentUniqueId: JGM.GameTests.dll/JGM/GameTests/[JGM.GameTests][JGM.GameTests.DiagonalsResultTest][suite]
+    - id: 1023
+      uniqueId: JGM.GameTests.dll/JGM/GameTests/DiagonalsResultTest/[JGM.GameTests][JGM.GameTests.DiagonalsResultTest.CheckTicTacToe_ShouldReturnTrue_WhenAntiDiagonalHasSamePlayerPieces]
+      name: CheckTicTacToe_ShouldReturnTrue_WhenAntiDiagonalHasSamePlayerPieces
+      fullName: JGM.GameTests.DiagonalsResultTest.CheckTicTacToe_ShouldReturnTrue_WhenAntiDiagonalHasSamePlayerPieces
+      resultStatus: 1
+      duration: 0.0002166
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentId: 1021
+      parentUniqueId: JGM.GameTests.dll/JGM/GameTests/[JGM.GameTests][JGM.GameTests.DiagonalsResultTest][suite]
+    - id: 1022
+      uniqueId: JGM.GameTests.dll/JGM/GameTests/DiagonalsResultTest/[JGM.GameTests][JGM.GameTests.DiagonalsResultTest.CheckTicTacToe_ShouldReturnTrue_WhenMainDiagonalHasSamePlayerPieces]
+      name: CheckTicTacToe_ShouldReturnTrue_WhenMainDiagonalHasSamePlayerPieces
+      fullName: JGM.GameTests.DiagonalsResultTest.CheckTicTacToe_ShouldReturnTrue_WhenMainDiagonalHasSamePlayerPieces
+      resultStatus: 1
+      duration: 0.0002602
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentId: 1021
+      parentUniqueId: JGM.GameTests.dll/JGM/GameTests/[JGM.GameTests][JGM.GameTests.DiagonalsResultTest][suite]
+    - id: 1014
+      uniqueId: JGM.GameTests.dll/JGM/GameTests/[JGM.GameTests][JGM.GameTests.RowsResultTest][suite]
+      name: RowsResultTest
+      fullName: JGM.GameTests.RowsResultTest
+      resultStatus: 1
+      duration: 0.0105791
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 1
+      categories: []
+      parentId: 1029
+      parentUniqueId: JGM.GameTests.dll/JGM/[JGM.GameTests][JGM.GameTests][suite]
+    - id: 1016
+      uniqueId: JGM.GameTests.dll/JGM/GameTests/RowsResultTest/[JGM.GameTests][JGM.GameTests.RowsResultTest.CheckTicTacToe_ShouldReturnFalse_WhenNoRowsHaveSamePlayerPieces]
+      name: CheckTicTacToe_ShouldReturnFalse_WhenNoRowsHaveSamePlayerPieces
+      fullName: JGM.GameTests.RowsResultTest.CheckTicTacToe_ShouldReturnFalse_WhenNoRowsHaveSamePlayerPieces
+      resultStatus: 1
+      duration: 0.0007614
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentId: 1014
+      parentUniqueId: JGM.GameTests.dll/JGM/GameTests/[JGM.GameTests][JGM.GameTests.RowsResultTest][suite]
+    - id: 1020
+      uniqueId: JGM.GameTests.dll/JGM/GameTests/RowsResultTest/[JGM.GameTests][JGM.GameTests.RowsResultTest.CheckTicTacToe_ShouldReturnFalse_WhenRowIsEmpty]
+      name: CheckTicTacToe_ShouldReturnFalse_WhenRowIsEmpty
+      fullName: JGM.GameTests.RowsResultTest.CheckTicTacToe_ShouldReturnFalse_WhenRowIsEmpty
+      resultStatus: 1
+      duration: 0.0001963
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentId: 1014
+      parentUniqueId: JGM.GameTests.dll/JGM/GameTests/[JGM.GameTests][JGM.GameTests.RowsResultTest][suite]
+    - id: 1019
+      uniqueId: JGM.GameTests.dll/JGM/GameTests/RowsResultTest/[JGM.GameTests][JGM.GameTests.RowsResultTest.CheckTicTacToe_ShouldReturnFalse_WhenRowsHaveMixedPlayerPieces]
+      name: CheckTicTacToe_ShouldReturnFalse_WhenRowsHaveMixedPlayerPieces
+      fullName: JGM.GameTests.RowsResultTest.CheckTicTacToe_ShouldReturnFalse_WhenRowsHaveMixedPlayerPieces
+      resultStatus: 1
+      duration: 0.0002057
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentId: 1014
+      parentUniqueId: JGM.GameTests.dll/JGM/GameTests/[JGM.GameTests][JGM.GameTests.RowsResultTest][suite]
+    - id: 1018
+      uniqueId: JGM.GameTests.dll/JGM/GameTests/RowsResultTest/[JGM.GameTests][JGM.GameTests.RowsResultTest.CheckTicTacToe_ShouldReturnTrue_WhenLastRowHasSamePlayerPieces]
+      name: CheckTicTacToe_ShouldReturnTrue_WhenLastRowHasSamePlayerPieces
+      fullName: JGM.GameTests.RowsResultTest.CheckTicTacToe_ShouldReturnTrue_WhenLastRowHasSamePlayerPieces
+      resultStatus: 1
+      duration: 0.0002356
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentId: 1014
+      parentUniqueId: JGM.GameTests.dll/JGM/GameTests/[JGM.GameTests][JGM.GameTests.RowsResultTest][suite]
+    - id: 1017
+      uniqueId: JGM.GameTests.dll/JGM/GameTests/RowsResultTest/[JGM.GameTests][JGM.GameTests.RowsResultTest.CheckTicTacToe_ShouldReturnTrue_WhenMiddleRowHasSamePlayerPieces]
+      name: CheckTicTacToe_ShouldReturnTrue_WhenMiddleRowHasSamePlayerPieces
+      fullName: JGM.GameTests.RowsResultTest.CheckTicTacToe_ShouldReturnTrue_WhenMiddleRowHasSamePlayerPieces
+      resultStatus: 1
+      duration: 0.0001937
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentId: 1014
+      parentUniqueId: JGM.GameTests.dll/JGM/GameTests/[JGM.GameTests][JGM.GameTests.RowsResultTest][suite]
+    - id: 1015
+      uniqueId: JGM.GameTests.dll/JGM/GameTests/RowsResultTest/[JGM.GameTests][JGM.GameTests.RowsResultTest.CheckTicTacToe_ShouldReturnTrue_WhenRowHasSamePlayerPieces]
+      name: CheckTicTacToe_ShouldReturnTrue_WhenRowHasSamePlayerPieces
+      fullName: JGM.GameTests.RowsResultTest.CheckTicTacToe_ShouldReturnTrue_WhenRowHasSamePlayerPieces
+      resultStatus: 1
+      duration: 0.0001966
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentId: 1014
+      parentUniqueId: JGM.GameTests.dll/JGM/GameTests/[JGM.GameTests][JGM.GameTests.RowsResultTest][suite]
+    m_ResultText: CheckTicTacToe_ShouldReturnFalse_WhenNoDiagonalsHaveSamePlayerPieces
+      (0.000s)
+    m_ResultStacktrace: 
+    m_TestListState:
+      scrollPos: {x: 0, y: 0}
+      m_SelectedIDs: 8d1e3752
+      m_LastClickedID: 1379344013
+      m_ExpandedIDs: ba8a27802076b780a9cd0a838c3b7d859daf2e88f1fe3b892a6fd689d69f388ccfebdc8f30e5d1901cc3719205cb62951744ab9541b6fd9726d2ca997a9792a0c5dc25a1b40f83a68ac4e9a62cecfda865d8b8a9d3e1a6ab2b3ed9ab23b810ac8b1b2eadac1b46b00158ebb09d1511b1a47a31be57fd25c55d514cc681f0d7c6e881e0c7eaedb4c92ed928ca954229cac1c4ffcb7a4f13ccfbf181cc09fa37d4b342aad8113b2dd91e3b3cd9ddad9bd9db76b8d97d0786ddfc37dddd20fa82de599eacdf643d13e55fb13feb9ba435ec50e340ed149096ed6ce072ee37ccc9f071f0baf55f562efc377d7dfd287c46fe581af0ffc9c8b60000025d02629470046e2cf30781b64d0897db500aa9b1200bca982f0c4f00300c4e9b0d0f7eed1c1098ab6311fb761614905f0e18a37852188eff8719d406c61b41cf001c0031b01c8adeda204f00a921a1c1ba237cf7e7231c5e6226870a6128be0da0295dedc92adc1d212bb804472c65bf832d6d272d3043b45a302e094933892b8534a65aa437ce55e9374c12d9399cccd23b8abb453df0ea4e3d9b09ca3e6745c23f5390d14097bca5410289c141818fec413526ff4b1af2164cfc2c484d5efce74ff9bc6151aa565c52d5130153b534de534b1ac05459e2e255b60302587d187c599695665cbc033a5d9b35a86078988866a286af66e586f075bcad74762be2c0786a8bb47c93d9ee7eb501497fffffff7f
+      m_RenameOverlay:
+        m_UserAcceptedRename: 0
+        m_Name: 
+        m_OriginalName: 
+        m_EditFieldRect:
+          serializedVersion: 2
+          x: 0
+          y: 0
+          width: 0
+          height: 0
+        m_UserData: 0
+        m_IsWaitingForDelay: 0
+        m_IsRenaming: 0
+        m_OriginalEventType: 11
+        m_IsRenamingFilename: 0
+        m_ClientGUIView: {fileID: 0}
+      m_SearchString: 
+    m_TestRunnerUIFilter:
+      PassedHidden: 0
+      FailedHidden: 0
+      NotRunHidden: 0
+      m_SearchString: 
+      selectedCategoryMask: 0
+      availableCategories:
+      - Uncategorized
+--- !u!114 &13
+MonoBehaviour:
+  m_ObjectHideFlags: 52
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 1
+  m_Script: {fileID: 12014, guid: 0000000000000000e000000000000000, type: 0}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_MinSize: {x: 230, y: 250}
+  m_MaxSize: {x: 10000, y: 10000}
+  m_TitleContent:
+    m_Text: Project
+    m_Image: {fileID: -5467254957812901981, guid: 0000000000000000d000000000000000, type: 0}
+    m_Tooltip: 
+  m_Pos:
+    serializedVersion: 2
+    x: 0
+    y: 657
+    width: 1436
+    height: 382
+  m_ViewDataDictionary: {fileID: 0}
+  m_OverlayCanvas:
+    m_LastAppliedPresetName: Default
+    m_SaveData: []
+    m_OverlaysVisible: 1
+  m_SearchFilter:
+    m_NameFilter: 
+    m_ClassNames: []
+    m_AssetLabels: []
+    m_AssetBundleNames: []
+    m_VersionControlStates: []
+    m_SoftLockControlStates: []
+    m_ReferencingInstanceIDs: 
+    m_SceneHandles: 
+    m_ShowAllHits: 0
+    m_SkipHidden: 0
+    m_SearchArea: 1
+    m_Folders:
+    - Assets/Plugins
+    m_Globs: []
+    m_OriginalText: 
+  m_ViewMode: 1
+  m_StartGridSize: 16
+  m_LastFolders:
+  - Assets/Plugins
+  m_LastFoldersGridSize: 16
+  m_LastProjectPath: C:\Users\Freee\Documents\GitHub\BrickBreaker\Brick Breaker
+  m_LockTracker:
+    m_IsLocked: 0
+  m_FolderTreeState:
+    scrollPos: {x: 0, y: 0}
+    m_SelectedIDs: aa930000
+    m_LastClickedID: 37802
+    m_ExpandedIDs: 00000000a093000000ca9a3b
+    m_RenameOverlay:
+      m_UserAcceptedRename: 0
+      m_Name: 
+      m_OriginalName: 
+      m_EditFieldRect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 0
+        height: 0
+      m_UserData: 0
+      m_IsWaitingForDelay: 0
+      m_IsRenaming: 0
+      m_OriginalEventType: 11
+      m_IsRenamingFilename: 1
+      m_ClientGUIView: {fileID: 0}
+    m_SearchString: 
+    m_CreateAssetUtility:
+      m_EndAction: {fileID: 0}
+      m_InstanceID: 0
+      m_Path: 
+      m_Icon: {fileID: 0}
+      m_ResourceFile: 
+  m_AssetTreeState:
+    scrollPos: {x: 0, y: 0}
+    m_SelectedIDs: 
+    m_LastClickedID: 0
+    m_ExpandedIDs: 
+    m_RenameOverlay:
+      m_UserAcceptedRename: 0
+      m_Name: 
+      m_OriginalName: 
+      m_EditFieldRect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 0
+        height: 0
+      m_UserData: 0
+      m_IsWaitingForDelay: 0
+      m_IsRenaming: 0
+      m_OriginalEventType: 11
+      m_IsRenamingFilename: 1
+      m_ClientGUIView: {fileID: 0}
+    m_SearchString: 
+    m_CreateAssetUtility:
+      m_EndAction: {fileID: 0}
+      m_InstanceID: 0
+      m_Path: 
+      m_Icon: {fileID: 0}
+      m_ResourceFile: 
+  m_ListAreaState:
+    m_SelectedInstanceIDs: 
+    m_LastClickedInstanceID: 0
+    m_HadKeyboardFocusLastEvent: 1
+    m_ExpandedInstanceIDs: c6230000
+    m_RenameOverlay:
+      m_UserAcceptedRename: 0
+      m_Name: 
+      m_OriginalName: 
+      m_EditFieldRect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 0
+        height: 0
+      m_UserData: 0
+      m_IsWaitingForDelay: 0
+      m_IsRenaming: 0
+      m_OriginalEventType: 11
+      m_IsRenamingFilename: 1
+      m_ClientGUIView: {fileID: 5}
+    m_CreateAssetUtility:
+      m_EndAction: {fileID: 0}
+      m_InstanceID: 0
+      m_Path: 
+      m_Icon: {fileID: 0}
+      m_ResourceFile: 
+    m_NewAssetIndexInList: -1
+    m_ScrollPosition: {x: 0, y: 0}
+    m_GridSize: 16
+  m_SkipHiddenPackages: 0
+  m_DirectoriesAreaWidth: 207
+--- !u!114 &14
+MonoBehaviour:
+  m_ObjectHideFlags: 52
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 1
+  m_Script: {fileID: 12019, guid: 0000000000000000e000000000000000, type: 0}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_MinSize: {x: 275, y: 50}
+  m_MaxSize: {x: 4000, y: 4000}
+  m_TitleContent:
+    m_Text: Inspector
+    m_Image: {fileID: -2667387946076563598, guid: 0000000000000000d000000000000000, type: 0}
+    m_Tooltip: 
+  m_Pos:
+    serializedVersion: 2
+    x: 1437
+    y: 73
+    width: 482
+    height: 966
+  m_ViewDataDictionary: {fileID: 0}
+  m_OverlayCanvas:
+    m_LastAppliedPresetName: Default
+    m_SaveData: []
+    m_OverlaysVisible: 1
+  m_ObjectsLockedBeforeSerialization: []
+  m_InstanceIDsLockedBeforeSerialization: 
+  m_PreviewResizer:
+    m_CachedPref: -284
+    m_ControlHash: -371814159
+    m_PrefName: Preview_InspectorPreview
+  m_LastInspectedObjectInstanceID: -1
+  m_LastVerticalScrollValue: 0
+  m_GlobalObjectId: 
+  m_InspectorMode: 0
+  m_LockTracker:
+    m_IsLocked: 0
+  m_PreviewWindow: {fileID: 0}
+--- !u!114 &15
+MonoBehaviour:
+  m_ObjectHideFlags: 52
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 1
+  m_Script: {fileID: 12061, guid: 0000000000000000e000000000000000, type: 0}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_MinSize: {x: 200, y: 200}
+  m_MaxSize: {x: 4000, y: 4000}
+  m_TitleContent:
+    m_Text: Hierarchy
+    m_Image: {fileID: 7966133145522015247, guid: 0000000000000000d000000000000000, type: 0}
+    m_Tooltip: 
+  m_Pos:
+    serializedVersion: 2
+    x: 0
+    y: 73
+    width: 342
+    height: 563
+  m_ViewDataDictionary: {fileID: 0}
+  m_OverlayCanvas:
+    m_LastAppliedPresetName: Default
+    m_SaveData: []
+    m_OverlaysVisible: 1
+  m_SceneHierarchy:
+    m_TreeViewState:
+      scrollPos: {x: 0, y: 0}
+      m_SelectedIDs: 
+      m_LastClickedID: 0
+      m_ExpandedIDs: 8cc6ffff
+      m_RenameOverlay:
+        m_UserAcceptedRename: 0
+        m_Name: 
+        m_OriginalName: 
+        m_EditFieldRect:
+          serializedVersion: 2
+          x: 0
+          y: 0
+          width: 0
+          height: 0
+        m_UserData: 0
+        m_IsWaitingForDelay: 0
+        m_IsRenaming: 0
+        m_OriginalEventType: 11
+        m_IsRenamingFilename: 0
+        m_ClientGUIView: {fileID: 4}
+      m_SearchString: 
+    m_ExpandedScenes: []
+    m_CurrenRootInstanceID: 0
+    m_LockTracker:
+      m_IsLocked: 0
+    m_CurrentSortingName: TransformSorting
+  m_WindowGUID: 4c969a2b90040154d917609493e03593
+--- !u!114 &16
+MonoBehaviour:
+  m_ObjectHideFlags: 52
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 1
+  m_Script: {fileID: 12013, guid: 0000000000000000e000000000000000, type: 0}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_MinSize: {x: 200, y: 200}
+  m_MaxSize: {x: 4000, y: 4000}
+  m_TitleContent:
+    m_Text: Scene
+    m_Image: {fileID: 2593428753322112591, guid: 0000000000000000d000000000000000, type: 0}
+    m_Tooltip: 
+  m_Pos:
+    serializedVersion: 2
+    x: 343
+    y: 73
+    width: 1092
+    height: 563
+  m_ViewDataDictionary: {fileID: 0}
+  m_OverlayCanvas:
+    m_LastAppliedPresetName: Default
+    m_SaveData:
+    - dockPosition: 0
+      containerId: overlay-toolbar__top
+      floating: 0
+      collapsed: 0
+      displayed: 1
+      snapOffset: {x: 0, y: 0}
+      snapOffsetDelta: {x: -101, y: -26}
+      snapCorner: 3
+      id: Tool Settings
+      index: 0
+      layout: 1
+    - dockPosition: 0
+      containerId: overlay-toolbar__top
+      floating: 0
+      collapsed: 0
+      displayed: 1
+      snapOffset: {x: -141, y: 149}
+      snapOffsetDelta: {x: 0, y: 0}
+      snapCorner: 1
+      id: unity-grid-and-snap-toolbar
+      index: 1
+      layout: 1
+    - dockPosition: 1
+      containerId: overlay-toolbar__top
+      floating: 0
+      collapsed: 0
+      displayed: 1
+      snapOffset: {x: 0, y: 0}
+      snapOffsetDelta: {x: 0, y: 0}
+      snapCorner: 0
+      id: unity-scene-view-toolbar
+      index: 0
+      layout: 1
+    - dockPosition: 1
+      containerId: overlay-toolbar__top
+      floating: 0
+      collapsed: 0
+      displayed: 0
+      snapOffset: {x: 0, y: 0}
+      snapOffsetDelta: {x: 0, y: 0}
+      snapCorner: 1
+      id: unity-search-toolbar
+      index: 1
+      layout: 1
+    - dockPosition: 0
+      containerId: overlay-container--left
+      floating: 0
+      collapsed: 0
+      displayed: 1
+      snapOffset: {x: 0, y: 25}
+      snapOffsetDelta: {x: 0, y: 0}
+      snapCorner: 0
+      id: unity-transform-toolbar
+      index: 0
+      layout: 2
+    - dockPosition: 0
+      containerId: overlay-container--left
+      floating: 0
+      collapsed: 0
+      displayed: 1
+      snapOffset: {x: 0, y: 197}
+      snapOffsetDelta: {x: 0, y: 0}
+      snapCorner: 0
+      id: unity-component-tools
+      index: 1
+      layout: 2
+    - dockPosition: 0
+      containerId: overlay-container--right
+      floating: 0
+      collapsed: 0
+      displayed: 1
+      snapOffset: {x: 67.5, y: 86}
+      snapOffsetDelta: {x: 0, y: 0}
+      snapCorner: 0
+      id: Orientation
+      index: 0
+      layout: 4
+    - dockPosition: 1
+      containerId: overlay-container--right
+      floating: 0
+      collapsed: 0
+      displayed: 0
+      snapOffset: {x: 0, y: 0}
+      snapOffsetDelta: {x: 0, y: 0}
+      snapCorner: 0
+      id: Scene View/Light Settings
+      index: 0
+      layout: 4
+    - dockPosition: 1
+      containerId: overlay-container--right
+      floating: 0
+      collapsed: 0
+      displayed: 0
+      snapOffset: {x: 0, y: 0}
+      snapOffsetDelta: {x: 0, y: 0}
+      snapCorner: 0
+      id: Scene View/Camera
+      index: 1
+      layout: 4
+    - dockPosition: 1
+      containerId: overlay-container--right
+      floating: 0
+      collapsed: 0
+      displayed: 0
+      snapOffset: {x: 0, y: 0}
+      snapOffsetDelta: {x: 0, y: 0}
+      snapCorner: 0
+      id: Scene View/Cloth Constraints
+      index: 2
+      layout: 4
+    - dockPosition: 1
+      containerId: overlay-container--right
+      floating: 0
+      collapsed: 0
+      displayed: 0
+      snapOffset: {x: 0, y: 0}
+      snapOffsetDelta: {x: 0, y: 0}
+      snapCorner: 0
+      id: Scene View/Cloth Collisions
+      index: 3
+      layout: 4
+    - dockPosition: 1
+      containerId: overlay-container--right
+      floating: 0
+      collapsed: 0
+      displayed: 0
+      snapOffset: {x: 0, y: 0}
+      snapOffsetDelta: {x: 0, y: 0}
+      snapCorner: 0
+      id: Scene View/Navmesh Display
+      index: 4
+      layout: 4
+    - dockPosition: 1
+      containerId: overlay-container--right
+      floating: 0
+      collapsed: 0
+      displayed: 0
+      snapOffset: {x: 0, y: 0}
+      snapOffsetDelta: {x: 0, y: 0}
+      snapCorner: 0
+      id: Scene View/Agent Display
+      index: 5
+      layout: 4
+    - dockPosition: 1
+      containerId: overlay-container--right
+      floating: 0
+      collapsed: 0
+      displayed: 0
+      snapOffset: {x: 0, y: 0}
+      snapOffsetDelta: {x: 0, y: 0}
+      snapCorner: 0
+      id: Scene View/Obstacle Display
+      index: 6
+      layout: 4
+    - dockPosition: 1
+      containerId: overlay-container--right
+      floating: 0
+      collapsed: 0
+      displayed: 0
+      snapOffset: {x: 0, y: 0}
+      snapOffsetDelta: {x: 0, y: 0}
+      snapCorner: 0
+      id: Scene View/Occlusion Culling
+      index: 7
+      layout: 4
+    - dockPosition: 1
+      containerId: overlay-container--right
+      floating: 0
+      collapsed: 0
+      displayed: 0
+      snapOffset: {x: 0, y: 0}
+      snapOffsetDelta: {x: 0, y: 0}
+      snapCorner: 0
+      id: Scene View/Physics Debugger
+      index: 8
+      layout: 4
+    - dockPosition: 1
+      containerId: overlay-container--right
+      floating: 0
+      collapsed: 0
+      displayed: 0
+      snapOffset: {x: 0, y: 0}
+      snapOffsetDelta: {x: 0, y: 0}
+      snapCorner: 0
+      id: Scene View/Scene Visibility
+      index: 9
+      layout: 4
+    - dockPosition: 1
+      containerId: overlay-container--right
+      floating: 0
+      collapsed: 0
+      displayed: 0
+      snapOffset: {x: 0, y: 25}
+      snapOffsetDelta: {x: 0, y: 0}
+      snapCorner: 0
+      id: Scene View/Particles
+      index: 10
+      layout: 4
+    - dockPosition: 1
+      containerId: overlay-container--right
+      floating: 0
+      collapsed: 0
+      displayed: 0
+      snapOffset: {x: 0, y: 0}
+      snapOffsetDelta: {x: 0, y: 0}
+      snapCorner: 0
+      id: Scene View/Tilemap
+      index: 11
+      layout: 4
+    - dockPosition: 1
+      containerId: overlay-container--right
+      floating: 0
+      collapsed: 0
+      displayed: 0
+      snapOffset: {x: 0, y: 0}
+      snapOffsetDelta: {x: 0, y: 0}
+      snapCorner: 0
+      id: Scene View/Tilemap Palette Helper
+      index: 12
+      layout: 4
+    - dockPosition: 1
+      containerId: overlay-toolbar__top
+      floating: 0
+      collapsed: 0
+      displayed: 0
+      snapOffset: {x: 0, y: 0}
+      snapOffsetDelta: {x: 0, y: 0}
+      snapCorner: 0
+      id: Scene View/Open Tile Palette
+      index: 2
+      layout: 4
+    - dockPosition: 1
+      containerId: overlay-toolbar__top
+      floating: 0
+      collapsed: 0
+      displayed: 0
+      snapOffset: {x: 0, y: 0}
+      snapOffsetDelta: {x: 0, y: 0}
+      snapCorner: 0
+      id: Scene View/Tilemap Focus
+      index: 3
+      layout: 4
+    m_OverlaysVisible: 1
+  m_WindowGUID: cc27987af1a868c49b0894db9c0f5429
+  m_Gizmos: 1
+  m_OverrideSceneCullingMask: 6917529027641081856
+  m_SceneIsLit: 1
+  m_SceneLighting: 1
+  m_2DMode: 1
+  m_isRotationLocked: 0
+  m_PlayAudio: 0
+  m_AudioPlay: 0
+  m_Position:
+    m_Target: {x: 9.413414, y: 3.8058398, z: 17.43518}
+    speed: 2
+    m_Value: {x: 9.413414, y: 3.8058398, z: 17.43518}
+  m_RenderMode: 0
+  m_CameraMode:
+    drawMode: 0
+    name: Shaded
+    section: Shading Mode
+  m_ValidateTrueMetals: 0
+  m_DoValidateTrueMetals: 0
+  m_ExposureSliderValue: 0
+  m_SceneViewState:
+    m_AlwaysRefresh: 0
+    showFog: 1
+    showSkybox: 1
+    showFlares: 1
+    showImageEffects: 1
+    showParticleSystems: 1
+    showVisualEffectGraphs: 1
+    m_FxEnabled: 1
+  m_Grid:
+    xGrid:
+      m_Fade:
+        m_Target: 0
+        speed: 2
+        m_Value: 0
+      m_Color: {r: 0.5, g: 0.5, b: 0.5, a: 0.4}
+      m_Pivot: {x: 0, y: 0, z: 0}
+      m_Size: {x: 0, y: 0}
+    yGrid:
+      m_Fade:
+        m_Target: 0
+        speed: 2
+        m_Value: 0
+      m_Color: {r: 0.5, g: 0.5, b: 0.5, a: 0.4}
+      m_Pivot: {x: 0, y: 0, z: 0}
+      m_Size: {x: 1, y: 1}
+    zGrid:
+      m_Fade:
+        m_Target: 1
+        speed: 2
+        m_Value: 1
+      m_Color: {r: 0.5, g: 0.5, b: 0.5, a: 0.4}
+      m_Pivot: {x: 0, y: 0, z: 0}
+      m_Size: {x: 1, y: 1}
+    m_ShowGrid: 1
+    m_GridAxis: 1
+    m_gridOpacity: 0.5
+  m_Rotation:
+    m_Target: {x: 0, y: 0, z: 0, w: 1}
+    speed: 2
+    m_Value: {x: 0, y: 0, z: 0, w: 1}
+  m_Size:
+    m_Target: 1.2967991
+    speed: 2
+    m_Value: 1.2967991
+  m_Ortho:
+    m_Target: 1
+    speed: 2
+    m_Value: 1
+  m_CameraSettings:
+    m_Speed: 1
+    m_SpeedNormalized: 0.5
+    m_SpeedMin: 0.001
+    m_SpeedMax: 2
+    m_EasingEnabled: 1
+    m_EasingDuration: 0.4
+    m_AccelerationEnabled: 1
+    m_FieldOfViewHorizontalOrVertical: 60
+    m_NearClip: 0.03
+    m_FarClip: 10000
+    m_DynamicClip: 1
+    m_OcclusionCulling: 0
+  m_LastSceneViewRotation: {x: -0.08717229, y: 0.89959055, z: -0.21045254, w: -0.3726226}
+  m_LastSceneViewOrtho: 0
+  m_ReplacementShader: {fileID: 0}
+  m_ReplacementString: 
+  m_SceneVisActive: 1
+  m_LastLockedObject: {fileID: 0}
+  m_ViewIsLockedToObject: 0
+--- !u!114 &17
+MonoBehaviour:
+  m_ObjectHideFlags: 52
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 1
+  m_Script: {fileID: 12003, guid: 0000000000000000e000000000000000, type: 0}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_MinSize: {x: 100, y: 100}
+  m_MaxSize: {x: 4000, y: 4000}
+  m_TitleContent:
+    m_Text: Console
+    m_Image: {fileID: -4327648978806127646, guid: 0000000000000000d000000000000000, type: 0}
+    m_Tooltip: 
+  m_Pos:
+    serializedVersion: 2
+    x: 0
+    y: 657
+    width: 1436
+    height: 382
+  m_ViewDataDictionary: {fileID: 0}
+  m_OverlayCanvas:
+    m_LastAppliedPresetName: Default
+    m_SaveData: []
+    m_OverlaysVisible: 1
+--- !u!114 &18
+MonoBehaviour:
+  m_ObjectHideFlags: 52
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 13974, guid: 0000000000000000e000000000000000, type: 0}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_MinSize: {x: 200, y: 200}
+  m_MaxSize: {x: 4000, y: 4000}
+  m_TitleContent:
+    m_Text: Simulator
+    m_Image: {fileID: 8720083202187608617, guid: 0000000000000000d000000000000000, type: 0}
+    m_Tooltip: 
+  m_Pos:
+    serializedVersion: 2
+    x: 343
+    y: 73
+    width: 1092
+    height: 563
+  m_ViewDataDictionary: {fileID: 0}
+  m_OverlayCanvas:
+    m_LastAppliedPresetName: Default
+    m_SaveData: []
+    m_OverlaysVisible: 1
+  m_SerializedViewNames:
+  - UnityEditor.GameView
+  m_SerializedViewValues:
+  - C:\Users\Freee\Documents\GitHub\Tatedrez\Tatedrez\Library\PlayModeViewStates\26924567ab6b2834385c058a366090cf
+  m_PlayModeViewName: Device Simulator
+  m_ShowGizmos: 0
+  m_TargetDisplay: 0
+  m_ClearColor: {r: 0, g: 0, b: 0, a: 1}
+  m_TargetSize: {x: 2960, y: 1440}
+  m_TextureFilterMode: 0
+  m_TextureHideFlags: 61
+  m_RenderIMGUI: 1
+  m_EnterPlayModeBehavior: 2
+  m_UseMipMap: 0
+  m_SimulatorState:
+    controlPanelVisible: 0
+    controlPanelWidth: 0
+    controlPanelFoldoutKeys:
+    - UnityEditor.DeviceSimulation.ApplicationSettingsPlugin
+    controlPanelFoldoutValues: 00
+    pluginNames:
+    - UnityEditor.DeviceSimulation.ApplicationSettingsPlugin
+    pluginStates:
+    - '{}'
+    scale: 33
+    fitToScreenEnabled: 1
+    rotationDegree: 270
+    highlightSafeAreaEnabled: 0
+    friendlyName: Samsung Galaxy S9
+    networkReachability: 1
+    systemLanguage: 10
