@@ -10,7 +10,7 @@ namespace JGM.Game
 
         [SerializeField] private Canvas m_canvas;
         [SerializeField] private ScreenView m_mainMenuView;
-        [SerializeField] private ScreenView m_playView;
+        [SerializeField] private GameplayView m_gameplayView;
         [SerializeField] private ScreenView m_gameOverView;
 
         [Inject] private GameSettings m_gameSettings;
@@ -27,18 +27,18 @@ namespace JGM.Game
             m_gameController.PlayBackgroundMusic();
 
             m_mainMenuView.Initialize(this);
-            m_playView.Initialize(this);
+            m_gameplayView.Initialize();
             m_gameOverView.Initialize(this);
 
             m_mainMenuView.Hide();
-            m_playView.Show();
+            //m_gameplayView.Show();
             m_gameOverView.Hide();
         }
 
         public void OnClickPlayButton()
         {
             m_mainMenuView.Hide();
-            m_playView.Show();
+            //m_gameplayView.Show();
             m_gameController.PlayPressButtonSfx();
         }
 
@@ -57,14 +57,14 @@ namespace JGM.Game
         public void OnTicTacToeFound(int playerWinId)
         {
             m_gameModel.LastPlayerWinId = playerWinId;
-            m_playView.Hide();
+            //m_gameplayView.Hide();
             m_gameOverView.Show();
         }
 
         public void OnClickPlayAgainButton()
         {
             m_gameOverView.Hide();
-            m_playView.Show();
+            //m_gameplayView.Show();
             m_gameController.PlayPressButtonSfx();
         }
 
@@ -77,7 +77,7 @@ namespace JGM.Game
 
         public void OnClickPlayBackButton()
         {
-            m_playView.Hide();
+            //m_gameplayView.Hide();
             m_mainMenuView.Show();
             m_gameController.PlayPressButtonSfx();
         }

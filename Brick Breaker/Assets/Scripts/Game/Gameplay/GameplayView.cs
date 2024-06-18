@@ -1,10 +1,13 @@
-﻿namespace JGM.Game
+﻿using DG.Tweening.Core.Easing;
+using UnityEngine;
+
+namespace JGM.Game
 {
-    public class GameplayView : ScreenView
+    public class GameplayView : MonoBehaviour
     {
-        public override void Initialize(GameView gameView)
+        public void Initialize()
         {
-            
+            GameplayController.Instance.m_GameState = GameplayController.GameState.Playable;
         }
     }
 }
