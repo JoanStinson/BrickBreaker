@@ -9,11 +9,11 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4900135059807266}
+  - component: {fileID: 3397543184943671935}
   - component: {fileID: 212826454424653660}
   - component: {fileID: 50932128715658944}
   - component: {fileID: 58845583564804158}
   - component: {fileID: 96846943280894102}
-  - component: {fileID: 3397543184943671935}
   m_Layer: 8
   m_Name: PF_Ball
   m_TagString: Ball
@@ -36,6 +36,23 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &3397543184943671935
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1054516289806286}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 37fe0870245b8ad458a0049b9227c452, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_rigidbody2D: {fileID: 50932128715658944}
+  m_circleCollider2D: {fileID: 58845583564804158}
+  m_spriteRenderer: {fileID: 212826454424653660}
+  m_moveSpeed: 10
+  m_MinimumYPosition: -4.09
 --- !u!212 &212826454424653660
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -224,18 +241,3 @@ TrailRenderer:
   m_MinVertexDistance: 0.1
   m_Autodestruct: 0
   m_Emitting: 1
---- !u!114 &3397543184943671935
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1054516289806286}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 37fe0870245b8ad458a0049b9227c452, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_WallCollisionDuration: 0
-  m_MoveSpeed: 7
-  m_MinimumYPosition: -4.09

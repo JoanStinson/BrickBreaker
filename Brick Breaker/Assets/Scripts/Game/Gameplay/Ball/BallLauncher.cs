@@ -33,8 +33,8 @@ namespace JGM.Game
         public int m_TempAmount = 0;  // for score balls
         public Text m_BallsText;
         [SerializeField] private int m_StartingBallsPoolAmount = 10;
-        [SerializeField] private Ball m_BallPrefab;
-        [SerializeField] private List<Ball> m_Balls;
+        [SerializeField] private BallView m_BallPrefab;
+        [SerializeField] private List<BallView> m_Balls;
 
         [Header("UI Elements")]
         [SerializeField] private Button m_ReturnBallsButton;
@@ -53,7 +53,7 @@ namespace JGM.Game
 
         private void Start()
         {
-            m_Balls = new List<Ball>(m_StartingBallsPoolAmount);
+            m_Balls = new List<BallView>(m_StartingBallsPoolAmount);
 
             SpawNewBall(m_StartingBallsPoolAmount);
         }
@@ -142,7 +142,7 @@ namespace JGM.Game
 
             m_TempAmount = 0;
 
-            Ball.ResetReturningBallsAmount();
+            BallView.ResetReturningBallsAmount();
 
             m_ReturnBallsButton.gameObject.SetActive(false);
 
@@ -220,10 +220,10 @@ namespace JGM.Game
         {
             //StopAllCoroutines();
 
-            if (Ball.s_FirstCollisionPoint != Vector3.zero)
+            if (BallView.FirstCollisionPoint != Vector3.zero)
             {
-                transform.position = Ball.s_FirstCollisionPoint;
-                Ball.ResetFirstCollisionPoint();
+                transform.position = BallView.FirstCollisionPoint;
+                BallView.ResetFirstCollisionPoint();
             }
 
             m_BallSprite.transform.position = transform.position;
@@ -237,7 +237,7 @@ namespace JGM.Game
 
             ResetPositions();
 
-            Ball.ResetReturningBallsAmount();
+            BallView.ResetReturningBallsAmount();
 
             ScoreManager.Instance.UpdateScore();
 
