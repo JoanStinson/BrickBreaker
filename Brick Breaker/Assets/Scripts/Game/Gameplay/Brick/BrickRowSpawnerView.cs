@@ -10,11 +10,12 @@ namespace JGM.Game
         public Action OnBrickTouchedFloor { get; set; }
         public Action OnPickupExtraBall { get; set; }
 
-        [Inject] private BrickRowView.Factory m_brickRowFactory;
+        [field: SerializeField]
+        public float SpawningRowDistance { get; set; } = 0.64f;
         [SerializeField] private Transform m_brickRowsInstancesParent;
-        [SerializeField] private float m_spawningRowDistance = 0.64f;
         [SerializeField] private float m_spawningTopPosition = 3.65f;
         [SerializeField] private int m_rowsToSpawn = 7;
+        [Inject] private BrickRowView.Factory m_brickRowFactory;
 
         private GameModel m_gameModel;
         private List<BrickRowView> m_brickRowInstances;
@@ -28,7 +29,7 @@ namespace JGM.Game
             {
                 var brickRowInstance = m_brickRowFactory.Create();
                 brickRowInstance.transform.SetParent(m_brickRowsInstancesParent, false);
-                brickRowInstance.Initialize(m_spawningRowDistance, m_spawningTopPosition, gameModel);
+                brickRowInstance.Initialize(SpawningRowDistance, m_spawningTopPosition, gameModel);
                 brickRowInstance.OnBrickRowTouchedFloor += OnBrickRowTouchedFloor;
                 brickRowInstance.OnPickupBallFromRow += OnPickupRowFromBall;
                 m_brickRowInstances.Add(brickRowInstance);
@@ -69,7 +70,7 @@ namespace JGM.Game
             {
                 if (instance.gameObject.activeInHierarchy)
                 {
-                    instance.MoveDown(m_spawningRowDistance);
+                    instance.MoveDown(SpawningRowDistance);
                 }
             }
         }
