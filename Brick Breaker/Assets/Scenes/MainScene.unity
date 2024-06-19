@@ -1064,6 +1064,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_pieceViewPrefab: {fileID: 9029576500978370833, guid: 96485cb317d02174b92360a0e0c3f11f, type: 3}
+  m_ballViewPrefab: {fileID: 3397543184943671935, guid: 38e75d5386a391a48b22f504141b1073, type: 3}
 --- !u!4 &307939873
 Transform:
   m_ObjectHideFlags: 0
@@ -3139,18 +3140,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c05b0407b6df8094bb263a72f4fad26d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_BallSprite: {fileID: 1175111537}
-  m_BallsAmount: 1
-  m_CanPlay: 1
-  m_TempAmount: 0
-  m_deactivatableChildren: {fileID: 1588591227}
+  m_ballSprite: {fileID: 1175111537}
   m_lineRenderer: {fileID: 1004838331}
+  m_deactivatableChildren: {fileID: 1588591227}
   m_correctLineColor: {r: 0, g: 0.60784316, b: 1, a: 1}
   m_wrongLineColor: {r: 1, g: 0.13725491, b: 0, a: 1}
   m_ballsAmountText: {fileID: 1588591232}
-  m_ballViewPrefab: {fileID: 3397543184943671935, guid: 38e75d5386a391a48b22f504141b1073, type: 3}
   m_returnBallsButton: {fileID: 454934857}
   m_startingBallsPoolAmount: 10
+  m_dragAngle: 1.35
+  m_canPlay: 1
 --- !u!1 &1009635520
 GameObject:
   m_ObjectHideFlags: 0

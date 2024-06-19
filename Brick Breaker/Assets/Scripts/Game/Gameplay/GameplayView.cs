@@ -22,7 +22,6 @@ namespace JGM.Game
             m_brickRowSpawnerView.OnPickupExtraBall += OnPickupExtraBall;
 
             m_ballLauncherView.Initialize();
-            m_ballLauncherView.m_CanPlay = true;
             m_ballLauncherView.OnBallsReturned += OnBallsReturned;
         }
 

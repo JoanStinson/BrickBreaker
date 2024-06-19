@@ -170,7 +170,7 @@ namespace JGM.Game
                 if (m_extraBalls[i].gameObject.activeInHierarchy)
                 {
                     m_extraBalls[i].DestroyBall();
-                    BallLauncherView.Instance.IncreaseBallsAmountFromOutSide(1);
+                    OnPickupBallFromRow?.Invoke();
                     hasActiveScoreBall = true;
                     break;
                 }

@@ -3,29 +3,24 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using Zenject;
 
 namespace JGM.Game
 {
     public class BallLauncherView : MonoBehaviour
     {
         public Action OnBallsReturned { get; set; }
-        public Vector3 FirstCollisionPoint { set; get; }
 
-        public static BallLauncherView Instance;
-
-        public SpriteRenderer m_BallSprite;
-        public int m_ballsAmount;
-        public bool m_CanPlay = true;
-        public int m_TempAmount = 0;
-
-        [SerializeField] private GameObject m_deactivatableChildren;
+        [SerializeField] private SpriteRenderer m_ballSprite;
         [SerializeField] private LineRenderer m_lineRenderer;
+        [SerializeField] private GameObject m_deactivatableChildren;
         [SerializeField] private Color m_correctLineColor;
         [SerializeField] private Color m_wrongLineColor;
         [SerializeField] private Text m_ballsAmountText;
-        [SerializeField] private BallView m_ballViewPrefab;
         [SerializeField] private Button m_returnBallsButton;
         [SerializeField] private int m_startingBallsPoolAmount = 10;
+        [SerializeField] private float m_dragAngle = 1.35f;
+        [Inject] private BallView.Factory m_ballViewFactory;
 
         private List<BallView> m_ballInstances;
         private Vector3 m_startPosition;
@@ -33,23 +28,68 @@ namespace JGM.Game
         private Vector3 m_worldPosition;
         private Vector3 m_direction;
         private Vector3 m_defaultStartPosition;
+        private Vector3 m_firstCollisionPoint;
+        private int m_ballsAmount;
+        private int m_ballsAmountPendingToAdd;
         private int m_returnedBallsAmount;
+        public bool m_canPlay;
 
         public void Initialize()
         {
-            Instance = this;
-            m_CanPlay = true;
+            m_canPlay = true;
             m_defaultStartPosition = transform.position;
             m_ballsAmount = PlayerPrefs.GetInt("balls", 1);
             m_ballsAmountText.text = "x" + m_ballsAmount.ToString();
             m_ballInstances = new List<BallView>(m_startingBallsPoolAmount);
+            SpawNewBalls(m_startingBallsPoolAmount);
             m_returnBallsButton.onClick.AddListener(ReturnAllBallsToNewStartPosition);
-            SpawNewBall(m_startingBallsPoolAmount);
+        }
+
+        private void SpawNewBalls(int amount)
+        {
+            for (int i = 0; i < amount; i++)
+            {
+                BallView ballInstance = m_ballViewFactory.Create();
+                ballInstance.transform.SetParent(transform.parent, false);
+                ballInstance.Initialize(this);
+                ballInstance.OnBallReturned += OnReturnedBallInstance;
+                m_ballInstances.Add(ballInstance);
+                m_ballInstances[m_ballInstances.Count - 1].transform.localPosition = transform.localPosition;
+                m_ballInstances[m_ballInstances.Count - 1].transform.localScale = transform.localScale;
+                m_ballInstances[m_ballInstances.Count - 1].DisableBall();
+            }
+        }
+
+        private void ReturnAllBallsToNewStartPosition()
+        {
+            if (m_firstCollisionPoint != Vector3.zero)
+            {
+                transform.position = m_firstCollisionPoint;
+                m_firstCollisionPoint = Vector3.zero;
+            }
+
+            m_ballSprite.transform.position = transform.position;
+            m_ballSprite.enabled = true;
+
+            for (int i = 0; i < m_ballInstances.Count; i++)
+            {
+                m_ballInstances[i].DisableBallPhysics();
+                float time = Vector2.Distance(transform.position, m_ballInstances[i].transform.position) / 6.0f;
+                m_ballInstances[i].MoveBallTo(transform.position, iTween.EaseType.easeInOutQuart, time);
+            }
+
+            ResetPositions();
+            m_returnedBallsAmount = 0;
+            OnBallsReturned?.Invoke();
+            BrickRowSpawnerView.Instance.MoveDownRows();
+            BrickRowSpawnerView.Instance.SpawnBricks();
+            ActivateHUD();
+            m_canPlay = true;
         }
 
         private void Update()
         {
-            if (!m_CanPlay)
+            if (!m_canPlay)
             {
                 return;
             }
@@ -84,8 +124,7 @@ namespace JGM.Game
             Vector3 tempDirection = tempEndposition - m_startPosition;
             tempDirection.Normalize();
 
-            // Getting the angle in radians. you can replace 1.35f with any number or without hardcode like this
-            if (Mathf.Abs(Mathf.Atan2(tempDirection.x, tempDirection.y)) < 1.35f)
+            if (Mathf.Abs(Mathf.Atan2(tempDirection.x, tempDirection.y)) < m_dragAngle)
             {
                 m_lineRenderer.startColor = m_correctLineColor;
                 m_lineRenderer.endColor = m_correctLineColor;
@@ -111,33 +150,43 @@ namespace JGM.Game
             m_direction.Normalize();
             m_lineRenderer.SetPosition(1, Vector3.zero);
 
-            //TODO hardcode for this time. fix it!
-            if (Mathf.Abs(Mathf.Atan2(m_direction.x, m_direction.y)) < 1.35f)
+            if (Mathf.Abs(Mathf.Atan2(m_direction.x, m_direction.y)) < m_dragAngle)
             {
                 if (m_ballInstances.Count < m_ballsAmount)
                 {
-                    SpawNewBall(m_ballsAmount - m_ballInstances.Count);
+                    SpawNewBalls(m_ballsAmount - m_ballInstances.Count);
                 }
 
-                m_CanPlay = false;
+                m_canPlay = false;
                 StartCoroutine(StartShootingBalls());
             }
         }
 
-        public void OnMainMenuActions()
+        private IEnumerator StartShootingBalls()
         {
-            m_CanPlay = false;
-            m_ballsAmount = 1;
-            m_ballsAmountText.text = "x" + m_ballsAmount.ToString();
-            m_BallSprite.enabled = true;
-            m_deactivatableChildren.SetActive(true);
-            transform.position = m_defaultStartPosition;
-            m_BallSprite.transform.position = m_defaultStartPosition;
-            ResetPositions();
-            m_TempAmount = 0;
-            m_returnedBallsAmount = 0;
-            m_returnBallsButton.gameObject.SetActive(false);
-            HideAllBalls();
+            m_returnBallsButton.gameObject.SetActive(true);
+            m_ballSprite.enabled = false;
+
+            int balls = m_ballsAmount;
+
+            for (int i = 0; i < m_ballsAmount; i++)
+            {
+                if (m_canPlay)
+                {
+                    break;
+                }
+
+                m_ballInstances[i].transform.position = transform.position;
+                m_ballInstances[i].ShootBall(m_direction);
+                balls--;
+                m_ballsAmountText.text = "x" + balls.ToString();
+                yield return new WaitForSeconds(0.05f);
+            }
+
+            if (balls <= 0)
+            {
+                m_deactivatableChildren.SetActive(false);
+            }
         }
 
         public void ResetPositions()
@@ -145,28 +194,6 @@ namespace JGM.Game
             m_startPosition = Vector3.zero;
             m_endPosition = Vector3.zero;
             m_worldPosition = Vector3.zero;
-        }
-
-        private void HideAllBalls()
-        {
-            foreach (var instance in m_ballInstances)
-            {
-                instance.GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Static;
-                instance.Disable();
-            }
-        }
-
-        private void SpawNewBall(int amount)
-        {
-            for (int i = 0; i < amount; i++)
-            {
-                BallView ballInstance = Instantiate(m_ballViewPrefab, transform.parent, false);
-                ballInstance.OnBallReturned += OnReturnedBallInstance;
-                m_ballInstances.Add(ballInstance);
-                m_ballInstances[m_ballInstances.Count - 1].transform.localPosition = transform.localPosition;
-                m_ballInstances[m_ballInstances.Count - 1].transform.localScale = transform.localScale;
-                m_ballInstances[m_ballInstances.Count - 1].Disable();
-            }
         }
 
         private void OnReturnedBallInstance(BallView ballView)
@@ -182,100 +209,51 @@ namespace JGM.Game
 
         private void ContinuePlaying()
         {
-            if (FirstCollisionPoint != Vector3.zero)
+            if (m_firstCollisionPoint != Vector3.zero)
             {
-                transform.position = FirstCollisionPoint;
+                transform.position = m_firstCollisionPoint;
             }
 
-            m_BallSprite.enabled = true;
+            m_ballSprite.enabled = true;
             ActivateHUD();
             OnBallsReturned?.Invoke();
             BrickRowSpawnerView.Instance.MoveDownRows();
             BrickRowSpawnerView.Instance.SpawnBricks();
-            FirstCollisionPoint = Vector3.zero;
+            m_firstCollisionPoint = Vector3.zero;
             m_returnedBallsAmount = 0;
-            m_CanPlay = true;
-        }
-
-        private IEnumerator StartShootingBalls()
-        {
-            m_returnBallsButton.gameObject.SetActive(true);
-            m_BallSprite.enabled = false;
-
-            int balls = m_ballsAmount;
-
-            for (int i = 0; i < m_ballsAmount; i++)
-            {
-                if (m_CanPlay)
-                {
-                    break;
-                }
-
-                m_ballInstances[i].transform.position = transform.position;
-                m_ballInstances[i].GetReadyAndAddForce(m_direction);
-                balls--;
-                m_ballsAmountText.text = "x" + balls.ToString();
-                yield return new WaitForSeconds(0.05f);
-            }
-
-            if (balls <= 0)
-            {
-                m_deactivatableChildren.SetActive(false);
-            }
+            m_canPlay = true;
         }
 
         public void ActivateHUD()
         {
-            m_ballsAmount += m_TempAmount;
+            m_ballsAmount += m_ballsAmountPendingToAdd;
 
-            // avoiding more balls than final brick level
             if (m_ballsAmount > BrickRowSpawnerView.Instance.m_LevelOfFinalBrick + 1)
             {
                 m_ballsAmount = BrickRowSpawnerView.Instance.m_LevelOfFinalBrick;
             }
 
-            m_TempAmount = 0;
+            m_ballsAmountPendingToAdd = 0;
             m_ballsAmountText.text = "x" + m_ballsAmount.ToString();
             m_deactivatableChildren.SetActive(true);
             m_returnBallsButton.gameObject.SetActive(false);
         }
 
-        public void ReturnAllBallsToNewStartPosition()
-        {
-            if (FirstCollisionPoint != Vector3.zero)
-            {
-                transform.position = FirstCollisionPoint;
-                FirstCollisionPoint = Vector3.zero;
-            }
-
-            m_BallSprite.transform.position = transform.position;
-            m_BallSprite.enabled = true;
-
-            for (int i = 0; i < m_ballInstances.Count; i++)
-            {
-                m_ballInstances[i].DisablePhysics();
-                float time = Vector2.Distance(transform.position, m_ballInstances[i].transform.position) / 6.0f;
-                m_ballInstances[i].MoveTo(transform.position, iTween.EaseType.easeInOutQuart, time);
-            }
-
-            ResetPositions();
-            m_returnedBallsAmount = 0;
-            OnBallsReturned?.Invoke();
-            BrickRowSpawnerView.Instance.MoveDownRows();
-            BrickRowSpawnerView.Instance.SpawnBricks();
-            ActivateHUD();
-            m_CanPlay = true;
-        }
-
-        public void IncreaseBallsAmountFromOutSide(int amout)
-        {
-            m_ballsAmount += amout;
-            m_ballsAmountText.text = "x" + m_ballsAmount.ToString();
-        }
-
         public void AddExtraBall()
         {
-            m_TempAmount++;
+            m_ballsAmountPendingToAdd++;
+        }
+
+        public Vector3 UpdateFirstCollisionPoint()
+        {
+            if (m_firstCollisionPoint == Vector3.zero)
+            {
+                m_firstCollisionPoint = transform.position;
+                m_ballSprite.transform.position = m_firstCollisionPoint;
+                m_ballSprite.enabled = true;
+            }
+
+            return m_firstCollisionPoint;
         }
     }
 }
