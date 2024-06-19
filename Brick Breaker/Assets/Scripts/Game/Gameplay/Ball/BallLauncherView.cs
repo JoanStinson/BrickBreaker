@@ -23,6 +23,7 @@ namespace JGM.Game
         [SerializeField] private int m_startingBallsPoolAmount = 10;
         [SerializeField] private float m_dragAngle = 1.35f;
         [SerializeField] private float m_maxLineLength = 5.0f;
+        [SerializeField] private GameObject m_handTutorial;
         [Inject] private BallView.Factory m_ballViewFactory;
 
         private GameModel m_gameModel;
@@ -105,7 +106,7 @@ namespace JGM.Game
 
             if (Input.GetMouseButtonDown(0))
             {
-                OnBeginDrag(m_worldPosition);
+                OnDrag(m_worldPosition);
             }
             else if (Input.GetMouseButton(0))
             {
@@ -125,7 +126,7 @@ namespace JGM.Game
         private void OnDrag(Vector3 worldPosition)
         {
             Vector3 tempEndPosition = worldPosition;
-            Vector3 tempDirection = tempEndPosition - m_startPosition;
+            Vector3 tempDirection = tempEndPosition - m_defaultStartPosition;
             tempDirection.Normalize();
 
             if (Mathf.Abs(Mathf.Atan2(tempDirection.x, tempDirection.y)) < m_dragAngle)
@@ -146,11 +147,6 @@ namespace JGM.Game
 
         private void OnEndDrag()
         {
-            if (m_startPosition == m_endPosition)
-            {
-                return;
-            }
-
             m_lineRenderer.SetPosition(1, Vector3.zero);
 
             if (Mathf.Abs(Mathf.Atan2(m_direction.x, m_direction.y)) < m_dragAngle)
@@ -167,6 +163,7 @@ namespace JGM.Game
 
         private IEnumerator StartShootingBalls()
         {
+            m_handTutorial.SetActive(false);
             m_returnBallsButton.gameObject.SetActive(true);
             m_ballSprite.enabled = false;
 
