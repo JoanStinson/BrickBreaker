@@ -106,7 +106,7 @@ namespace JGM.Game
 
             if (Input.GetMouseButtonDown(0))
             {
-                OnDrag(m_worldPosition);
+                OnBeginDrag(m_worldPosition);
             }
             else if (Input.GetMouseButton(0))
             {
@@ -121,6 +121,7 @@ namespace JGM.Game
         private void OnBeginDrag(Vector3 worldPosition)
         {
             m_startPosition = worldPosition;
+            OnDrag(m_worldPosition);
         }
 
         private void OnDrag(Vector3 worldPosition)
@@ -147,6 +148,11 @@ namespace JGM.Game
 
         private void OnEndDrag()
         {
+            if (Input.mousePosition.y < m_defaultStartPosition.y || m_startPosition == m_endPosition)
+            {
+                return;
+            }
+
             m_lineRenderer.SetPosition(1, Vector3.zero);
 
             if (Mathf.Abs(Mathf.Atan2(m_direction.x, m_direction.y)) < m_dragAngle)
