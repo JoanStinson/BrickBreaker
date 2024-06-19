@@ -17,6 +17,7 @@ namespace JGM.Game
         public int LastPlayerWinId { get; set; }
         public int HighScore => PlayerPrefs.GetInt("best_score", 0);
         public int Score { get; set; }
+        public int LevelOfFinalBrick { get; set; } = 1;
 
         private readonly PieceConfig[] m_player1PieceConfigs;
         private readonly PieceConfig[] m_player2PieceConfigs;

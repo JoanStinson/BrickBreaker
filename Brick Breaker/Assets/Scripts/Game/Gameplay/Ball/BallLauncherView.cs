@@ -22,6 +22,7 @@ namespace JGM.Game
         [SerializeField] private float m_dragAngle = 1.35f;
         [Inject] private BallView.Factory m_ballViewFactory;
 
+        private GameModel m_gameModel;
         private List<BallView> m_ballInstances;
         private Vector3 m_startPosition;
         private Vector3 m_endPosition;
@@ -34,8 +35,9 @@ namespace JGM.Game
         private int m_returnedBallsAmount;
         public bool m_canPlay;
 
-        public void Initialize()
+        public void Initialize(GameModel gameModel)
         {
+            m_gameModel = gameModel;
             m_canPlay = true;
             m_defaultStartPosition = transform.position;
             m_ballsAmount = PlayerPrefs.GetInt("balls", 1);
@@ -81,8 +83,6 @@ namespace JGM.Game
             ResetPositions();
             m_returnedBallsAmount = 0;
             OnBallsReturned?.Invoke();
-            BrickRowSpawnerView.Instance.MoveDownRows();
-            BrickRowSpawnerView.Instance.SpawnBricks();
             ActivateHUD();
             m_canPlay = true;
         }
@@ -217,8 +217,6 @@ namespace JGM.Game
             m_ballSprite.enabled = true;
             ActivateHUD();
             OnBallsReturned?.Invoke();
-            BrickRowSpawnerView.Instance.MoveDownRows();
-            BrickRowSpawnerView.Instance.SpawnBricks();
             m_firstCollisionPoint = Vector3.zero;
             m_returnedBallsAmount = 0;
             m_canPlay = true;
@@ -228,9 +226,9 @@ namespace JGM.Game
         {
             m_ballsAmount += m_ballsAmountPendingToAdd;
 
-            if (m_ballsAmount > BrickRowSpawnerView.Instance.m_LevelOfFinalBrick + 1)
+            if (m_ballsAmount > m_gameModel.LevelOfFinalBrick + 1)
             {
-                m_ballsAmount = BrickRowSpawnerView.Instance.m_LevelOfFinalBrick;
+                m_ballsAmount = m_gameModel.LevelOfFinalBrick;
             }
 
             m_ballsAmountPendingToAdd = 0;

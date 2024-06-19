@@ -148,10 +148,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e0e223afc98c507448e90d612d1f5dc5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_healthText: {fileID: 4332105543760702076}
-  m_healthAmount: 1
   m_spriteRenderer: {fileID: 4573506881842439650}
   m_particleSystem: {fileID: 4560421647916065866}
+  m_healthText: {fileID: 4332105543760702076}
+  m_healthAmount: 1
+  m_baseColor: {r: 1, g: 0.7490196, b: 0, a: 1}
 --- !u!212 &4573506881842439650
 SpriteRenderer:
   m_ObjectHideFlags: 0

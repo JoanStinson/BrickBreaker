@@ -24,6 +24,7 @@ namespace JGM.Game
         {
             m_gameController = new GameController(m_audioService, m_localizationService);
             m_gameModel = m_gameController.BuildGameModel(m_gameSettings);
+            m_gameModel.LevelOfFinalBrick = PlayerPrefs.GetInt("level_of_final_brick", 1);
             m_gameController.PlayBackgroundMusic();
 
             m_mainMenuView.Initialize(this);

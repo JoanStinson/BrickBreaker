@@ -1,5 +1,6 @@
 ﻿using System;
 using UnityEngine;
+using Zenject;
 using Random = UnityEngine.Random;
 
 namespace JGM.Game
@@ -8,17 +9,31 @@ namespace JGM.Game
     {
         public Action OnBrickRowTouchedFloor { get; set; }
         public Action OnPickupBallFromRow { get; set; }
+        public class Factory : PlaceholderFactory<BrickRowView> { }
 
         [SerializeField] private float m_floorPosition = -3.8f;
         [SerializeField] private BrickView[] m_bricks;
         [SerializeField] private ExtraBallView[] m_extraBalls;
 
-        public void Initialize()
+        private float m_spawningRowDistance;
+        private float m_spawningTopPosition;
+
+        public void Initialize(float spawningRowDistance, float spawningTopPosition, GameModel gameModel)
         {
+            m_spawningRowDistance = spawningRowDistance;
+            m_spawningTopPosition = spawningTopPosition;
+
+            foreach (var brick in m_bricks)
+            {
+                brick.Initialize(gameModel);
+            }
+
             foreach (var extraBall in m_extraBalls)
             {
                 extraBall.OnPickup += OnPickup;
             }
+
+            OnEnable();
         }
 
         private void OnPickup()
@@ -28,19 +43,40 @@ namespace JGM.Game
 
         private void OnEnable()
         {
-            if (transform.localPosition.y < m_floorPosition)
+            if (m_spawningRowDistance == 0)
             {
-                GoToTop();
+                return;
             }
 
-            HideAll();
             GoToTop();
-            MoveDown(BrickRowSpawnerView.Instance.m_SpawningRowDistance);
-
-            // Make only one score ball available for this row randomly
+            MoveDown(m_spawningRowDistance);
             m_extraBalls[Random.Range(0, m_extraBalls.Length)].gameObject.SetActive(true);
+            RandomizeBricks();
+            MakeAtLeastOneBrickAvailable();
+        }
 
-            // Try to enable bricks randomly except at the score ball's position
+        private void GoToTop()
+        {
+            HideAllRows();
+            transform.localPosition = new Vector3(0, m_spawningTopPosition, 0);
+        }
+
+        public void MoveDown(float howMuch)
+        {
+            for (int i = 0; i < m_bricks.Length; i++)
+            {
+                if (m_bricks[i].gameObject.activeInHierarchy)
+                {
+                    m_bricks[i].ChangeColor();
+                }
+            }
+
+            var position = new Vector3(transform.position.x, transform.position.y - howMuch, transform.position.z);
+            iTween.MoveTo(gameObject, position, 0.25f);
+        }
+
+        private void RandomizeBricks()
+        {
             for (int i = 0; i < m_bricks.Length; i++)
             {
                 if (m_extraBalls[i].gameObject.activeInHierarchy)
@@ -52,9 +88,12 @@ namespace JGM.Game
                     m_bricks[i].gameObject.SetActive(Random.Range(0, 2) == 1);
                 }
             }
+        }
 
-            // make at least one brick available if there was not any one before
+        private void MakeAtLeastOneBrickAvailable()
+        {
             bool hasNoBrick = true;
+
             for (int i = 0; i < m_bricks.Length; i++)
             {
                 if (m_bricks[i].gameObject.activeInHierarchy)
@@ -77,32 +116,13 @@ namespace JGM.Game
             }
         }
 
-        private void GoToTop()
-        {
-            HideAll();
-            transform.localPosition = new Vector3(0, BrickRowSpawnerView.Instance.m_SpawningTopPosition, 0);
-        }
-
-        private void HideAll()
+        private void HideAllRows()
         {
             for (int i = 0; i < m_bricks.Length; i++)
             {
                 m_bricks[i].gameObject.SetActive(false);
                 m_extraBalls[i].gameObject.SetActive(false);
             }
-        }
-
-        public void MoveDown(float howMuch)
-        {
-            for (int i = 0; i < m_bricks.Length; i++)
-            {
-                if (m_bricks[i].gameObject.activeInHierarchy)
-                {
-                    m_bricks[i].ChangeColor();
-                }
-            }
-
-            iTween.MoveTo(gameObject, new Vector3(transform.position.x, transform.position.y - howMuch, transform.position.z), 0.25f);
         }
 
         private void Update()
@@ -113,13 +133,9 @@ namespace JGM.Game
                 {
                     OnBrickRowTouchedFloor?.Invoke();
                 }
-                else if (HasActiveScoreBall())
-                {
-                    GoToTop();
-                    gameObject.SetActive(false);
-                }
                 else
                 {
+                    //CheckActiveScoreBall();
                     GoToTop();
                     gameObject.SetActive(false);
                 }
@@ -142,41 +158,17 @@ namespace JGM.Game
             return hasActiveBrick;
         }
 
-        public void CheckBricksActivation()
+        public void CheckActiveScoreBall()
         {
-            int deactiveObjects = 0;
-
-            for (int i = 0; i < m_bricks.Length; i++)
-            {
-                if (!m_bricks[i].gameObject.activeInHierarchy && !m_extraBalls[i].gameObject.activeInHierarchy)
-                {
-                    deactiveObjects++;
-                }
-            }
-
-            if (deactiveObjects == m_bricks.Length)
-            {
-                gameObject.SetActive(false);
-                GoToTop();
-            }
-        }
-
-        public bool HasActiveScoreBall()
-        {
-            bool hasActiveScoreBall = false;
-
             for (int i = 0; i < m_extraBalls.Length; i++)
             {
                 if (m_extraBalls[i].gameObject.activeInHierarchy)
                 {
                     m_extraBalls[i].DestroyBall();
                     OnPickupBallFromRow?.Invoke();
-                    hasActiveScoreBall = true;
                     break;
                 }
             }
-
-            return hasActiveScoreBall;
         }
     }
 }

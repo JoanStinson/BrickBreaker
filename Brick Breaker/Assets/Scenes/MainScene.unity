@@ -1065,6 +1065,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_pieceViewPrefab: {fileID: 9029576500978370833, guid: 96485cb317d02174b92360a0e0c3f11f, type: 3}
   m_ballViewPrefab: {fileID: 3397543184943671935, guid: 38e75d5386a391a48b22f504141b1073, type: 3}
+  m_brickRowViewPrefab: {fileID: 7541374567769458674, guid: d2e99dd407beab240801159835093447, type: 3}
 --- !u!4 &307939873
 Transform:
   m_ObjectHideFlags: 0
@@ -3772,11 +3773,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aa412b71396e1204aa811ec28fc3ce61, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_LevelOfFinalBrick: 0
-  m_SpawningTopPosition: 3.65
-  m_SpawningRowDistance: 0.64
+  m_spawningRowDistance: 0.64
+  m_spawningTopPosition: 3.65
   m_rowsToSpawn: 7
-  m_brickRowPrefab: {fileID: 7541374567769458674, guid: d2e99dd407beab240801159835093447, type: 3}
 --- !u!1 &1212600785
 GameObject:
   m_ObjectHideFlags: 0

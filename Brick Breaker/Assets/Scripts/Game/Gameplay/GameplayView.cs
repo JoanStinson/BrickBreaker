@@ -16,12 +16,11 @@ namespace JGM.Game
             m_highScoreText.text = model.HighScore.ToString();
             m_scoreText.text = model.Score.ToString();
 
-            m_brickRowSpawnerView.Initialize();
-            m_brickRowSpawnerView.m_LevelOfFinalBrick = 1;
+            m_brickRowSpawnerView.Initialize(model);
             m_brickRowSpawnerView.OnBrickTouchedFloor += OnBrickTouchedFloor;
             m_brickRowSpawnerView.OnPickupExtraBall += OnPickupExtraBall;
 
-            m_ballLauncherView.Initialize();
+            m_ballLauncherView.Initialize(model);
             m_ballLauncherView.OnBallsReturned += OnBallsReturned;
         }
 
@@ -37,7 +36,8 @@ namespace JGM.Game
 
         private void OnBallsReturned()
         {
-
+            m_brickRowSpawnerView.MoveDownRows();
+            m_brickRowSpawnerView.SpawnBricks();
         }
     }
 }
