@@ -2100,9 +2100,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 553782621}
-  - component: {fileID: 553782622}
   - component: {fileID: 553782624}
-  - component: {fileID: 553782623}
   m_Layer: 0
   m_Name: GameplayView
   m_TagString: Untagged
@@ -2128,32 +2126,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &553782622
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 553782620}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 64db09f0fb328fa4e86773157f76efd4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &553782623
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 553782620}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d34bfe7cefe4c254f97e59d13a32c039, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_BestScoreText: {fileID: 142935628}
-  m_ScoreText: {fileID: 1714537301}
 --- !u!114 &553782624
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2166,11 +2138,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b656488ee9dffb040ac891321c3535ac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_MainMenuPanel: {fileID: 437129503}
-  m_GameMenuPanel: {fileID: 437129503}
-  m_GameOverPanel: {fileID: 510700393439392831}
-  m_Scores: {fileID: 437129503}
-  m_GameOverFinalScore: {fileID: 437129504}
+  m_mainMenuPanel: {fileID: 437129503}
+  m_gameMenuPanel: {fileID: 437129503}
+  m_gameOverPanel: {fileID: 437129503}
+  m_scores: {fileID: 437129503}
+  m_gameOverFinalScore: {fileID: 437129504}
+  m_highScoreText: {fileID: 142935628}
+  m_scoreText: {fileID: 1714537301}
 --- !u!1001 &609675738
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6923,7 +6897,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_canvas: {fileID: 510700392892776604}
   m_mainMenuView: {fileID: 510700392400555488}
-  m_gameplayView: {fileID: 553782622}
+  m_gameplayView: {fileID: 553782624}
   m_gameOverView: {fileID: 510700393439392832}
 --- !u!1 &510700393080814811
 GameObject:

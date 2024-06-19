@@ -47,7 +47,7 @@ namespace JGM.Game
 
         private void Update()
         {
-            if (GameplayController.Instance.m_GameState == GameplayController.GameState.MainMenu || GameplayController.Instance.m_GameState == GameplayController.GameState.GameOver)
+            if (GameplayView.Instance.m_GameState == GameplayView.GameState.MainMenu || GameplayView.Instance.m_GameState == GameplayView.GameState.GameOver)
             {
                 return;
             }
@@ -57,7 +57,7 @@ namespace JGM.Game
                 return;
             }
 
-            if (Time.timeScale != 0 && GameplayController.Instance.m_GameState != GameplayController.GameState.GameOver)
+            if (Time.timeScale != 0 && GameplayView.Instance.m_GameState != GameplayView.GameState.GameOver)
             {
                 m_worldPosition = Camera.main.ScreenToWorldPoint(Input.mousePosition) + Vector3.back * -10;
             }
@@ -232,7 +232,7 @@ namespace JGM.Game
 
             ResetPositions();
             BallView.ResetReturningBallsAmount();
-            ScoreManager.Instance.UpdateScore();
+            GameplayView.Instance.UpdateScore();
             BrickRowSpawnerView.Instance.MoveDownRows();
             BrickRowSpawnerView.Instance.SpawnNewRows();
             ActivateHUD();

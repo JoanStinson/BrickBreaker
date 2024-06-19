@@ -93,7 +93,7 @@ namespace JGM.Game
             {
                 if (HasActiveBricks())
                 {
-                    GameplayController.Instance.m_GameState = GameplayController.GameState.GameOver;
+                    GameplayView.Instance.m_GameState = GameplayView.GameState.GameOver;
                 }
                 else if (HasActiveScoreBall())
                 {

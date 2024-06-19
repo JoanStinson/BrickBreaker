@@ -70,7 +70,7 @@ namespace JGM.Game
 
             BallLauncherView.Instance.m_BallSprite.enabled = true;
             BallLauncherView.Instance.ActivateHUD();
-            ScoreManager.Instance.UpdateScore();
+            GameplayView.Instance.UpdateScore();
             BrickRowSpawnerView.Instance.MoveDownRows();
             BrickRowSpawnerView.Instance.SpawnNewRows();
             FirstCollisionPoint = Vector3.zero;
