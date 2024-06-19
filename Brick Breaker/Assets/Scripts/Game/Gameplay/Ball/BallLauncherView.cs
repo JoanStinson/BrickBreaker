@@ -22,6 +22,7 @@ namespace JGM.Game
         [SerializeField] private Button m_returnBallsButton;
         [SerializeField] private int m_startingBallsPoolAmount = 10;
         [SerializeField] private float m_dragAngle = 1.35f;
+        [SerializeField] private float m_maxLineLength = 5.0f;
         [Inject] private BallView.Factory m_ballViewFactory;
 
         private GameModel m_gameModel;
@@ -35,7 +36,7 @@ namespace JGM.Game
         private int m_ballsAmount;
         private int m_ballsAmountPendingToAdd;
         private int m_returnedBallsAmount;
-        public bool m_canPlay;
+        private bool m_canPlay;
 
         public void Initialize(GameModel gameModel)
         {
@@ -47,6 +48,7 @@ namespace JGM.Game
             m_ballInstances = new List<BallView>(m_startingBallsPoolAmount);
             SpawNewBalls(m_startingBallsPoolAmount);
             m_returnBallsButton.onClick.AddListener(ReturnAllBallsToNewStartPosition);
+            m_lineRenderer.positionCount = 2;
         }
 
         private void SpawNewBalls(int amount)
@@ -122,8 +124,8 @@ namespace JGM.Game
 
         private void OnDrag(Vector3 worldPosition)
         {
-            Vector3 tempEndposition = worldPosition;
-            Vector3 tempDirection = tempEndposition - m_startPosition;
+            Vector3 tempEndPosition = worldPosition;
+            Vector3 tempDirection = tempEndPosition - m_startPosition;
             tempDirection.Normalize();
 
             if (Mathf.Abs(Mathf.Atan2(tempDirection.x, tempDirection.y)) < m_dragAngle)
@@ -137,8 +139,9 @@ namespace JGM.Game
                 m_lineRenderer.endColor = m_wrongLineColor;
             }
 
-            m_endPosition = worldPosition;
-            m_lineRenderer.SetPosition(1, m_endPosition - m_startPosition);
+            Vector3 lineEndPosition = tempDirection * m_maxLineLength;
+            m_lineRenderer.SetPosition(1, lineEndPosition);
+            m_direction = tempDirection;
         }
 
         private void OnEndDrag()
@@ -148,8 +151,6 @@ namespace JGM.Game
                 return;
             }
 
-            m_direction = m_endPosition - m_startPosition;
-            m_direction.Normalize();
             m_lineRenderer.SetPosition(1, Vector3.zero);
 
             if (Mathf.Abs(Mathf.Atan2(m_direction.x, m_direction.y)) < m_dragAngle)

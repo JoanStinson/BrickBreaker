@@ -3137,7 +3137,7 @@ MonoBehaviour:
   m_returnBallsButton: {fileID: 454934857}
   m_startingBallsPoolAmount: 10
   m_dragAngle: 1.35
-  m_canPlay: 1
+  m_maxLineLength: 7
 --- !u!1 &1009635520
 GameObject:
   m_ObjectHideFlags: 0
