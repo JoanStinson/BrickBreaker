@@ -10,54 +10,35 @@ namespace JGM.Game
         [SerializeField] private Text m_scoreText;
         [SerializeField] private Text m_highScoreText;
 
-        private int m_highScore;
-        private int m_rings;
-
-        public void Initialize()
+        public void Initialize(GameView gameView)
         {
-            m_highScore = PlayerPrefs.GetInt("best_score", 0);
-            m_highScoreText.text = m_highScore.ToString();
-            m_scoreText.text = $"0";
+            var model = gameView.Model;
+            m_highScoreText.text = model.HighScore.ToString();
+            m_scoreText.text = model.Score.ToString();
 
             m_brickRowSpawnerView.Initialize();
             m_brickRowSpawnerView.m_LevelOfFinalBrick = 1;
-            m_brickRowSpawnerView.OnBrickRowTouchedFloor += OnBrickRowTouchedFloor;
+            m_brickRowSpawnerView.OnBrickTouchedFloor += OnBrickTouchedFloor;
+            m_brickRowSpawnerView.OnPickupExtraBall += OnPickupExtraBall;
 
             m_ballLauncherView.Initialize();
             m_ballLauncherView.m_CanPlay = true;
-            m_ballLauncherView.OnReturnBallsToNewStartPosition += OnReturnBallsToNewStartPosition;
+            m_ballLauncherView.OnBallsReturned += OnBallsReturned;
         }
 
-        private void OnBrickRowTouchedFloor()
+        private void OnBrickTouchedFloor()
         {
-            
+
         }
 
-        private void OnReturnBallsToNewStartPosition()
+        private void OnPickupExtraBall()
         {
-            UpdateScore();
+            m_ballLauncherView.AddExtraBall();
         }
 
-        public void UpdateScore()
+        private void OnBallsReturned()
         {
-            if (BrickRowSpawnerView.Instance.m_LevelOfFinalBrick > m_highScore)
-            {
-                m_highScore = BrickRowSpawnerView.Instance.m_LevelOfFinalBrick;
-                m_highScoreText.text = m_highScore.ToString();
-                PlayerPrefs.SetInt("best_score", m_highScore);
-            }
 
-            m_scoreText.text = BrickRowSpawnerView.Instance.m_LevelOfFinalBrick.ToString();
-        }
-
-        public void AddRingToInventory(int value)
-        {
-            if (value > 0)
-            {
-                m_rings += value;
-            }
-
-            PlayerPrefs.SetInt("rings", m_rings);
         }
     }
 }

@@ -70,7 +70,7 @@ namespace JGM.Game
 
             BallLauncherView.Instance.m_BallSprite.enabled = true;
             BallLauncherView.Instance.ActivateHUD();
-            BallLauncherView.Instance.OnReturnBallsToNewStartPosition?.Invoke();
+            BallLauncherView.Instance.OnBallsReturned?.Invoke();
             BrickRowSpawnerView.Instance.MoveDownRows();
             BrickRowSpawnerView.Instance.SpawnBricks();
             FirstCollisionPoint = Vector3.zero;

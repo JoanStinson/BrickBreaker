@@ -15,6 +15,8 @@ namespace JGM.Game
         public bool ShowTutorialAlways { get; private set; }
         public bool CompletedTutorial { get; set; }
         public int LastPlayerWinId { get; set; }
+        public int HighScore => PlayerPrefs.GetInt("best_score", 0);
+        public int Score { get; set; }
 
         private readonly PieceConfig[] m_player1PieceConfigs;
         private readonly PieceConfig[] m_player2PieceConfigs;

@@ -27,7 +27,7 @@ namespace JGM.Game
             m_gameController.PlayBackgroundMusic();
 
             m_mainMenuView.Initialize(this);
-            m_gameplayView.Initialize();
+            m_gameplayView.Initialize(this);
             m_gameOverView.Initialize(this);
 
             m_mainMenuView.Hide();

@@ -6,7 +6,8 @@ namespace JGM.Game
 {
     public class BrickRowSpawnerView : MonoBehaviour
     {
-        public Action OnBrickRowTouchedFloor { get; set; }
+        public Action OnBrickTouchedFloor { get; set; }
+        public Action OnPickupExtraBall { get; set; }
 
         public static BrickRowSpawnerView Instance;
         public int m_LevelOfFinalBrick;
@@ -26,12 +27,24 @@ namespace JGM.Game
             for (int i = 0; i < m_rowsToSpawn; i++)
             {
                 var brickRowInstance = Instantiate(m_brickRowPrefab, transform.parent, false);
+                brickRowInstance.Initialize();
                 brickRowInstance.OnBrickRowTouchedFloor += OnBrickRowTouchedFloor;
+                brickRowInstance.OnPickupBallFromRow += OnPickupRowFromBall;
                 m_brickRowInstances.Add(brickRowInstance);
                 m_brickRowInstances[m_brickRowInstances.Count - 1].transform.localPosition = new Vector3(0, m_SpawningTopPosition, 0);
                 m_brickRowInstances[m_brickRowInstances.Count - 1].gameObject.SetActive(false);
             }
             SpawnBricks();
+        }
+
+        private void OnBrickRowTouchedFloor()
+        {
+            OnBrickTouchedFloor?.Invoke();
+        }
+
+        private void OnPickupRowFromBall()
+        {
+            OnPickupExtraBall?.Invoke();
         }
 
         public void SpawnBricks()

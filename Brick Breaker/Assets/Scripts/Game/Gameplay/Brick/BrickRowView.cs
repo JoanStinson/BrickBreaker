@@ -7,10 +7,24 @@ namespace JGM.Game
     public class BrickRowView : MonoBehaviour
     {
         public Action OnBrickRowTouchedFloor { get; set; }
+        public Action OnPickupBallFromRow { get; set; }
 
         [SerializeField] private float m_floorPosition = -3.8f;
         [SerializeField] private BrickView[] m_bricks;
         [SerializeField] private ExtraBallView[] m_extraBalls;
+
+        public void Initialize()
+        {
+            foreach (var extraBall in m_extraBalls)
+            {
+                extraBall.OnPickup += OnPickup;
+            }
+        }
+
+        private void OnPickup()
+        {
+            OnPickupBallFromRow?.Invoke();
+        }
 
         private void OnEnable()
         {
@@ -155,7 +169,7 @@ namespace JGM.Game
             {
                 if (m_extraBalls[i].gameObject.activeInHierarchy)
                 {
-                    m_extraBalls[i].PlayParticle();
+                    m_extraBalls[i].DestroyBall();
                     BallLauncherView.Instance.IncreaseBallsAmountFromOutSide(1);
                     hasActiveScoreBall = true;
                     break;

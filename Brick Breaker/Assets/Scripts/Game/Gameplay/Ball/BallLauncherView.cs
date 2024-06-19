@@ -8,7 +8,7 @@ namespace JGM.Game
 {
     public class BallLauncherView : MonoBehaviour
     {
-        public Action OnReturnBallsToNewStartPosition { get; set; }
+        public Action OnBallsReturned { get; set; }
 
         public static BallLauncherView Instance;
 
@@ -39,6 +39,7 @@ namespace JGM.Game
             m_CanPlay = true;
             m_defaultStartPosition = transform.position;
             m_BallsAmount = PlayerPrefs.GetInt("balls", 1);
+            m_ballsAmountText.text = "x" + m_BallsAmount.ToString();
             m_ballInstances = new List<BallView>(m_startingBallsPoolAmount);
             m_returnBallsButton.onClick.AddListener(ReturnAllBallsToNewStartPosition);
             SpawNewBall(m_startingBallsPoolAmount);
@@ -58,24 +59,24 @@ namespace JGM.Game
 
             if (Input.GetMouseButtonDown(0))
             {
-                StartDrag(m_worldPosition);
+                OnBeginDrag(m_worldPosition);
             }
             else if (Input.GetMouseButton(0))
             {
-                ContinueDrag(m_worldPosition);
+                OnDrag(m_worldPosition);
             }
             else if (Input.GetMouseButtonUp(0))
             {
-                EndDrag();
+                OnEndDrag();
             }
         }
 
-        private void StartDrag(Vector3 worldPosition)
+        private void OnBeginDrag(Vector3 worldPosition)
         {
             m_startPosition = worldPosition;
         }
 
-        private void ContinueDrag(Vector3 worldPosition)
+        private void OnDrag(Vector3 worldPosition)
         {
             Vector3 tempEndposition = worldPosition;
             Vector3 tempDirection = tempEndposition - m_startPosition;
@@ -97,7 +98,7 @@ namespace JGM.Game
             m_lineRenderer.SetPosition(1, m_endPosition - m_startPosition);
         }
 
-        private void EndDrag()
+        private void OnEndDrag()
         {
             if (m_startPosition == m_endPosition)
             {
@@ -196,7 +197,7 @@ namespace JGM.Game
             m_BallsAmount += m_TempAmount;
 
             // avoiding more balls than final brick level
-            if (m_BallsAmount > BrickRowSpawnerView.Instance.m_LevelOfFinalBrick)
+            if (m_BallsAmount > BrickRowSpawnerView.Instance.m_LevelOfFinalBrick + 1)
             {
                 m_BallsAmount = BrickRowSpawnerView.Instance.m_LevelOfFinalBrick;
             }
@@ -226,7 +227,7 @@ namespace JGM.Game
 
             ResetPositions();
             BallView.ResetReturningBallsAmount();
-            OnReturnBallsToNewStartPosition?.Invoke();
+            OnBallsReturned?.Invoke();
             BrickRowSpawnerView.Instance.MoveDownRows();
             BrickRowSpawnerView.Instance.SpawnBricks();
             ActivateHUD();
@@ -237,6 +238,11 @@ namespace JGM.Game
         {
             m_BallsAmount += amout;
             m_ballsAmountText.text = "x" + m_BallsAmount.ToString();
+        }
+
+        public void AddExtraBall()
+        {
+            m_TempAmount++;
         }
     }
 }

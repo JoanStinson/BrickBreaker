@@ -1,24 +1,24 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 
 namespace JGM.Game
 {
     public class ExtraBallView : MonoBehaviour
     {
-        [SerializeField] private BrickRowView m_brickRow;
-        [SerializeField] private ParticleSystem m_particleSystem;
-        [SerializeField] private Color m_particleColor;
+        public Action OnPickup { get; set; }
+
+        [SerializeField]
+        private ParticleSystem m_particleSystem;
 
         private void OnTriggerEnter2D(Collider2D collision)
         {
-            BallLauncherView.Instance.m_TempAmount++;
-            PlayParticle();
+            OnPickup?.Invoke();
+            DestroyBall();
         }
 
-        public void PlayParticle()
+        public void DestroyBall()
         {
             gameObject.SetActive(false);
-            var mainModule = m_particleSystem.main;
-            mainModule.startColor = m_particleColor;
             m_particleSystem.Play();
         }
     }
