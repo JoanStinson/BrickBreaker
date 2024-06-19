@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 using Zenject;
@@ -16,7 +17,7 @@ namespace JGM.Game
         [SerializeField] private GameObject m_deactivatableChildren;
         [SerializeField] private Color m_correctLineColor;
         [SerializeField] private Color m_wrongLineColor;
-        [SerializeField] private Text m_ballsAmountText;
+        [SerializeField] private TextMeshProUGUI m_ballsAmountText;
         [SerializeField] private Button m_returnBallsButton;
         [SerializeField] private int m_startingBallsPoolAmount = 10;
         [SerializeField] private float m_dragAngle = 1.35f;

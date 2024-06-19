@@ -1,5 +1,5 @@
-﻿using UnityEngine;
-using UnityEngine.UI;
+﻿using TMPro;
+using UnityEngine;
 
 namespace JGM.Game
 {
@@ -7,7 +7,7 @@ namespace JGM.Game
     {
         [SerializeField] private SpriteRenderer m_spriteRenderer;
         [SerializeField] private ParticleSystem m_particleSystem;
-        [SerializeField] private Text m_healthText;
+        [SerializeField] private TextMeshProUGUI m_healthText;
         [SerializeField] private float m_healthAmount;
         [SerializeField] private Color m_baseColor;
 

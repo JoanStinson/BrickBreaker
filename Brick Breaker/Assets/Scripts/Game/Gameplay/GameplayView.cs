@@ -1,5 +1,5 @@
-﻿using UnityEngine;
-using UnityEngine.UI;
+﻿using TMPro;
+using UnityEngine;
 
 namespace JGM.Game
 {
@@ -7,8 +7,8 @@ namespace JGM.Game
     {
         [SerializeField] private BrickRowSpawnerView m_brickRowSpawnerView;
         [SerializeField] private BallLauncherView m_ballLauncherView;
-        [SerializeField] private Text m_scoreText;
-        [SerializeField] private Text m_highScoreText;
+        [SerializeField] private TextMeshProUGUI m_scoreText;
+        [SerializeField] private TextMeshProUGUI m_highScoreText;
 
         public void Initialize(GameView gameView)
         {
