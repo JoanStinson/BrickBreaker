@@ -2038,14 +2038,15 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 553782620}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: -0.000061035156, y: -0.000061035156, z: 0}
+  m_LocalScale: {x: 1.0000001, y: 1.0000001, z: 1.0000001}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 1632639445}
   - {fileID: 2106345066}
   - {fileID: 1224732185}
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &553782624
 MonoBehaviour:
@@ -3380,7 +3381,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1076172668
 GameObject:
@@ -4007,7 +4008,7 @@ Transform:
   - {fileID: 1356330723}
   - {fileID: 383041707}
   m_Father: {fileID: 553782621}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1241564926
 GameObject:
@@ -5327,7 +5328,7 @@ GameObject:
   - component: {fileID: 1632639447}
   - component: {fileID: 1632639446}
   m_Layer: 5
-  m_Name: GameplayCanvas
+  m_Name: Canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5348,8 +5349,8 @@ RectTransform:
   - {fileID: 454934860}
   - {fileID: 142935627}
   - {fileID: 1714537300}
-  m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_Father: {fileID: 553782621}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -5537,7 +5538,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1749176155
 GameObject:
@@ -6174,7 +6175,7 @@ Transform:
   - {fileID: 1175111536}
   - {fileID: 1208794666}
   m_Father: {fileID: 553782621}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &510700392328390919
 GameObject:
