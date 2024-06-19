@@ -12,6 +12,7 @@ namespace JGM.Game
     {
         public Action OnBallsReturned { get; set; }
 
+        [SerializeField] private Transform m_ballInstancesParent;
         [SerializeField] private SpriteRenderer m_ballSprite;
         [SerializeField] private LineRenderer m_lineRenderer;
         [SerializeField] private GameObject m_deactivatableChildren;
@@ -53,7 +54,7 @@ namespace JGM.Game
             for (int i = 0; i < amount; i++)
             {
                 BallView ballInstance = m_ballViewFactory.Create();
-                ballInstance.transform.SetParent(transform.parent, false);
+                ballInstance.transform.SetParent(m_ballInstancesParent, false);
                 ballInstance.Initialize(this);
                 ballInstance.OnBallReturned += OnReturnedBallInstance;
                 m_ballInstances.Add(ballInstance);

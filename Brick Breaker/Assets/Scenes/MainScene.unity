@@ -2035,6 +2035,73 @@ MonoBehaviour:
   m_ballLauncherView: {fileID: 1004838332}
   m_scoreText: {fileID: 142935630}
   m_highScoreText: {fileID: 1714537303}
+--- !u!1 &565390573
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 565390574}
+  m_Layer: 0
+  m_Name: Balls
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &565390574
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 565390573}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1004838330}
+  - {fileID: 1175111536}
+  - {fileID: 1757973391}
+  m_Father: {fileID: 2106345066}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &567427544
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 567427545}
+  m_Layer: 0
+  m_Name: Bricks
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &567427545
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 567427544}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1208794666}
+  - {fileID: 1342433621}
+  m_Father: {fileID: 2106345066}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &609675738
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2942,12 +3009,12 @@ Transform:
   m_GameObject: {fileID: 1004838329}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: -4.09, z: 0}
-  m_LocalScale: {x: 1.4375, y: 1.916666, z: 1}
+  m_LocalScale: {x: 1.4374999, y: 1.9166659, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1588591228}
-  m_Father: {fileID: 2106345066}
-  m_RootOrder: 1
+  m_Father: {fileID: 565390574}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!120 &1004838331
 LineRenderer:
@@ -3060,6 +3127,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c05b0407b6df8094bb263a72f4fad26d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_ballInstancesParent: {fileID: 1757973391}
   m_ballSprite: {fileID: 1175111537}
   m_lineRenderer: {fileID: 1004838331}
   m_deactivatableChildren: {fileID: 1588591227}
@@ -3590,11 +3658,11 @@ Transform:
   m_GameObject: {fileID: 1175111535}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: -4.09, z: 0}
-  m_LocalScale: {x: 1.4375, y: 1.916666, z: 1.15}
+  m_LocalScale: {x: 1.4374999, y: 1.9166659, z: 1.15}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 2106345066}
-  m_RootOrder: 2
+  m_Father: {fileID: 565390574}
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &1175111537
 SpriteRenderer:
@@ -3677,8 +3745,8 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 2106345066}
-  m_RootOrder: 3
+  m_Father: {fileID: 567427545}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1208794667
 MonoBehaviour:
@@ -3692,6 +3760,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aa412b71396e1204aa811ec28fc3ce61, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_brickRowsInstancesParent: {fileID: 1342433621}
   m_spawningRowDistance: 0.64
   m_spawningTopPosition: 3.65
   m_rowsToSpawn: 7
@@ -3903,7 +3972,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1224732185}
   m_Layer: 0
-  m_Name: BorderBackgrounds
+  m_Name: Borders
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3956,7 +4025,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1493932113}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!61 &1241564928
 BoxCollider2D:
@@ -4225,6 +4294,37 @@ MonoBehaviour:
   - {fileID: 1990965734}
   - {fileID: 146249025}
   - {fileID: 1677648742}
+--- !u!1 &1342433620
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1342433621}
+  m_Layer: 0
+  m_Name: BrickRowInstancesParent
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1342433621
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1342433620}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 567427545}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1393274841
 GameObject:
   m_ObjectHideFlags: 0
@@ -4781,8 +4881,8 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 931699275}
-  - {fileID: 2015278654}
   - {fileID: 1241564927}
+  - {fileID: 2015278654}
   - {fileID: 1127465876}
   - {fileID: 371127454}
   m_Father: {fileID: 2106345066}
@@ -5473,6 +5573,37 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1757973390
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1757973391}
+  m_Layer: 0
+  m_Name: BallInstancesParent
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1757973391
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1757973390}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 565390574}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!224 &1845927508 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 2559477712556098665, guid: 9bdb03050c3310f4287dff04b87e1006, type: 3}
@@ -5865,7 +5996,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1493932113}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!61 &2015278655
 BoxCollider2D:
@@ -5902,6 +6033,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2106345066}
+  - component: {fileID: 2106345067}
   m_Layer: 0
   m_Name: GameArea
   m_TagString: Untagged
@@ -5922,12 +6054,26 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1493932113}
-  - {fileID: 1004838330}
-  - {fileID: 1175111536}
-  - {fileID: 1208794666}
+  - {fileID: 565390574}
+  - {fileID: 567427545}
   m_Father: {fileID: 553782621}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2106345067
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2106345065}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ab59f9f09fe72bd4f859dc31c371b864, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_leftColliderTransform: {fileID: 1241564927}
+  m_rightColliderTransform: {fileID: 2015278654}
+  m_bricksParent: {fileID: 1208794666}
 --- !u!1 &510700392328390919
 GameObject:
   m_ObjectHideFlags: 0
