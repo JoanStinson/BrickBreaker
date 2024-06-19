@@ -48,6 +48,7 @@ namespace JGM.Game
             m_ballsAmountText.text = "x" + m_ballsAmount.ToString();
             m_ballInstances = new List<BallView>(m_startingBallsPoolAmount);
             SpawNewBalls(m_startingBallsPoolAmount);
+            m_returnBallsButton.gameObject.SetActive(false);
             m_returnBallsButton.onClick.AddListener(ReturnAllBallsToNewStartPosition);
             m_lineRenderer.positionCount = 2;
         }

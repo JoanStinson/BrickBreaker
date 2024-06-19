@@ -135,7 +135,6 @@ namespace JGM.Game
                 }
                 else
                 {
-                    //CheckActiveScoreBall();
                     GoToTop();
                     gameObject.SetActive(false);
                 }
