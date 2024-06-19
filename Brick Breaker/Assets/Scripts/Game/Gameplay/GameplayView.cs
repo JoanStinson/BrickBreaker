@@ -38,24 +38,17 @@ namespace JGM.Game
                         break;
 
                     case GameState.Playable:
-                        if (Saver.Instance.HasSave())
-                        {
+                        m_mainMenuPanel.SetActive(false);
+                        m_gameMenuPanel.SetActive(true);
+                        m_gameOverPanel.SetActive(false);
+                        m_scores.SetActive(true);
 
-                        }
-                        else
-                        {
-                            m_mainMenuPanel.SetActive(false);
-                            m_gameMenuPanel.SetActive(true);
-                            m_gameOverPanel.SetActive(false);
-                            m_scores.SetActive(true);
+                        BallLauncherView.Instance.m_CanPlay = true;
+                        BrickRowSpawnerView.Instance.m_LevelOfFinalBrick = 1;  // temporary (after save and load)
 
-                            BallLauncherView.Instance.m_CanPlay = true;
-                            BrickRowSpawnerView.Instance.m_LevelOfFinalBrick = 1;  // temporary (after save and load)
-
-                            // reset score (probably by conditions)
-                            GameplayView.Instance.m_scoreText.text = BrickRowSpawnerView.Instance.m_LevelOfFinalBrick.ToString();
-                            BrickRowSpawnerView.Instance.SpawnNewRows();
-                        }
+                        // reset score (probably by conditions)
+                        GameplayView.Instance.m_scoreText.text = BrickRowSpawnerView.Instance.m_LevelOfFinalBrick.ToString();
+                        BrickRowSpawnerView.Instance.SpawnNewRows();
                         break;
 
                     case GameState.GameOver:
