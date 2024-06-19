@@ -3885,7 +3885,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_LevelOfFinalBrick: 0
   m_SpawningRows: 7
-  m_BricksRowPrefab: {fileID: 5755083083888080001, guid: d2e99dd407beab240801159835093447, type: 3}
+  m_BricksRowPrefab: {fileID: 7541374567769458674, guid: d2e99dd407beab240801159835093447, type: 3}
   m_SpawningTopPosition: 3.65
   m_SpawningDistance: 0.64
   m_BricksRow: []

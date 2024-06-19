@@ -4,7 +4,7 @@ namespace JGM.Game
 {
     public class ExtraBallView : MonoBehaviour
     {
-        [SerializeField] private BricksRow m_brickRow;
+        [SerializeField] private BrickRowView m_brickRow;
         [SerializeField] private ParticleSystem m_particleSystem;
         [SerializeField] private Color m_particleColor;
 

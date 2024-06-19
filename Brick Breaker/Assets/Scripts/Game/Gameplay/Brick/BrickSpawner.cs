@@ -11,12 +11,12 @@ namespace JGM.Game
 
         [Header("Spawning informations")]
         public int m_SpawningRows = 7;
-        public BricksRow m_BricksRowPrefab;
+        public BrickRowView m_BricksRowPrefab;
         public float m_SpawningTopPosition = 2.88f;   // top position
         public float m_SpawningDistance = 0.8f; // distance of rows
 
         [Header("Bricks Row")]
-        public List<BricksRow> m_BricksRow;
+        public List<BrickRowView> m_BricksRow;
 
         private void Awake()
         {
@@ -24,7 +24,7 @@ namespace JGM.Game
 
             m_LevelOfFinalBrick = PlayerPrefs.GetInt("level_of_final_brick", 1);
 
-            m_BricksRow = new List<BricksRow>();
+            m_BricksRow = new List<BrickRowView>();
 
             // generate rows of bricks on the scene
             for (int i = 0; i < m_SpawningRows; i++)
