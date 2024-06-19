@@ -9,12 +9,12 @@ namespace JGM.Game
         public float m_FloorPosition = -4.25f;
 
         public Brick[] m_Bricks;
-        public ScoreBall[] m_ScoreBalls;
+        public ExtraBallView[] m_ScoreBalls;
 
         private void Awake()
         {
             m_Bricks = GetComponentsInChildren<Brick>();
-            m_ScoreBalls = GetComponentsInChildren<ScoreBall>();
+            m_ScoreBalls = GetComponentsInChildren<ExtraBallView>();
         }
 
         private void OnEnable()

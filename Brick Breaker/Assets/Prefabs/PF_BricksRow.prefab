@@ -9,10 +9,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4358636284196794}
+  - component: {fileID: 3622554649605081262}
   - component: {fileID: 212652273791132618}
   - component: {fileID: 50679528652575958}
   - component: {fileID: 58908657923642830}
-  - component: {fileID: 3767902589040767769}
   m_Layer: 9
   m_Name: Score Ball (4)
   m_TagString: Untagged
@@ -36,6 +36,21 @@ Transform:
   m_Father: {fileID: 4206090686133218}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &3622554649605081262
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1000785553807114}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2869dd8063b8b8843a84a7d27bab9ec8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_brickRow: {fileID: 5755083083888080001}
+  m_particleSystem: {fileID: 198810414629922364}
+  m_particleColor: {r: 0, g: 1, b: 0, a: 0.5019608}
 --- !u!212 &212652273791132618
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -125,18 +140,6 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.35
---- !u!114 &3767902589040767769
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1000785553807114}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2f14b6829023c0a4cbfbfd31bf67c709, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1020761407782242
 GameObject:
   m_ObjectHideFlags: 0
@@ -9876,10 +9879,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4240190557786588}
+  - component: {fileID: 3447596869775466787}
   - component: {fileID: 212749644675798308}
   - component: {fileID: 50247615853540340}
   - component: {fileID: 58719322655360722}
-  - component: {fileID: 3225853319586562597}
   m_Layer: 9
   m_Name: Score Ball (1)
   m_TagString: Untagged
@@ -9903,6 +9906,21 @@ Transform:
   m_Father: {fileID: 4611842101891342}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &3447596869775466787
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1139279428222836}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2869dd8063b8b8843a84a7d27bab9ec8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_brickRow: {fileID: 5755083083888080001}
+  m_particleSystem: {fileID: 198038294337187400}
+  m_particleColor: {r: 0, g: 1, b: 0, a: 0.5019608}
 --- !u!212 &212749644675798308
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -9992,18 +10010,6 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.35
---- !u!114 &3225853319586562597
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1139279428222836}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2f14b6829023c0a4cbfbfd31bf67c709, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1149234714313056
 GameObject:
   m_ObjectHideFlags: 0
@@ -20155,10 +20161,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4243940738227374}
+  - component: {fileID: 3342866351023500778}
   - component: {fileID: 212855939223580538}
   - component: {fileID: 50853322336694882}
   - component: {fileID: 58045673437719590}
-  - component: {fileID: 1523128639554885033}
   m_Layer: 9
   m_Name: Score Ball (3)
   m_TagString: Untagged
@@ -20182,6 +20188,21 @@ Transform:
   m_Father: {fileID: 4802943885633892}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &3342866351023500778
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1308291996525608}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2869dd8063b8b8843a84a7d27bab9ec8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_brickRow: {fileID: 5755083083888080001}
+  m_particleSystem: {fileID: 198626088415897516}
+  m_particleColor: {r: 0, g: 1, b: 0, a: 0.5019608}
 --- !u!212 &212855939223580538
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -20271,18 +20292,6 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.35
---- !u!114 &1523128639554885033
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1308291996525608}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2f14b6829023c0a4cbfbfd31bf67c709, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1317699810763638
 GameObject:
   m_ObjectHideFlags: 0
@@ -55957,10 +55966,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4215252778221610}
+  - component: {fileID: 3617760397773903288}
   - component: {fileID: 212949560120662916}
   - component: {fileID: 50031491422437772}
   - component: {fileID: 58179286531069788}
-  - component: {fileID: 6599080177175311844}
   m_Layer: 9
   m_Name: Score Ball (5)
   m_TagString: Untagged
@@ -55984,6 +55993,21 @@ Transform:
   m_Father: {fileID: 4961897574453692}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &3617760397773903288
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1802457639555318}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2869dd8063b8b8843a84a7d27bab9ec8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_brickRow: {fileID: 5755083083888080001}
+  m_particleSystem: {fileID: 198566090026426860}
+  m_particleColor: {r: 0, g: 1, b: 0, a: 0.5019608}
 --- !u!212 &212949560120662916
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -56073,18 +56097,6 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.35
---- !u!114 &6599080177175311844
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1802457639555318}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2f14b6829023c0a4cbfbfd31bf67c709, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1833991985206260
 GameObject:
   m_ObjectHideFlags: 0
@@ -56359,10 +56371,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4904547914788730}
+  - component: {fileID: 6874953112462398640}
   - component: {fileID: 212481460885711672}
   - component: {fileID: 50337151952758360}
   - component: {fileID: 58083495817616780}
-  - component: {fileID: 3729730050913608842}
   m_Layer: 9
   m_Name: Score Ball (2)
   m_TagString: Untagged
@@ -56386,6 +56398,21 @@ Transform:
   m_Father: {fileID: 4013150816305584}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &6874953112462398640
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1874868762510546}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2869dd8063b8b8843a84a7d27bab9ec8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_brickRow: {fileID: 5755083083888080001}
+  m_particleSystem: {fileID: 198360299750462920}
+  m_particleColor: {r: 0, g: 1, b: 0, a: 0.5019608}
 --- !u!212 &212481460885711672
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -56475,18 +56502,6 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.35
---- !u!114 &3729730050913608842
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1874868762510546}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2f14b6829023c0a4cbfbfd31bf67c709, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1881777211985158
 GameObject:
   m_ObjectHideFlags: 0
@@ -56496,10 +56511,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4183872247338580}
+  - component: {fileID: 7070805303310818535}
   - component: {fileID: 212472588398102898}
   - component: {fileID: 50797608413479914}
   - component: {fileID: 58995205183667540}
-  - component: {fileID: 670658737114117978}
   m_Layer: 9
   m_Name: Score Ball (6)
   m_TagString: Untagged
@@ -56523,6 +56538,21 @@ Transform:
   m_Father: {fileID: 4068724272485498}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &7070805303310818535
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1881777211985158}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2869dd8063b8b8843a84a7d27bab9ec8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_brickRow: {fileID: 5755083083888080001}
+  m_particleSystem: {fileID: 198282934871050432}
+  m_particleColor: {r: 0, g: 1, b: 0, a: 0.5019608}
 --- !u!212 &212472588398102898
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -56612,18 +56642,6 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.35
---- !u!114 &670658737114117978
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1881777211985158}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2f14b6829023c0a4cbfbfd31bf67c709, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1894599123790900
 GameObject:
   m_ObjectHideFlags: 0
