@@ -202,9 +202,9 @@ namespace JGM.Game
             m_BallsAmount += m_TempAmount;
 
             // avoiding more balls than final brick level
-            if (m_BallsAmount > BrickSpawner.Instance.m_LevelOfFinalBrick)
+            if (m_BallsAmount > BrickRowSpawnerView.Instance.m_LevelOfFinalBrick)
             {
-                m_BallsAmount = BrickSpawner.Instance.m_LevelOfFinalBrick;
+                m_BallsAmount = BrickRowSpawnerView.Instance.m_LevelOfFinalBrick;
             }
 
             m_TempAmount = 0;
@@ -233,8 +233,8 @@ namespace JGM.Game
             ResetPositions();
             BallView.ResetReturningBallsAmount();
             ScoreManager.Instance.UpdateScore();
-            BrickSpawner.Instance.MoveDownBricksRows();
-            BrickSpawner.Instance.SpawnNewBricks();
+            BrickRowSpawnerView.Instance.MoveDownRows();
+            BrickRowSpawnerView.Instance.SpawnNewRows();
             ActivateHUD();
             m_CanPlay = true;
         }

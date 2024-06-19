@@ -23,7 +23,7 @@ namespace JGM.Game
             m_BestScore = PlayerPrefs.GetInt("best_score", 0);
             m_BestScoreText.text = m_BestScore.ToString();
 
-            m_ScoreText.text = BrickSpawner.Instance.m_LevelOfFinalBrick.ToString();
+            m_ScoreText.text = BrickRowSpawnerView.Instance.m_LevelOfFinalBrick.ToString();
         }
 
         public void AddRingToInventory(int value)
@@ -36,15 +36,15 @@ namespace JGM.Game
 
         public void UpdateScore()
         {
-            if (BrickSpawner.Instance.m_LevelOfFinalBrick > m_BestScore)
+            if (BrickRowSpawnerView.Instance.m_LevelOfFinalBrick > m_BestScore)
             {
-                m_BestScore = BrickSpawner.Instance.m_LevelOfFinalBrick;
+                m_BestScore = BrickRowSpawnerView.Instance.m_LevelOfFinalBrick;
                 m_BestScoreText.text = m_BestScore.ToString();
 
                 PlayerPrefs.SetInt("best_score", m_BestScore);
             }
 
-            m_ScoreText.text = BrickSpawner.Instance.m_LevelOfFinalBrick.ToString();
+            m_ScoreText.text = BrickRowSpawnerView.Instance.m_LevelOfFinalBrick.ToString();
         }
     }
 }

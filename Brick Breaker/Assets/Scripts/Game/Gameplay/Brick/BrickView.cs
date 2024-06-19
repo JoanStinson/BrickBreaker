@@ -12,7 +12,7 @@ namespace JGM.Game
 
         private void OnEnable()
         {
-            m_healthAmount = BrickSpawner.Instance.m_LevelOfFinalBrick;
+            m_healthAmount = BrickRowSpawnerView.Instance.m_LevelOfFinalBrick;
             m_healthText.text = m_healthAmount.ToString();
             ChangeColor();
         }
@@ -37,7 +37,7 @@ namespace JGM.Game
 
         public void ChangeColor()
         {
-            m_spriteRenderer.color = Color.LerpUnclamped(new Color(1, 0.75f, 0, 1), Color.red, m_healthAmount / (float)BrickSpawner.Instance.m_LevelOfFinalBrick);
+            m_spriteRenderer.color = Color.LerpUnclamped(new Color(1, 0.75f, 0, 1), Color.red, m_healthAmount / (float)BrickRowSpawnerView.Instance.m_LevelOfFinalBrick);
         }
     }
 }

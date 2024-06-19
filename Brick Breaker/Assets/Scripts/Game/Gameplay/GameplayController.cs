@@ -33,7 +33,7 @@ namespace JGM.Game
                         m_Scores.SetActive(true);
 
                         BallLauncherView.Instance.OnMainMenuActions();
-                        BrickSpawner.Instance.HideAllBricksRows();
+                        BrickRowSpawnerView.Instance.HideAllRows();
                         break;
                     case GameState.Playable:
                         if (Saver.Instance.HasSave())
@@ -48,12 +48,12 @@ namespace JGM.Game
                             m_Scores.SetActive(true);
 
                             BallLauncherView.Instance.m_CanPlay = true;
-                            BrickSpawner.Instance.m_LevelOfFinalBrick = 1;  // temporary (after save and load)
+                            BrickRowSpawnerView.Instance.m_LevelOfFinalBrick = 1;  // temporary (after save and load)
 
                             // reset score (probably by conditions)
-                            ScoreManager.Instance.m_ScoreText.text = BrickSpawner.Instance.m_LevelOfFinalBrick.ToString();
+                            ScoreManager.Instance.m_ScoreText.text = BrickRowSpawnerView.Instance.m_LevelOfFinalBrick.ToString();
 
-                            BrickSpawner.Instance.SpawnNewBricks();
+                            BrickRowSpawnerView.Instance.SpawnNewRows();
                         }
                         break;
                     case GameState.GameOver:
@@ -62,7 +62,7 @@ namespace JGM.Game
                         m_GameOverPanel.SetActive(true);
                         m_Scores.SetActive(false);
 
-                        m_GameOverFinalScore.text = "Final Score : " + (BrickSpawner.Instance.m_LevelOfFinalBrick - 1).ToString();
+                        m_GameOverFinalScore.text = "Final Score : " + (BrickRowSpawnerView.Instance.m_LevelOfFinalBrick - 1).ToString();
                         BallLauncherView.Instance.m_CanPlay = false;
                         BallLauncherView.Instance.ResetPositions();
                         break;

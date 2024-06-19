@@ -17,7 +17,7 @@ namespace JGM.Game
 
             HideAll();
             GoToTop();
-            MoveDown(BrickSpawner.Instance.m_SpawningDistance);
+            MoveDown(BrickRowSpawnerView.Instance.m_SpawningRowDistance);
 
             // Make only one score ball available for this row randomly
             m_extraBalls[Random.Range(0, m_extraBalls.Length)].gameObject.SetActive(true);
@@ -62,7 +62,7 @@ namespace JGM.Game
         private void GoToTop()
         {
             HideAll();
-            transform.localPosition = new Vector3(0, BrickSpawner.Instance.m_SpawningTopPosition, 0);
+            transform.localPosition = new Vector3(0, BrickRowSpawnerView.Instance.m_SpawningTopPosition, 0);
         }
 
         private void HideAll()
