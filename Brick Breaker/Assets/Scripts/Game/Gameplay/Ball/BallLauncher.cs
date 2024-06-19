@@ -37,7 +37,7 @@ namespace JGM.Game
         [SerializeField] private List<Ball> m_Balls;
 
         [Header("UI Elements")]
-        [SerializeField] private GameObject m_ReturnBallsButton;
+        [SerializeField] private Button m_ReturnBallsButton;
 
         private void Awake()
         {
@@ -48,6 +48,7 @@ namespace JGM.Game
             m_DefaultStartPosition = transform.position;
 
             m_BallsAmount = PlayerPrefs.GetInt("balls", 1);
+            m_ReturnBallsButton.onClick.AddListener(ReturnAllBallsToNewStartPosition);
         }
 
         private void Start()
@@ -143,7 +144,7 @@ namespace JGM.Game
 
             Ball.ResetReturningBallsAmount();
 
-            m_ReturnBallsButton.SetActive(false);
+            m_ReturnBallsButton.gameObject.SetActive(false);
 
             HideAllBalls();
         }
@@ -177,7 +178,7 @@ namespace JGM.Game
 
         IEnumerator StartShootingBalls()
         {
-            m_ReturnBallsButton.SetActive(true);
+            m_ReturnBallsButton.gameObject.SetActive(true);
             m_BallSprite.enabled = false;
 
             int balls = m_BallsAmount;
@@ -212,7 +213,7 @@ namespace JGM.Game
 
             m_BallsText.text = "x" + m_BallsAmount.ToString();
             m_DeactivatableChildren.SetActive(true);
-            m_ReturnBallsButton.SetActive(false);
+            m_ReturnBallsButton.gameObject.SetActive(false);
         }
 
         public void ReturnAllBallsToNewStartPosition()
