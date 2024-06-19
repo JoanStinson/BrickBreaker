@@ -70,9 +70,9 @@ namespace JGM.Game
 
             BallLauncherView.Instance.m_BallSprite.enabled = true;
             BallLauncherView.Instance.ActivateHUD();
-            GameplayView.Instance.UpdateScore();
+            BallLauncherView.Instance.OnReturnBallsToNewStartPosition?.Invoke();
             BrickRowSpawnerView.Instance.MoveDownRows();
-            BrickRowSpawnerView.Instance.SpawnNewRows();
+            BrickRowSpawnerView.Instance.SpawnBricks();
             FirstCollisionPoint = Vector3.zero;
             m_returnedBallsAmount = 0;
             BallLauncherView.Instance.m_CanPlay = true;

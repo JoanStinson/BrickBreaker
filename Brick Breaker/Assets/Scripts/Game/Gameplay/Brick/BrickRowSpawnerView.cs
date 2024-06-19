@@ -1,10 +1,13 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using UnityEngine;
 
 namespace JGM.Game
 {
     public class BrickRowSpawnerView : MonoBehaviour
     {
+        public Action OnBrickRowTouchedFloor { get; set; }
+
         public static BrickRowSpawnerView Instance;
         public int m_LevelOfFinalBrick;
         public float m_SpawningTopPosition = 3.65f;
@@ -15,20 +18,23 @@ namespace JGM.Game
 
         private List<BrickRowView> m_brickRowInstances;
 
-        private void Awake()
+        public void Initialize()
         {
             Instance = this;
             m_LevelOfFinalBrick = PlayerPrefs.GetInt("level_of_final_brick", 1);
             m_brickRowInstances = new List<BrickRowView>();
             for (int i = 0; i < m_rowsToSpawn; i++)
             {
-                m_brickRowInstances.Add(Instantiate(m_brickRowPrefab, transform.parent, false));
+                var brickRowInstance = Instantiate(m_brickRowPrefab, transform.parent, false);
+                brickRowInstance.OnBrickRowTouchedFloor += OnBrickRowTouchedFloor;
+                m_brickRowInstances.Add(brickRowInstance);
                 m_brickRowInstances[m_brickRowInstances.Count - 1].transform.localPosition = new Vector3(0, m_SpawningTopPosition, 0);
                 m_brickRowInstances[m_brickRowInstances.Count - 1].gameObject.SetActive(false);
             }
+            SpawnBricks();
         }
 
-        public void SpawnNewRows()
+        public void SpawnBricks()
         {
             foreach (var row in m_brickRowInstances)
             {

@@ -17,7 +17,8 @@ namespace JGM.Game
         public void PlayParticle()
         {
             gameObject.SetActive(false);
-            m_particleSystem.startColor = m_particleColor;
+            var mainModule = m_particleSystem.main;
+            mainModule.startColor = m_particleColor;
             m_particleSystem.Play();
         }
     }

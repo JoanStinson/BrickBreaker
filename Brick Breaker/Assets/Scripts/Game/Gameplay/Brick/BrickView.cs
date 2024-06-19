@@ -27,7 +27,8 @@ namespace JGM.Game
             {
                 // 1 - play a particle
                 Color color = new Color(m_spriteRenderer.color.r, m_spriteRenderer.color.g, m_spriteRenderer.color.b, 0.5f);
-                m_particleSystem.startColor = color;
+                var mainModule = m_particleSystem.main;
+                mainModule.startColor = color;
                 m_particleSystem.Play();
 
                 // 2 - hide this Brick or this row

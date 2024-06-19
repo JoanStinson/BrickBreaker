@@ -1,9 +1,13 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
+using Random = UnityEngine.Random;
 
 namespace JGM.Game
 {
     public class BrickRowView : MonoBehaviour
     {
+        public Action OnBrickRowTouchedFloor { get; set; }
+
         [SerializeField] private float m_floorPosition = -3.8f;
         [SerializeField] private BrickView[] m_bricks;
         [SerializeField] private ExtraBallView[] m_extraBalls;
@@ -93,7 +97,7 @@ namespace JGM.Game
             {
                 if (HasActiveBricks())
                 {
-                    GameplayView.Instance.m_GameState = GameplayView.GameState.GameOver;
+                    OnBrickRowTouchedFloor?.Invoke();
                 }
                 else if (HasActiveScoreBall())
                 {
@@ -106,6 +110,22 @@ namespace JGM.Game
                     gameObject.SetActive(false);
                 }
             }
+        }
+
+        public bool HasActiveBricks()
+        {
+            bool hasActiveBrick = false;
+
+            for (int i = 0; i < m_bricks.Length; i++)
+            {
+                if (m_bricks[i].gameObject.activeInHierarchy)
+                {
+                    hasActiveBrick = true;
+                    break;
+                }
+            }
+
+            return hasActiveBrick;
         }
 
         public void CheckBricksActivation()
@@ -125,22 +145,6 @@ namespace JGM.Game
                 gameObject.SetActive(false);
                 GoToTop();
             }
-        }
-
-        public bool HasActiveBricks()
-        {
-            bool hasActiveBrick = false;
-
-            for (int i = 0; i < m_bricks.Length; i++)
-            {
-                if (m_bricks[i].gameObject.activeInHierarchy)
-                {
-                    hasActiveBrick = true;
-                    break;
-                }
-            }
-
-            return hasActiveBrick;
         }
 
         public bool HasActiveScoreBall()

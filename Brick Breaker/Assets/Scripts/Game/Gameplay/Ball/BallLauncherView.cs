@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -7,6 +8,8 @@ namespace JGM.Game
 {
     public class BallLauncherView : MonoBehaviour
     {
+        public Action OnReturnBallsToNewStartPosition { get; set; }
+
         public static BallLauncherView Instance;
 
         public SpriteRenderer m_BallSprite;
@@ -30,7 +33,7 @@ namespace JGM.Game
         private Vector3 m_direction;
         private Vector3 m_defaultStartPosition;
 
-        private void Awake()
+        public void Initialize()
         {
             Instance = this;
             m_CanPlay = true;
@@ -38,26 +41,17 @@ namespace JGM.Game
             m_BallsAmount = PlayerPrefs.GetInt("balls", 1);
             m_ballInstances = new List<BallView>(m_startingBallsPoolAmount);
             m_returnBallsButton.onClick.AddListener(ReturnAllBallsToNewStartPosition);
-        }
-
-        private void Start()
-        {
             SpawNewBall(m_startingBallsPoolAmount);
         }
 
         private void Update()
         {
-            if (GameplayView.Instance.m_GameState == GameplayView.GameState.MainMenu || GameplayView.Instance.m_GameState == GameplayView.GameState.GameOver)
-            {
-                return;
-            }
-
             if (!m_CanPlay)
             {
                 return;
             }
 
-            if (Time.timeScale != 0 && GameplayView.Instance.m_GameState != GameplayView.GameState.GameOver)
+            if (Time.timeScale > 0)
             {
                 m_worldPosition = Camera.main.ScreenToWorldPoint(Input.mousePosition) + Vector3.back * -10;
             }
@@ -232,9 +226,9 @@ namespace JGM.Game
 
             ResetPositions();
             BallView.ResetReturningBallsAmount();
-            GameplayView.Instance.UpdateScore();
+            OnReturnBallsToNewStartPosition?.Invoke();
             BrickRowSpawnerView.Instance.MoveDownRows();
-            BrickRowSpawnerView.Instance.SpawnNewRows();
+            BrickRowSpawnerView.Instance.SpawnBricks();
             ActivateHUD();
             m_CanPlay = true;
         }
