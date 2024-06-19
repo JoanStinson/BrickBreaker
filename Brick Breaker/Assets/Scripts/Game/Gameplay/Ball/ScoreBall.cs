@@ -19,7 +19,7 @@ namespace JGM.Game
 
         private void OnTriggerEnter2D(Collider2D collision)
         {
-            BallLauncher.Instance.m_TempAmount++;    // increase balls amount
+            BallLauncherView.Instance.m_TempAmount++;    // increase balls amount
             PlayParticle();
         }
 

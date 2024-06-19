@@ -35,8 +35,8 @@ namespace JGM.Game
                 if (FirstCollisionPoint == Vector3.zero)
                 {
                     FirstCollisionPoint = transform.position;
-                    BallLauncher.Instance.m_BallSprite.transform.position = FirstCollisionPoint;
-                    BallLauncher.Instance.m_BallSprite.enabled = true;
+                    BallLauncherView.Instance.m_BallSprite.transform.position = FirstCollisionPoint;
+                    BallLauncherView.Instance.m_BallSprite.enabled = true;
                 }
 
                 DisablePhysics();
@@ -65,17 +65,17 @@ namespace JGM.Game
         {
             if (FirstCollisionPoint != Vector3.zero)
             {
-                BallLauncher.Instance.transform.position = FirstCollisionPoint;
+                BallLauncherView.Instance.transform.position = FirstCollisionPoint;
             }
 
-            BallLauncher.Instance.m_BallSprite.enabled = true;
-            BallLauncher.Instance.ActivateHUD();
+            BallLauncherView.Instance.m_BallSprite.enabled = true;
+            BallLauncherView.Instance.ActivateHUD();
             ScoreManager.Instance.UpdateScore();
             BrickSpawner.Instance.MoveDownBricksRows();
             BrickSpawner.Instance.SpawnNewBricks();
             FirstCollisionPoint = Vector3.zero;
             m_returnedBallsAmount = 0;
-            BallLauncher.Instance.m_CanPlay = true;
+            BallLauncherView.Instance.m_CanPlay = true;
         }
 
         public static void ResetFirstCollisionPoint()
@@ -107,7 +107,7 @@ namespace JGM.Game
         {
             m_returnedBallsAmount++;
 
-            if (m_returnedBallsAmount == BallLauncher.Instance.m_BallsAmount)
+            if (m_returnedBallsAmount == BallLauncherView.Instance.m_BallsAmount)
             {
                 ContinuePlaying();
             }

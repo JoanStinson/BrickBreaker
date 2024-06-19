@@ -3250,17 +3250,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_BallSprite: {fileID: 1175111537}
-  m_CanPlay: 1
-  m_DeactivatableChildren: {fileID: 1588591227}
-  m_CorrectLineColor: {r: 0, g: 0.60784316, b: 1, a: 1}
-  m_WrongLineColor: {r: 1, g: 0.13725491, b: 0, a: 1}
   m_BallsAmount: 1
+  m_CanPlay: 1
   m_TempAmount: 0
-  m_BallsText: {fileID: 1588591232}
-  m_StartingBallsPoolAmount: 5
-  m_BallPrefab: {fileID: 3397543184943671935, guid: 38e75d5386a391a48b22f504141b1073, type: 3}
-  m_Balls: []
-  m_ReturnBallsButton: {fileID: 454934857}
+  m_deactivatableChildren: {fileID: 1588591227}
+  m_lineRenderer: {fileID: 1004838331}
+  m_correctLineColor: {r: 0, g: 0.60784316, b: 1, a: 1}
+  m_wrongLineColor: {r: 1, g: 0.13725491, b: 0, a: 1}
+  m_ballsAmountText: {fileID: 1588591232}
+  m_ballViewPrefab: {fileID: 3397543184943671935, guid: 38e75d5386a391a48b22f504141b1073, type: 3}
+  m_returnBallsButton: {fileID: 454934857}
+  m_startingBallsPoolAmount: 10
 --- !u!1 &1009635520
 GameObject:
   m_ObjectHideFlags: 0

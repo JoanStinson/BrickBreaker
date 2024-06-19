@@ -140,7 +140,7 @@ namespace JGM.Game
                 if (m_ScoreBalls[i].gameObject.activeInHierarchy)
                 {
                     m_ScoreBalls[i].PlayParticle();
-                    BallLauncher.Instance.IncreaseBallsAmountFromOutSide(1);
+                    BallLauncherView.Instance.IncreaseBallsAmountFromOutSide(1);
 
                     hasActiveScoreBall = true;
                     break;

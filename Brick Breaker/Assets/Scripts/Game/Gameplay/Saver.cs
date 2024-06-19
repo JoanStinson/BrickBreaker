@@ -26,7 +26,7 @@ namespace JGM.Game
                 SavedGame savedGame = new SavedGame
                 {
                     finalScore = BrickSpawner.Instance.m_LevelOfFinalBrick,
-                    xPositionOfBallLauncher = BallLauncher.Instance.transform.position.x,
+                    xPositionOfBallLauncher = BallLauncherView.Instance.transform.position.x,
                     BrickRowYPos = new System.Collections.Generic.List<float>()
                     {
 
