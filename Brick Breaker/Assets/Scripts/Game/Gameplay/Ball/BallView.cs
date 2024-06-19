@@ -1,18 +1,17 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 
 namespace JGM.Game
 {
     public class BallView : MonoBehaviour
     {
-        public static Vector3 FirstCollisionPoint { private set; get; }
+        public Action<BallView> OnBallReturned { get; set; }
 
         [SerializeField] private Rigidbody2D m_rigidbody2D;
         [SerializeField] private CircleCollider2D m_circleCollider2D;
         [SerializeField] private SpriteRenderer m_spriteRenderer;
         [SerializeField] private float m_moveSpeed = 7f;
-        [SerializeField] private float m_MinimumYPosition = -4.09f;
-
-        private static int m_returnedBallsAmount = 0;
+        [SerializeField] private float m_minimumYPosition = -4.09f;
 
         private void Awake()
         {
@@ -21,26 +20,31 @@ namespace JGM.Game
 
         private void Update()
         {
-            if (m_rigidbody2D.bodyType != RigidbodyType2D.Dynamic)
+            if (m_rigidbody2D.bodyType == RigidbodyType2D.Dynamic)
             {
-                return;
+                Move();
             }
+        }
 
+        private void Move()
+        {
             m_rigidbody2D.velocity = m_rigidbody2D.velocity.normalized * m_moveSpeed;
 
-            if (transform.localPosition.y < m_MinimumYPosition)
+            if (transform.localPosition.y < m_minimumYPosition)
             {
-                transform.localPosition = new Vector3(transform.localPosition.x, m_MinimumYPosition, 0);
+                transform.localPosition = new Vector3(transform.localPosition.x, m_minimumYPosition, 0);
 
-                if (FirstCollisionPoint == Vector3.zero)
+                if (BallLauncherView.Instance.FirstCollisionPoint == Vector3.zero)
                 {
-                    FirstCollisionPoint = transform.position;
-                    BallLauncherView.Instance.m_BallSprite.transform.position = FirstCollisionPoint;
+                    BallLauncherView.Instance.FirstCollisionPoint = transform.position;
+                    BallLauncherView.Instance.m_BallSprite.transform.position = BallLauncherView.Instance.FirstCollisionPoint;
                     BallLauncherView.Instance.m_BallSprite.enabled = true;
                 }
 
                 DisablePhysics();
-                MoveTo(FirstCollisionPoint, iTween.EaseType.linear, Vector2.Distance(transform.position, FirstCollisionPoint) / 5.0f, "Deactive");
+                float time = Vector2.Distance(transform.position, BallLauncherView.Instance.FirstCollisionPoint) / 5.0f;
+                string onCompleteMethod = nameof(OnReturnedToStartPosition);
+                MoveTo(BallLauncherView.Instance.FirstCollisionPoint, iTween.EaseType.linear, time, onCompleteMethod);
             }
         }
 
@@ -50,7 +54,7 @@ namespace JGM.Game
             m_rigidbody2D.bodyType = RigidbodyType2D.Static;
         }
 
-        public void MoveTo(Vector3 position, iTween.EaseType easeType, float time, string onCompleteMethod)
+        public void MoveTo(Vector3 position, iTween.EaseType easeType, float time, string onCompleteMethod = nameof(HideBall))
         {
             iTween.Stop(gameObject);
 
@@ -61,31 +65,14 @@ namespace JGM.Game
             }
         }
 
-        private static void ContinuePlaying()
+        private void OnReturnedToStartPosition()
         {
-            if (FirstCollisionPoint != Vector3.zero)
-            {
-                BallLauncherView.Instance.transform.position = FirstCollisionPoint;
-            }
-
-            BallLauncherView.Instance.m_BallSprite.enabled = true;
-            BallLauncherView.Instance.ActivateHUD();
-            BallLauncherView.Instance.OnBallsReturned?.Invoke();
-            BrickRowSpawnerView.Instance.MoveDownRows();
-            BrickRowSpawnerView.Instance.SpawnBricks();
-            FirstCollisionPoint = Vector3.zero;
-            m_returnedBallsAmount = 0;
-            BallLauncherView.Instance.m_CanPlay = true;
+            OnBallReturned?.Invoke(this);
         }
 
-        public static void ResetFirstCollisionPoint()
+        public void HideBall()
         {
-            FirstCollisionPoint = Vector3.zero;
-        }
-
-        public static void ResetReturningBallsAmount()
-        {
-            m_returnedBallsAmount = 0;
+            m_spriteRenderer.enabled = false;
         }
 
         public void GetReadyAndAddForce(Vector2 direction)
@@ -101,23 +88,6 @@ namespace JGM.Game
             m_spriteRenderer.enabled = false;
             m_circleCollider2D.enabled = false;
             m_rigidbody2D.bodyType = RigidbodyType2D.Static;
-        }
-
-        private void Deactive()
-        {
-            m_returnedBallsAmount++;
-
-            if (m_returnedBallsAmount == BallLauncherView.Instance.m_BallsAmount)
-            {
-                ContinuePlaying();
-            }
-
-            m_spriteRenderer.enabled = false;
-        }
-
-        private void DeactiveSprite()
-        {
-            m_spriteRenderer.enabled = false;
         }
     }
 }

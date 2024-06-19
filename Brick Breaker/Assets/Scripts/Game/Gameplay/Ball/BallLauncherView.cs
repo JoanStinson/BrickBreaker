@@ -9,11 +9,12 @@ namespace JGM.Game
     public class BallLauncherView : MonoBehaviour
     {
         public Action OnBallsReturned { get; set; }
+        public Vector3 FirstCollisionPoint { set; get; }
 
         public static BallLauncherView Instance;
 
         public SpriteRenderer m_BallSprite;
-        public int m_BallsAmount;
+        public int m_ballsAmount;
         public bool m_CanPlay = true;
         public int m_TempAmount = 0;
 
@@ -32,14 +33,15 @@ namespace JGM.Game
         private Vector3 m_worldPosition;
         private Vector3 m_direction;
         private Vector3 m_defaultStartPosition;
+        private int m_returnedBallsAmount;
 
         public void Initialize()
         {
             Instance = this;
             m_CanPlay = true;
             m_defaultStartPosition = transform.position;
-            m_BallsAmount = PlayerPrefs.GetInt("balls", 1);
-            m_ballsAmountText.text = "x" + m_BallsAmount.ToString();
+            m_ballsAmount = PlayerPrefs.GetInt("balls", 1);
+            m_ballsAmountText.text = "x" + m_ballsAmount.ToString();
             m_ballInstances = new List<BallView>(m_startingBallsPoolAmount);
             m_returnBallsButton.onClick.AddListener(ReturnAllBallsToNewStartPosition);
             SpawNewBall(m_startingBallsPoolAmount);
@@ -112,9 +114,9 @@ namespace JGM.Game
             //TODO hardcode for this time. fix it!
             if (Mathf.Abs(Mathf.Atan2(m_direction.x, m_direction.y)) < 1.35f)
             {
-                if (m_ballInstances.Count < m_BallsAmount)
+                if (m_ballInstances.Count < m_ballsAmount)
                 {
-                    SpawNewBall(m_BallsAmount - m_ballInstances.Count);
+                    SpawNewBall(m_ballsAmount - m_ballInstances.Count);
                 }
 
                 m_CanPlay = false;
@@ -125,15 +127,15 @@ namespace JGM.Game
         public void OnMainMenuActions()
         {
             m_CanPlay = false;
-            m_BallsAmount = 1;
-            m_ballsAmountText.text = "x" + m_BallsAmount.ToString();
+            m_ballsAmount = 1;
+            m_ballsAmountText.text = "x" + m_ballsAmount.ToString();
             m_BallSprite.enabled = true;
             m_deactivatableChildren.SetActive(true);
             transform.position = m_defaultStartPosition;
             m_BallSprite.transform.position = m_defaultStartPosition;
             ResetPositions();
             m_TempAmount = 0;
-            BallView.ResetReturningBallsAmount();
+            m_returnedBallsAmount = 0;
             m_returnBallsButton.gameObject.SetActive(false);
             HideAllBalls();
         }
@@ -158,11 +160,41 @@ namespace JGM.Game
         {
             for (int i = 0; i < amount; i++)
             {
-                m_ballInstances.Add(Instantiate(m_ballViewPrefab, transform.parent, false));
+                BallView ballInstance = Instantiate(m_ballViewPrefab, transform.parent, false);
+                ballInstance.OnBallReturned += OnReturnedBallInstance;
+                m_ballInstances.Add(ballInstance);
                 m_ballInstances[m_ballInstances.Count - 1].transform.localPosition = transform.localPosition;
                 m_ballInstances[m_ballInstances.Count - 1].transform.localScale = transform.localScale;
                 m_ballInstances[m_ballInstances.Count - 1].Disable();
             }
+        }
+
+        private void OnReturnedBallInstance(BallView ballView)
+        {
+            ballView.HideBall();
+            m_returnedBallsAmount++;
+
+            if (m_returnedBallsAmount == m_ballsAmount)
+            {
+                ContinuePlaying();
+            }
+        }
+
+        private void ContinuePlaying()
+        {
+            if (FirstCollisionPoint != Vector3.zero)
+            {
+                transform.position = FirstCollisionPoint;
+            }
+
+            m_BallSprite.enabled = true;
+            ActivateHUD();
+            OnBallsReturned?.Invoke();
+            BrickRowSpawnerView.Instance.MoveDownRows();
+            BrickRowSpawnerView.Instance.SpawnBricks();
+            FirstCollisionPoint = Vector3.zero;
+            m_returnedBallsAmount = 0;
+            m_CanPlay = true;
         }
 
         private IEnumerator StartShootingBalls()
@@ -170,9 +202,9 @@ namespace JGM.Game
             m_returnBallsButton.gameObject.SetActive(true);
             m_BallSprite.enabled = false;
 
-            int balls = m_BallsAmount;
+            int balls = m_ballsAmount;
 
-            for (int i = 0; i < m_BallsAmount; i++)
+            for (int i = 0; i < m_ballsAmount; i++)
             {
                 if (m_CanPlay)
                 {
@@ -194,26 +226,26 @@ namespace JGM.Game
 
         public void ActivateHUD()
         {
-            m_BallsAmount += m_TempAmount;
+            m_ballsAmount += m_TempAmount;
 
             // avoiding more balls than final brick level
-            if (m_BallsAmount > BrickRowSpawnerView.Instance.m_LevelOfFinalBrick + 1)
+            if (m_ballsAmount > BrickRowSpawnerView.Instance.m_LevelOfFinalBrick + 1)
             {
-                m_BallsAmount = BrickRowSpawnerView.Instance.m_LevelOfFinalBrick;
+                m_ballsAmount = BrickRowSpawnerView.Instance.m_LevelOfFinalBrick;
             }
 
             m_TempAmount = 0;
-            m_ballsAmountText.text = "x" + m_BallsAmount.ToString();
+            m_ballsAmountText.text = "x" + m_ballsAmount.ToString();
             m_deactivatableChildren.SetActive(true);
             m_returnBallsButton.gameObject.SetActive(false);
         }
 
         public void ReturnAllBallsToNewStartPosition()
         {
-            if (BallView.FirstCollisionPoint != Vector3.zero)
+            if (FirstCollisionPoint != Vector3.zero)
             {
-                transform.position = BallView.FirstCollisionPoint;
-                BallView.ResetFirstCollisionPoint();
+                transform.position = FirstCollisionPoint;
+                FirstCollisionPoint = Vector3.zero;
             }
 
             m_BallSprite.transform.position = transform.position;
@@ -222,11 +254,12 @@ namespace JGM.Game
             for (int i = 0; i < m_ballInstances.Count; i++)
             {
                 m_ballInstances[i].DisablePhysics();
-                m_ballInstances[i].MoveTo(transform.position, iTween.EaseType.easeInOutQuart, (Vector2.Distance(transform.position, m_ballInstances[i].transform.position) / 6.0f), "DeactiveSprite");
+                float time = Vector2.Distance(transform.position, m_ballInstances[i].transform.position) / 6.0f;
+                m_ballInstances[i].MoveTo(transform.position, iTween.EaseType.easeInOutQuart, time);
             }
 
             ResetPositions();
-            BallView.ResetReturningBallsAmount();
+            m_returnedBallsAmount = 0;
             OnBallsReturned?.Invoke();
             BrickRowSpawnerView.Instance.MoveDownRows();
             BrickRowSpawnerView.Instance.SpawnBricks();
@@ -236,8 +269,8 @@ namespace JGM.Game
 
         public void IncreaseBallsAmountFromOutSide(int amout)
         {
-            m_BallsAmount += amout;
-            m_ballsAmountText.text = "x" + m_BallsAmount.ToString();
+            m_ballsAmount += amout;
+            m_ballsAmountText.text = "x" + m_ballsAmount.ToString();
         }
 
         public void AddExtraBall()
