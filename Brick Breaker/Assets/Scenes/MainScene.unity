@@ -6073,7 +6073,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_leftColliderTransform: {fileID: 1241564927}
   m_rightColliderTransform: {fileID: 2015278654}
-  m_bricksParent: {fileID: 1208794666}
+  m_bricksParent: {fileID: 1342433621}
 --- !u!1 &510700392328390919
 GameObject:
   m_ObjectHideFlags: 0

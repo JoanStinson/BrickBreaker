@@ -9,29 +9,30 @@ namespace JGM.Game
         [SerializeField] private Transform m_rightColliderTransform;
         [SerializeField] private Transform m_bricksParent;
 
-        private bool resolutionDifferentFromBase => (Screen.width != baseScreenWidth || Screen.height != baseScreenHeight);
-        private const float baseScreenWidth = 1080f;
-        private const float baseScreenHeight = 1920f;
-        private const float baseLeftColliderX = -3.62f;
-        private const float baseRightColliderX = 3.62f;
+        private bool differentResolution => (Screen.width != m_baseScreenSize.x || Screen.height != m_baseScreenSize.y);
+        private readonly Vector2 m_baseScreenSize = new Vector2(1080f, 1920f);
+        private readonly Vector2 m_baseBrickRowScale = new Vector2(0.9f, 1.3f);
+        private const float m_baseLeftColliderX = -3.62f;
+        private const float m_baseRightColliderX = 3.62f;
 
         private IEnumerator Start()
         {
             yield return new WaitForEndOfFrame();
 
-            if (resolutionDifferentFromBase)
+            if (differentResolution)
             {
                 AdjustColliderPositions();
+                AdjustBrickSizes();
             }
         }
 
         private void AdjustColliderPositions()
         {
-            float widthRatio = Screen.width / baseScreenWidth;
-            float heightRatio = Screen.height / baseScreenHeight;
+            float widthRatio = Screen.width / m_baseScreenSize.x;
+            float heightRatio = Screen.height / m_baseScreenSize.y;
             float aspectRatio = widthRatio / heightRatio;
-            float newLeftColliderX = baseLeftColliderX * aspectRatio;
-            float newRightColliderX = baseRightColliderX * aspectRatio;
+            float newLeftColliderX = m_baseLeftColliderX * aspectRatio;
+            float newRightColliderX = m_baseRightColliderX * aspectRatio;
             AdjustColliderPosition(m_leftColliderTransform, newLeftColliderX);
             AdjustColliderPosition(m_rightColliderTransform, newRightColliderX);
         }
@@ -41,6 +42,20 @@ namespace JGM.Game
             Vector3 newPosition = colliderTransform.position;
             newPosition.x = newColliderX;
             colliderTransform.localPosition = newPosition;
+        }
+
+        private void AdjustBrickSizes()
+        {
+            float previousAspectRatio = m_baseScreenSize.x / m_baseScreenSize.y;
+            float currentAspectRatio = Screen.width / (float)Screen.height;
+
+            for (int i = 0; i < m_bricksParent.childCount; i++)
+            {
+                float brickLocalScaleX = m_baseBrickRowScale.x / (previousAspectRatio / currentAspectRatio);
+                float brickLocalScaleY = m_baseBrickRowScale.y / (previousAspectRatio / currentAspectRatio);
+                var newScale = new Vector3(brickLocalScaleX, brickLocalScaleY);
+                m_bricksParent.GetChild(i).localScale = newScale;
+            }
         }
     }
 }
