@@ -35,11 +35,11 @@ namespace JGM.Game
             m_multiplierView.Initialize(this);
             m_leaderboardsView.Initialize(this);
 
-            m_mainMenuView.Hide();
+            m_mainMenuView.Show();
             m_gameplayView.Hide();
             m_gameOverView.Hide();
             m_multiplierView.Hide();
-            m_leaderboardsView.Show();
+            m_leaderboardsView.Hide();
         }
 
         public void OnClickPlayButton()
@@ -70,14 +70,14 @@ namespace JGM.Game
 
         public void OnClickPlayAgainButton()
         {
-            m_gameOverView.Hide();
+            m_leaderboardsView.Hide();
             m_gameplayView.Show();
             m_gameController.PlayPressButtonSfx();
         }
 
         public void OnClickMainMenuButton()
         {
-            m_gameOverView.Hide();
+            m_leaderboardsView.Hide();
             m_mainMenuView.Show();
             m_gameController.PlayPressButtonSfx();
         }

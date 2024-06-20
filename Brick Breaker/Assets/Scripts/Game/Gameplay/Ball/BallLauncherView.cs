@@ -44,7 +44,7 @@ namespace JGM.Game
             m_gameModel = gameModel;
             m_canPlay = true;
             m_defaultStartPosition = transform.position;
-            m_ballsAmount = PlayerPrefs.GetInt("balls", 1);
+            m_ballsAmount = 1;
             m_ballsAmountText.text = "x" + m_ballsAmount.ToString();
             m_ballInstances = new List<BallView>(m_startingBallsPoolAmount);
             SpawNewBalls(m_startingBallsPoolAmount);
@@ -91,6 +91,13 @@ namespace JGM.Game
             OnBallsReturned?.Invoke();
             ActivateHUD();
             m_canPlay = true;
+        }
+
+        private void ResetPositions()
+        {
+            m_startPosition = Vector3.zero;
+            m_endPosition = Vector3.zero;
+            m_worldPosition = Vector3.zero;
         }
 
         private void Update()
@@ -196,13 +203,6 @@ namespace JGM.Game
             }
         }
 
-        public void ResetPositions()
-        {
-            m_startPosition = Vector3.zero;
-            m_endPosition = Vector3.zero;
-            m_worldPosition = Vector3.zero;
-        }
-
         private void OnReturnedBallInstance(BallView ballView)
         {
             ballView.HideBall();
@@ -259,6 +259,13 @@ namespace JGM.Game
             }
 
             return m_firstCollisionPoint;
+        }
+
+        public void Reset()
+        {
+            ResetPositions();
+            m_ballsAmount = 1;
+            m_ballsAmountText.text = "x" + m_ballsAmount.ToString();
         }
     }
 }

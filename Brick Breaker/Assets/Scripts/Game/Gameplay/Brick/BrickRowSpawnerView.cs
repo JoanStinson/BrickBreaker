@@ -24,7 +24,9 @@ namespace JGM.Game
         public void Initialize(GameModel gameModel)
         {
             m_gameModel = gameModel;
+            m_brickRowInstances?.Clear();
             m_brickRowInstances = new List<BrickRowView>();
+            m_brickRowsInstancesParent.DestroyAllChildren();
 
             for (int i = 0; i < m_rowsToSpawn; i++)
             {
