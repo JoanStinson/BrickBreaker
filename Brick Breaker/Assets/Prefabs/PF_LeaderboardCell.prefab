@@ -38,7 +38,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 265.60675, y: 0}
-  m_SizeDelta: {x: 631.2135, y: 100}
+  m_SizeDelta: {x: 912.8, y: 220}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &5503231307618209302
 CanvasRenderer:
@@ -261,7 +261,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 18
+  m_fontSize: 72
   m_fontSizeBase: 36.06
   m_fontWeight: 400
   m_enableAutoSizing: 1

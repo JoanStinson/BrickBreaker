@@ -3579,8 +3579,8 @@ MonoBehaviour:
   m_playAgainButton: {fileID: 522172284}
   m_mainMenuButton: {fileID: 2067931496}
   m_quitButton: {fileID: 347056881}
-  m_scrollContent: {fileID: 1863995482}
-  m_cell: {fileID: 2570192623098973245, guid: 318a1a72d11ae5945b25c5bfbcd47e74, type: 3}
+  m_scrollRect: {fileID: 1231509960}
+  m_cellPrefab: {fileID: 2570192623098973245, guid: 318a1a72d11ae5945b25c5bfbcd47e74, type: 3}
 --- !u!1 &973152279
 GameObject:
   m_ObjectHideFlags: 0
@@ -7390,7 +7390,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 300}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &1863995483
 MonoBehaviour:
@@ -7414,7 +7414,7 @@ MonoBehaviour:
   m_ChildForceExpandWidth: 1
   m_ChildForceExpandHeight: 1
   m_ChildControlWidth: 1
-  m_ChildControlHeight: 1
+  m_ChildControlHeight: 0
   m_ChildScaleWidth: 0
   m_ChildScaleHeight: 0
   m_ReverseArrangement: 0
