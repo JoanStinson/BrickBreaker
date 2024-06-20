@@ -1,8 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
-using System.Threading.Tasks;
 using UnityEngine;
 using UnityEngine.UI;
+using static Codice.Client.ChangeTrackerService.Win32Api;
 
 namespace JGM.Game
 {
@@ -21,6 +21,8 @@ namespace JGM.Game
         private int m_visibleCellsCount = 10;
         private float m_cellHeight;
         private int m_firstVisibleIndex = 0;
+        private LeaderboardEntry m_userEntry;
+        private int m_userIndex;
 
         public override void Initialize(GameView gameView)
         {
@@ -59,6 +61,11 @@ namespace JGM.Game
             yield return new WaitForEndOfFrame();
             m_firstVisibleIndex = 0;
             UpdateCells();
+
+            float targetPosY = Mathf.Max(m_userIndex * m_cellHeight + m_scrollRect.viewport.rect.height / 2 - m_cellHeight / 2, 0);
+            const float offsetY = 553.55f;
+            targetPosY -= offsetY;
+            m_scrollRect.content.localPosition = new Vector3(m_scrollRect.content.localPosition.x, targetPosY, m_scrollRect.content.localPosition.z);
         }
 
         private void InitializeLeaderboard()
@@ -66,16 +73,13 @@ namespace JGM.Game
             m_entries = GenerateRandomEntries(m_totalEntries - 1);
 
             int userScore = m_gameView.Model.Score * m_gameView.Model.ScoreMultiplier;
-            LeaderboardEntry userEntry = new LeaderboardEntry { Name = "User", Score = userScore };
-            m_entries.Add(userEntry);
+            m_userEntry = new LeaderboardEntry { Name = "User", Score = userScore };
+            m_entries.Add(m_userEntry);
             m_entries.Sort((a, b) => b.Score.CompareTo(a.Score));
+            m_userIndex = m_entries.FindIndex(e => e.Name == "User");
+            m_userIndex = Mathf.Clamp(m_userIndex, 0, m_totalEntries - 1);
 
-            int userIndex = m_entries.IndexOf(userEntry);
-            userIndex = Mathf.Clamp(userIndex, 0, m_totalEntries - 1);
             m_cellHeight = ((RectTransform)m_cellPrefab.transform).rect.height;
-            float targetPosY = Mathf.Max(-userIndex * m_cellHeight + m_scrollRect.viewport.rect.height / 2 - m_cellHeight / 2, 0);
-            //m_scrollRect.content.localPosition = new Vector2(m_scrollRect.content.localPosition.x, 21305.89f);
-
             m_cellsPool = new List<LeaderboardCellView>();
             for (int i = 0; i < m_visibleCellsCount; i++)
             {
@@ -120,7 +124,7 @@ namespace JGM.Game
                 int entryIndex = newFirstVisibleIndex + i;
                 if (entryIndex >= 0 && entryIndex < m_entries.Count)
                 {
-                    bool isUserCell = (entryIndex == m_entries.Count - 1);
+                    bool isUserCell = (entryIndex == m_userIndex);
                     string textColor = isUserCell ? "blue" : "black";
                     string text = $"<color={textColor}>Position {entryIndex + 1} - {m_entries[entryIndex].Name} - {m_entries[entryIndex].Score}</color>";
                     m_cellsPool[i].SetText(text);
