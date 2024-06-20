@@ -74,6 +74,7 @@ namespace JGM.Game
             m_score = 0;
             m_gameModel.Score = m_score;
             m_scoreText.SetIntegerValue(m_score);
+            m_highScoreText.SetIntegerValue(m_highScore);
             m_gameModel.LevelOfFinalBrick = 1;
             m_brickRowSpawnerView.Initialize(m_gameModel);
             m_ballLauncherView.Reset();
