@@ -7,8 +7,9 @@ namespace JGM.Game
 {
     public class BrickRowView : MonoBehaviour
     {
-        public Action OnBrickRowTouchedFloor { get; set; }
+        public Action OnBrickGotHit { get; set; }
         public Action OnPickupBallFromRow { get; set; }
+        public Action OnBrickRowTouchedFloor { get; set; }
         public class Factory : PlaceholderFactory<BrickRowView> { }
 
         [SerializeField] private float m_floorPosition = -3.8f;
@@ -26,6 +27,7 @@ namespace JGM.Game
             foreach (var brick in m_bricks)
             {
                 brick.Initialize(gameModel);
+                brick.OnBrickHit += OnBrickHit;
             }
 
             foreach (var extraBall in m_extraBalls)
@@ -34,6 +36,11 @@ namespace JGM.Game
             }
 
             OnEnable();
+        }
+
+        private void OnBrickHit()
+        {
+            OnBrickGotHit?.Invoke();
         }
 
         private void OnPickup()

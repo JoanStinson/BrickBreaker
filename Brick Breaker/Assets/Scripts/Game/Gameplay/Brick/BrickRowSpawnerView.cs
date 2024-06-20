@@ -7,8 +7,9 @@ namespace JGM.Game
 {
     public class BrickRowSpawnerView : MonoBehaviour
     {
-        public Action OnBrickTouchedFloor { get; set; }
+        public Action OnBrickHit { get; set; }
         public Action OnPickupExtraBall { get; set; }
+        public Action OnBrickTouchedFloor { get; set; }
 
         [field: SerializeField]
         public float SpawningRowDistance { get; set; } = 0.64f;
@@ -30,14 +31,20 @@ namespace JGM.Game
                 var brickRowInstance = m_brickRowFactory.Create();
                 brickRowInstance.transform.SetParent(m_brickRowsInstancesParent, false);
                 brickRowInstance.Initialize(SpawningRowDistance, m_spawningTopPosition, gameModel);
-                brickRowInstance.OnBrickRowTouchedFloor += OnBrickRowTouchedFloor;
+                brickRowInstance.OnBrickGotHit += OnBrickGotHit;
                 brickRowInstance.OnPickupBallFromRow += OnPickupRowFromBall;
+                brickRowInstance.OnBrickRowTouchedFloor += OnBrickRowTouchedFloor;
                 m_brickRowInstances.Add(brickRowInstance);
                 m_brickRowInstances[m_brickRowInstances.Count - 1].transform.localPosition = new Vector3(0, m_spawningTopPosition, 0);
                 m_brickRowInstances[m_brickRowInstances.Count - 1].gameObject.SetActive(false);
             }
 
             SpawnBricks();
+        }
+
+        private void OnBrickGotHit()
+        {
+            OnBrickHit?.Invoke();
         }
 
         private void OnBrickRowTouchedFloor()

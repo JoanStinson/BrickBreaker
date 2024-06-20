@@ -2110,8 +2110,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_brickRowSpawnerView: {fileID: 1208794667}
   m_ballLauncherView: {fileID: 1004838332}
-  m_scoreText: {fileID: 142935630}
-  m_highScoreText: {fileID: 1714537303}
+  m_highScoreText: {fileID: 142935630}
+  m_scoreText: {fileID: 1714537303}
 --- !u!1 &565390573
 GameObject:
   m_ObjectHideFlags: 0

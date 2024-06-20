@@ -1,10 +1,13 @@
-﻿using TMPro;
+﻿using System;
+using TMPro;
 using UnityEngine;
 
 namespace JGM.Game
 {
     public class BrickView : MonoBehaviour
     {
+        public Action OnBrickHit { get; set; }
+
         [SerializeField] private SpriteRenderer m_spriteRenderer;
         [SerializeField] private ParticleSystem m_particleSystem;
         [SerializeField] private TextMeshProUGUI m_healthText;
@@ -28,6 +31,7 @@ namespace JGM.Game
 
         private void OnCollisionEnter2D(Collision2D collision)
         {
+            OnBrickHit?.Invoke();
             m_healthAmount--;
             m_healthText.text = m_healthAmount.ToString();
             ChangeColor();
