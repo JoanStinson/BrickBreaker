@@ -53,10 +53,31 @@ namespace JGM.Game
 
         private void InitializeLeaderboard()
         {
-            m_entries = GenerateRandomEntries(m_totalEntries);
+            m_entries = GenerateRandomEntries(m_totalEntries - 1);
             m_cellsPool = new List<LeaderboardCellView>();
             m_cellHeight = ((RectTransform)m_cellPrefab.transform).rect.height;
 
+            // Calculate user's score
+            int userScore = m_gameView.Model.Score * m_gameView.Model.ScoreMultiplier;
+            // Create user's entry
+            LeaderboardEntry userEntry = new LeaderboardEntry { Name = "User", Score = userScore };
+            // Add user's entry to the list
+            m_entries.Add(userEntry);
+
+            // Sort entries by score in descending order
+            m_entries.Sort((a, b) => b.Score.CompareTo(a.Score));
+
+            // Find the index of the user's entry in the sorted list
+            int userIndex = m_entries.IndexOf(userEntry);
+
+            // Adjust user's index so it's within bounds
+            userIndex = Mathf.Clamp(userIndex, 0, m_totalEntries - 1);
+
+            // Set initial anchored position to center on the user's cell
+            float targetPosY = -userIndex * m_cellHeight;
+            m_scrollRect.content.anchoredPosition = new Vector2(m_scrollRect.content.anchoredPosition.x, targetPosY);
+
+            // Create cell prefabs
             for (int i = 0; i < m_visibleCellsCount; i++)
             {
                 var cell = Instantiate(m_cellPrefab, m_scrollRect.content);
@@ -65,21 +86,20 @@ namespace JGM.Game
 
             m_scrollRect.onValueChanged.AddListener(OnScrollChanged);
             m_scrollRect.content.sizeDelta = new Vector2(m_scrollRect.content.sizeDelta.x, m_cellHeight * m_totalEntries);
-            m_scrollRect.content.anchoredPosition = new Vector2(m_scrollRect.content.anchoredPosition.x, 0);  // Ensure content starts from top
         }
 
         private List<LeaderboardEntry> GenerateRandomEntries(int count)
         {
             List<LeaderboardEntry> entries = new List<LeaderboardEntry>();
             System.Random rand = new System.Random();
+
             for (int i = 0; i < count; i++)
             {
                 string name = "User" + rand.Next(1000, 9999);
-                int score = rand.Next(1000, 100000);
+                int score = rand.Next(0, 51); // Random score from 0 to 50
                 entries.Add(new LeaderboardEntry { Name = name, Score = score });
             }
 
-            entries.Sort((a, b) => b.Score.CompareTo(a.Score));
             return entries;
         }
 
@@ -99,9 +119,15 @@ namespace JGM.Game
             for (int i = 0; i < m_visibleCellsCount; i++)
             {
                 int entryIndex = newFirstVisibleIndex + i;
-                if (entryIndex >= 0 && entryIndex < m_totalEntries)
+                if (entryIndex >= 0 && entryIndex < m_entries.Count)
                 {
-                    m_cellsPool[i].SetText($"Position {entryIndex + 1} - {m_entries[entryIndex].Name} - {m_entries[entryIndex].Score}");
+                    // Check if it's the user's cell
+                    bool isUserCell = entryIndex == m_entries.Count - 1; // Last entry is the user's cell
+
+                    // Format text with blue color if it's the user's cell
+                    string textColor = isUserCell ? "blue" : "black";
+                    string text = $"<color={textColor}>Position {entryIndex + 1} - {m_entries[entryIndex].Name} - {m_entries[entryIndex].Score}</color>";
+                    m_cellsPool[i].SetText(text);
                     m_cellsPool[i].transform.localPosition = new Vector3(m_cellsPool[i].transform.localPosition.x, -entryIndex * m_cellHeight, 0);
                 }
             }
