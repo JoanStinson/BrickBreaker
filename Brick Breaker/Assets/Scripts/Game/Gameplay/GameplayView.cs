@@ -37,6 +37,7 @@ namespace JGM.Game
         {
             m_score++;
             m_scoreText.text = $"Score: {m_score.ToString()}";
+            m_gameModel.Score = m_score;
 
             if (m_score > m_highScore)
             {

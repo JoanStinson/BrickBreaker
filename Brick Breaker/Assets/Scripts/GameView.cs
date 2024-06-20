@@ -1,5 +1,4 @@
-﻿using System;
-using UnityEngine;
+﻿using UnityEngine;
 using Zenject;
 
 namespace JGM.Game
@@ -14,6 +13,7 @@ namespace JGM.Game
         [SerializeField] private GameplayView m_gameplayView;
         [SerializeField] private ScreenView m_gameOverView;
         [SerializeField] private ScreenView m_multiplierView;
+        [SerializeField] private ScreenView m_leaderboardsView;
 
         [Inject] private GameSettings m_gameSettings;
         [Inject] private IAudioService m_audioService;
@@ -33,17 +33,19 @@ namespace JGM.Game
             m_gameplayView.Initialize(this);
             m_gameOverView.Initialize(this);
             m_multiplierView.Initialize(this);
+            m_leaderboardsView.Initialize(this);
 
             m_mainMenuView.Hide();
-            //m_gameplayView.Show();
+            m_gameplayView.Hide();
             m_gameOverView.Hide();
             m_multiplierView.Hide();
+            m_leaderboardsView.Show();
         }
 
         public void OnClickPlayButton()
         {
             m_mainMenuView.Hide();
-            //m_gameplayView.Show();
+            m_gameplayView.Show();
             m_gameController.PlayPressButtonSfx();
         }
 
@@ -62,14 +64,14 @@ namespace JGM.Game
         public void OnTicTacToeFound(int playerWinId)
         {
             m_gameModel.LastPlayerWinId = playerWinId;
-            //m_gameplayView.Hide();
+            m_gameplayView.Hide();
             m_gameOverView.Show();
         }
 
         public void OnClickPlayAgainButton()
         {
             m_gameOverView.Hide();
-            //m_gameplayView.Show();
+            m_gameplayView.Show();
             m_gameController.PlayPressButtonSfx();
         }
 
@@ -82,7 +84,7 @@ namespace JGM.Game
 
         public void OnClickPlayBackButton()
         {
-            //m_gameplayView.Hide();
+            m_gameplayView.Hide();
             m_mainMenuView.Show();
             m_gameController.PlayPressButtonSfx();
         }
@@ -95,17 +97,23 @@ namespace JGM.Game
 
         public void OnClick1XButton()
         {
-                
+            m_gameModel.ScoreMultiplier = 1;
+            m_multiplierView.Hide();
+            m_leaderboardsView.Show();
         }
 
         public void OnClick3XButton()
         {
-            
+            m_gameModel.ScoreMultiplier = 3;
+            m_multiplierView.Hide();
+            m_leaderboardsView.Show();
         }
 
         public void OnClick5XButton()
         {
-            
+            m_gameModel.ScoreMultiplier = 5;
+            m_multiplierView.Hide();
+            m_leaderboardsView.Show();
         }
     }
 }

@@ -25,8 +25,9 @@ namespace JGM.Game
                 PlayerPrefs.Save();
             }
         }
-        public int Score { get; set; }
+        public int Score { get; set; } = 0;
         public int LevelOfFinalBrick { get; set; } = 1;
+        public int ScoreMultiplier { get; set; } = 1;
 
         private readonly PieceConfig[] m_player1PieceConfigs;
         private readonly PieceConfig[] m_player2PieceConfigs;
