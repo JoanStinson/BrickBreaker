@@ -1,5 +1,4 @@
-﻿using TMPro;
-using UnityEngine;
+﻿using UnityEngine;
 using Zenject;
 
 namespace JGM.Game
@@ -8,8 +7,9 @@ namespace JGM.Game
     {
         [SerializeField] private BrickRowSpawnerView m_brickRowSpawnerView;
         [SerializeField] private BallLauncherView m_ballLauncherView;
-        [SerializeField] private TextMeshProUGUI m_highScoreText;
-        [SerializeField] private TextMeshProUGUI m_scoreText;
+        [SerializeField] private LocalizedText m_highScoreText;
+        [SerializeField] private LocalizedText m_scoreText;
+        [SerializeField] private GameObject m_gameplayCanvas;
         [Inject] private IAudioService m_audioService;
 
         private GameView m_gameView;
@@ -22,8 +22,8 @@ namespace JGM.Game
             m_gameView = gameView;
             m_gameModel = gameView.Model;
             m_highScore = m_gameModel.HighScore;
-            m_highScoreText.text = $"High Score: {m_highScore.ToString()}";
-            m_scoreText.text = $"Score: {m_score.ToString()}";
+            m_highScoreText.SetIntegerValue(m_highScore);
+            m_scoreText.SetIntegerValue(m_score);
 
             m_brickRowSpawnerView.Initialize(m_gameModel);
             m_brickRowSpawnerView.OnBrickHit += OnBrickHit;
@@ -37,13 +37,13 @@ namespace JGM.Game
         private void OnBrickHit()
         {
             m_score++;
-            m_scoreText.text = $"Score: {m_score.ToString()}";
+            m_scoreText.SetIntegerValue(m_score);
             m_gameModel.Score = m_score;
 
             if (m_score > m_highScore)
             {
                 m_highScore = m_score;
-                m_highScoreText.text = $"High Score: {m_highScore.ToString()}";
+                m_highScoreText.SetIntegerValue(m_highScore);
                 m_gameModel.HighScore = m_highScore;
             }
 
@@ -70,9 +70,10 @@ namespace JGM.Game
         public void Show()
         {
             gameObject.SetActive(true);
+            m_gameplayCanvas.SetActive(true);
             m_score = 0;
             m_gameModel.Score = m_score;
-            m_scoreText.text = $"Score: {m_score.ToString()}";
+            m_scoreText.SetIntegerValue(m_score);
             m_gameModel.LevelOfFinalBrick = 1;
             m_brickRowSpawnerView.Initialize(m_gameModel);
             m_ballLauncherView.Reset();
@@ -81,6 +82,7 @@ namespace JGM.Game
         public void Hide()
         {
             gameObject.SetActive(false);
+            m_gameplayCanvas.SetActive(false);
         }
     }
 }

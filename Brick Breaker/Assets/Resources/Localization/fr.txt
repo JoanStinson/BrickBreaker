@@ -1,8 +1,9 @@
-﻿TID_GAME_TITLE=Tatedrez
+﻿TID_GAME_TITLE=Brick\nBreaker
 TID_PLAY=Jouer
 TID_QUIT=Quitter
-TID_PLAYER_TURN=Tour du joueur [X]
-TID_PLAYER_CANNOT_MOVE=Le joueur [X] ne peut pas bouger\nChanger de tour!
-TID_PLAYER_WINS=Le joueur [X] gagne!
 TID_PLAY_AGAIN=Rejouer
 TID_MAIN_MENU=Menu principal
+TID_HIGH_SCORE=Höchstpunktzahl: [X]
+TID_SCORE=Punktzahl: [X]
+TID_MULTIPLIER=Multiplikator
+TID_LEADERBOARDS=Ranglisten

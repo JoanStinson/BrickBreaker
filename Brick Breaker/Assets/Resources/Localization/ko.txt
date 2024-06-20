@@ -1,8 +1,9 @@
-﻿TID_GAME_TITLE=Tatedrez
+﻿TID_GAME_TITLE=Brick\nBreaker
 TID_PLAY=게임 시작
 TID_QUIT=나가기
-TID_PLAYER_TURN=플레이어 [X] 턴
-TID_PLAYER_CANNOT_MOVE=플레이어 [X] 움직 수다\n턴레레하!
-TID_PLAYER_WINS=플레이어 [X] 승리!
 TID_PLAY_AGAIN=다시 하기
 TID_MAIN_MENU=메인 메뉴
+TID_HIGH_SCORE=최고 점수: [X]
+TID_SCORE=점수: [X]
+TID_MULTIPLIER=곱셈기
+TID_LEADERBOARDS=리더보드
