@@ -63,7 +63,7 @@ namespace JGM.Game
             UpdateCells();
 
             float targetPosY = Mathf.Max(m_userIndex * m_cellHeight + m_scrollRect.viewport.rect.height / 2 - m_cellHeight / 2, 0);
-            const float offsetY = 553.55f;
+            const float offsetY = 330.82f;
             targetPosY -= offsetY;
             m_scrollRect.content.localPosition = new Vector3(m_scrollRect.content.localPosition.x, targetPosY, m_scrollRect.content.localPosition.z);
         }
