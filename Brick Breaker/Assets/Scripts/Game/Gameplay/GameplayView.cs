@@ -1,4 +1,5 @@
-﻿using TMPro;
+﻿using System;
+using TMPro;
 using UnityEngine;
 
 namespace JGM.Game
@@ -9,14 +10,15 @@ namespace JGM.Game
         [SerializeField] private BallLauncherView m_ballLauncherView;
         [SerializeField] private TextMeshProUGUI m_highScoreText;
         [SerializeField] private TextMeshProUGUI m_scoreText;
-        
+
+        private GameView m_gameView;
         private GameModel m_gameModel;
         private int m_highScore;
         private int m_score;
 
         public void Initialize(GameView gameView)
         {
-            //PlayerPrefs.DeleteAll();
+            m_gameView = gameView;
             m_gameModel = gameView.Model;
             m_highScore = m_gameModel.HighScore;
             m_highScoreText.text = $"High Score: {m_highScore.ToString()}";
@@ -51,13 +53,23 @@ namespace JGM.Game
 
         private void OnBrickTouchedFloor()
         {
-
+            m_gameView.OnBrickTouchedFloor();
         }
 
         private void OnBallsReturned()
         {
             m_brickRowSpawnerView.MoveDownRows();
             m_brickRowSpawnerView.SpawnBricks();
+        }
+
+        public void Show()
+        {
+            gameObject.SetActive(true);
+        }
+
+        public void Hide()
+        {
+            gameObject.SetActive(false);
         }
     }
 }

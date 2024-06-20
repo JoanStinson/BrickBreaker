@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 using Zenject;
 
 namespace JGM.Game
@@ -12,6 +13,7 @@ namespace JGM.Game
         [SerializeField] private ScreenView m_mainMenuView;
         [SerializeField] private GameplayView m_gameplayView;
         [SerializeField] private ScreenView m_gameOverView;
+        [SerializeField] private ScreenView m_multiplierView;
 
         [Inject] private GameSettings m_gameSettings;
         [Inject] private IAudioService m_audioService;
@@ -30,10 +32,12 @@ namespace JGM.Game
             m_mainMenuView.Initialize(this);
             m_gameplayView.Initialize(this);
             m_gameOverView.Initialize(this);
+            m_multiplierView.Initialize(this);
 
             m_mainMenuView.Hide();
             //m_gameplayView.Show();
             m_gameOverView.Hide();
+            m_multiplierView.Hide();
         }
 
         public void OnClickPlayButton()
@@ -81,6 +85,27 @@ namespace JGM.Game
             //m_gameplayView.Hide();
             m_mainMenuView.Show();
             m_gameController.PlayPressButtonSfx();
+        }
+
+        public void OnBrickTouchedFloor()
+        {
+            m_gameplayView.Hide();
+            m_multiplierView.Show();
+        }
+
+        public void OnClick1XButton()
+        {
+                
+        }
+
+        public void OnClick3XButton()
+        {
+            
+        }
+
+        public void OnClick5XButton()
+        {
+            
         }
     }
 }
