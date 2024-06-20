@@ -32,14 +32,22 @@ SpriteAtlas:
     secondaryTextureSettings: {}
     variantMultiplier: 1
     packables:
-    - {fileID: 2800000, guid: 8ab922c8f0fcc4f4e9bb0388114d50aa, type: 3}
+    - {fileID: 2800000, guid: 6ddb4ce2b43881c479e2b8e2a5e80846, type: 3}
+    - {fileID: 2800000, guid: 5164d860d8330de428ac70dba602e0c1, type: 3}
     - {fileID: 2800000, guid: 9bf3ed63f0f6b684e9d602baf3021561, type: 3}
     - {fileID: 2800000, guid: cfa8445c00017f941b3aec30b8ac1ca5, type: 3}
-    - {fileID: 2800000, guid: 576ee8cbdf3556c4e853a086497de857, type: 3}
     - {fileID: 2800000, guid: 5afe6a55eadf6084fb7186793823b564, type: 3}
     - {fileID: 2800000, guid: 6d0c1bb24c0c742448bfcff88ca697d1, type: 3}
+    - {fileID: 2800000, guid: f98e14aa6d8d1d74a83210179e84b357, type: 3}
+    - {fileID: 2800000, guid: baf0ed200122a964e8a02818fb5429f6, type: 3}
     - {fileID: 2800000, guid: 1f0826b65afa77b418e1b063e518adc1, type: 3}
     - {fileID: 2800000, guid: 9f31bf104b236274ab6918b61bc0a01e, type: 3}
+    - {fileID: 2800000, guid: e97f484171c11614eb1c0355de9240fc, type: 3}
+    - {fileID: 2800000, guid: 06b0fa8137074344eb5298f46ad61b4b, type: 3}
+    - {fileID: 2800000, guid: 6d8b53a168abe24428719c92c693d8cd, type: 3}
+    - {fileID: 2800000, guid: 6ea9c9adb6d1e1740995fc8cf67d481b, type: 3}
+    - {fileID: 2800000, guid: 61bf1b49e77f0be43984927ab249dfd5, type: 3}
+    - {fileID: 2800000, guid: 0392626f1343eb74b84309765da6c538, type: 3}
     - {fileID: 2800000, guid: 6084923170619e44498f4f1e3968cbeb, type: 3}
     bindAsDefault: 1
     isAtlasV2: 0
@@ -47,34 +55,40 @@ SpriteAtlas:
   m_MasterAtlas: {fileID: 0}
   m_PackedSprites:
   - {fileID: 21300000, guid: 9f31bf104b236274ab6918b61bc0a01e, type: 3}
+  - {fileID: 21300000, guid: baf0ed200122a964e8a02818fb5429f6, type: 3}
+  - {fileID: 21300000, guid: 5164d860d8330de428ac70dba602e0c1, type: 3}
   - {fileID: 21300000, guid: 6084923170619e44498f4f1e3968cbeb, type: 3}
+  - {fileID: 21300000, guid: e97f484171c11614eb1c0355de9240fc, type: 3}
+  - {fileID: 21300000, guid: 06b0fa8137074344eb5298f46ad61b4b, type: 3}
+  - {fileID: 21300000, guid: 6d8b53a168abe24428719c92c693d8cd, type: 3}
   - {fileID: 21300000, guid: 6d0c1bb24c0c742448bfcff88ca697d1, type: 3}
+  - {fileID: 21300000, guid: 6ddb4ce2b43881c479e2b8e2a5e80846, type: 3}
   - {fileID: 21300000, guid: 9bf3ed63f0f6b684e9d602baf3021561, type: 3}
   - {fileID: 21300000, guid: 5afe6a55eadf6084fb7186793823b564, type: 3}
   - {fileID: 21300000, guid: 1f0826b65afa77b418e1b063e518adc1, type: 3}
-  - {fileID: 21300000, guid: 8ab922c8f0fcc4f4e9bb0388114d50aa, type: 3}
-  - {fileID: 1425562442, guid: 576ee8cbdf3556c4e853a086497de857, type: 3}
-  - {fileID: 428072470, guid: 576ee8cbdf3556c4e853a086497de857, type: 3}
-  - {fileID: 1962470289, guid: 576ee8cbdf3556c4e853a086497de857, type: 3}
-  - {fileID: -644309489, guid: 576ee8cbdf3556c4e853a086497de857, type: 3}
-  - {fileID: -1261962955, guid: 576ee8cbdf3556c4e853a086497de857, type: 3}
-  - {fileID: -487312630, guid: 576ee8cbdf3556c4e853a086497de857, type: 3}
+  - {fileID: 21300000, guid: 61bf1b49e77f0be43984927ab249dfd5, type: 3}
+  - {fileID: 21300000, guid: f98e14aa6d8d1d74a83210179e84b357, type: 3}
   - {fileID: 21300000, guid: cfa8445c00017f941b3aec30b8ac1ca5, type: 3}
+  - {fileID: 21300000, guid: 6ea9c9adb6d1e1740995fc8cf67d481b, type: 3}
+  - {fileID: 21300000, guid: 0392626f1343eb74b84309765da6c538, type: 3}
   m_PackedSpriteNamesToIndex:
   - Round Button Pressed
+  - Return Balls
+  - Dot Lines
   - White
+  - Score Ball Ring
+  - Score Ball
+  - Standard Button
   - Rectangle Button Pressed
+  - Brick
   - Hand Icon
   - Rectangle Button Idle
   - Round Button Idle
-  - Close Icon
-  - Black Rook
-  - White Knight
-  - Black Knight
-  - Black Bishop
-  - White Rook
-  - White Bishop
+  - Wall
+  - Return Balls Icon
   - Language Icon
+  - Triangle
+  - White Ball
   m_RenderDataMap: {}
   m_Tag: Default Sprite Atlas
   m_IsVariant: 0

@@ -15,9 +15,9 @@ namespace JGM.Game
             m_localizationService = localizationService;
         }
 
-        public GameModel BuildGameModel(GameSettings gameSettings)
+        public GameModel BuildGameModel()
         {
-            return new GameModel(gameSettings);
+            return new GameModel();
         }
 
         public void PlayBackgroundMusic()
