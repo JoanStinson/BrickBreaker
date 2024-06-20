@@ -65,6 +65,7 @@ namespace JGM.Game
 
             m_scrollRect.onValueChanged.AddListener(OnScrollChanged);
             m_scrollRect.content.sizeDelta = new Vector2(m_scrollRect.content.sizeDelta.x, m_cellHeight * m_totalEntries);
+            m_scrollRect.content.anchoredPosition = new Vector2(m_scrollRect.content.anchoredPosition.x, 0);  // Ensure content starts from top
         }
 
         private List<LeaderboardEntry> GenerateRandomEntries(int count)
@@ -101,7 +102,7 @@ namespace JGM.Game
                 if (entryIndex >= 0 && entryIndex < m_totalEntries)
                 {
                     m_cellsPool[i].SetText($"Position {entryIndex + 1} - {m_entries[entryIndex].Name} - {m_entries[entryIndex].Score}");
-                    m_cellsPool[i].transform.localPosition = new Vector3(0, -entryIndex * m_cellHeight, 0);
+                    m_cellsPool[i].transform.localPosition = new Vector3(m_cellsPool[i].transform.localPosition.x, -entryIndex * m_cellHeight, 0);
                 }
             }
 
