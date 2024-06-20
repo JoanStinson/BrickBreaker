@@ -619,9 +619,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c75e87658f29207428ca0247abb85387, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_pieceViewPrefab: {fileID: 9029576500978370833, guid: 96485cb317d02174b92360a0e0c3f11f, type: 3}
   m_ballViewPrefab: {fileID: 3397543184943671935, guid: 38e75d5386a391a48b22f504141b1073, type: 3}
   m_brickRowViewPrefab: {fileID: 7541374567769458674, guid: d2e99dd407beab240801159835093447, type: 3}
+  m_leaderboardCellView: {fileID: 2570192623098973245, guid: 318a1a72d11ae5945b25c5bfbcd47e74, type: 3}
 --- !u!4 &307939873
 Transform:
   m_ObjectHideFlags: 0
@@ -1996,7 +1996,7 @@ MonoBehaviour:
   m_mainMenuButton: {fileID: 2067931496}
   m_quitButton: {fileID: 347056881}
   m_scrollRect: {fileID: 1231509960}
-  m_cellPrefab: {fileID: 2570192623098973245, guid: 318a1a72d11ae5945b25c5bfbcd47e74, type: 3}
+  m_cellHeight: 220
 --- !u!1 &978939493
 GameObject:
   m_ObjectHideFlags: 0
@@ -5317,7 +5317,6 @@ MonoBehaviour:
   m_canvas: {fileID: 510700392892776604}
   m_mainMenuView: {fileID: 510700392400555488}
   m_gameplayView: {fileID: 553782624}
-  m_gameOverView: {fileID: 0}
   m_multiplierView: {fileID: 1787544964}
   m_leaderboardsView: {fileID: 971702545}
 --- !u!1 &510700393747894838

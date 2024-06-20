@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-using static Codice.Client.ChangeTrackerService.Win32Api;
+using Zenject;
 
 namespace JGM.Game
 {
@@ -12,16 +12,16 @@ namespace JGM.Game
         [SerializeField] private Button m_mainMenuButton;
         [SerializeField] private Button m_quitButton;
         [SerializeField] private ScrollRect m_scrollRect;
-        [SerializeField] private LeaderboardCellView m_cellPrefab;
+        [SerializeField] private float m_cellHeight = 220f;
+        [Inject] private LeaderboardCellView.Factory m_leaderboardCellFactory;
+
+        private const int m_totalEntries = 100;
+        private const int m_visibleCellsCount = 10;
 
         private GameView m_gameView;
         private List<LeaderboardEntry> m_entries;
         private List<LeaderboardCellView> m_cellsPool;
-        private int m_totalEntries = 100;
-        private int m_visibleCellsCount = 10;
-        private float m_cellHeight;
         private int m_firstVisibleIndex = 0;
-        private LeaderboardEntry m_userEntry;
         private int m_userIndex;
 
         public override void Initialize(GameView gameView)
@@ -61,7 +61,6 @@ namespace JGM.Game
             yield return new WaitForEndOfFrame();
             m_firstVisibleIndex = 0;
             UpdateCells();
-
             float targetPosY = Mathf.Max(m_userIndex * m_cellHeight + m_scrollRect.viewport.rect.height / 2 - m_cellHeight / 2, 0);
             const float offsetY = 330.82f;
             targetPosY -= offsetY;
@@ -71,19 +70,18 @@ namespace JGM.Game
         private void InitializeLeaderboard()
         {
             m_entries = GenerateRandomEntries(m_totalEntries - 1);
-
             int userScore = m_gameView.Model.Score * m_gameView.Model.ScoreMultiplier;
-            m_userEntry = new LeaderboardEntry { Name = "User", Score = userScore };
+            var m_userEntry = new LeaderboardEntry { Name = "User", Score = userScore };
             m_entries.Add(m_userEntry);
             m_entries.Sort((a, b) => b.Score.CompareTo(a.Score));
             m_userIndex = m_entries.FindIndex(e => e.Name == "User");
             m_userIndex = Mathf.Clamp(m_userIndex, 0, m_totalEntries - 1);
 
-            m_cellHeight = ((RectTransform)m_cellPrefab.transform).rect.height;
             m_cellsPool = new List<LeaderboardCellView>();
             for (int i = 0; i < m_visibleCellsCount; i++)
             {
-                var cell = Instantiate(m_cellPrefab, m_scrollRect.content);
+                var cell = m_leaderboardCellFactory.Create();
+                cell.transform.SetParent(m_scrollRect.content, false);
                 m_cellsPool.Add(cell);
             }
 

@@ -8,7 +8,7 @@ namespace JGM.Game
         [SerializeField] private Button m_x1Button;
         [SerializeField] private Button m_x3Button;
         [SerializeField] private Button m_x5Button;
-        
+
         private GameView m_gameView;
 
         public override void Initialize(GameView gameView)
