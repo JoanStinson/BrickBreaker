@@ -30,6 +30,16 @@ namespace JGM.Game
             m_audioService.Play(AudioFileNames.PressButtonSfx);
         }
 
+        public void PlayGameOverSfx()
+        {
+            m_audioService.Play(AudioFileNames.GameOverSfx);
+        }
+
+        public void PlayWinCreditsSfx()
+        {
+            m_audioService.Play(AudioFileNames.WinCreditsSfx);
+        }
+
         public void ChangeLanguageToRandom()
         {
             Language currentLanguage = m_localizationService.CurrentLanguage;

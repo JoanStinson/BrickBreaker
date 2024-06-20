@@ -1,6 +1,7 @@
 ﻿using System;
 using TMPro;
 using UnityEngine;
+using Zenject;
 
 namespace JGM.Game
 {
@@ -10,6 +11,7 @@ namespace JGM.Game
         [SerializeField] private BallLauncherView m_ballLauncherView;
         [SerializeField] private TextMeshProUGUI m_highScoreText;
         [SerializeField] private TextMeshProUGUI m_scoreText;
+        [Inject] private IAudioService m_audioService;
 
         private GameView m_gameView;
         private GameModel m_gameModel;
@@ -45,11 +47,14 @@ namespace JGM.Game
                 m_highScoreText.text = $"High Score: {m_highScore.ToString()}";
                 m_gameModel.HighScore = m_highScore;
             }
+
+            m_audioService.Play(AudioFileNames.HitSfx);
         }
 
         private void OnPickupExtraBall()
         {
             m_ballLauncherView.AddExtraBall();
+            m_audioService.Play(AudioFileNames.ExtraBallSfx);
         }
 
         private void OnBrickTouchedFloor()

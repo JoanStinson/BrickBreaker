@@ -84,7 +84,7 @@ namespace JGM.Game
             if (placedPiece)
             {
                 OnPiecePlaced?.Invoke();
-                m_audioService.Play(AudioFileNames.PlacePieceSfx);
+                //m_audioService.Play(AudioFileNames.PlacePieceSfx);
             }
 
             return placedPiece;

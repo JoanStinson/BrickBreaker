@@ -23,7 +23,7 @@ namespace JGM.Game
             gameObject.SetActive(true);
 
             await Task.Delay(TimeSpan.FromSeconds(m_animationDuration / 2));
-            m_audioService.Play(AudioFileNames.MessageAppearSfx);
+            //m_audioService.Play(AudioFileNames.MessageAppearSfx);
 
             await Task.Delay(TimeSpan.FromSeconds(m_durationSeconds - (m_animationDuration / 2)));
             Hide();

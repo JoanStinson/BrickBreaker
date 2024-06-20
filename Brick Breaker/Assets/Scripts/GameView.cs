@@ -68,6 +68,47 @@ namespace JGM.Game
             m_gameOverView.Show();
         }
 
+        public void OnClickPlayBackButton()
+        {
+            m_gameplayView.Hide();
+            m_mainMenuView.Show();
+            m_gameController.PlayPressButtonSfx();
+        }
+
+        public void OnBrickTouchedFloor()
+        {
+            m_gameplayView.Hide();
+            m_multiplierView.Show();
+            m_gameController.PlayGameOverSfx();
+        }
+
+        public void OnClick1XButton()
+        {
+            m_gameModel.ScoreMultiplier = 1;
+            m_multiplierView.Hide();
+            m_leaderboardsView.Show();
+            m_gameController.PlayPressButtonSfx();
+            m_gameController.PlayWinCreditsSfx();
+        }
+
+        public void OnClick3XButton()
+        {
+            m_gameModel.ScoreMultiplier = 3;
+            m_multiplierView.Hide();
+            m_leaderboardsView.Show();
+            m_gameController.PlayPressButtonSfx();
+            m_gameController.PlayWinCreditsSfx();
+        }
+
+        public void OnClick5XButton()
+        {
+            m_gameModel.ScoreMultiplier = 5;
+            m_multiplierView.Hide();
+            m_leaderboardsView.Show();
+            m_gameController.PlayPressButtonSfx();
+            m_gameController.PlayWinCreditsSfx();
+        }
+
         public void OnClickPlayAgainButton()
         {
             m_leaderboardsView.Hide();
@@ -80,40 +121,6 @@ namespace JGM.Game
             m_leaderboardsView.Hide();
             m_mainMenuView.Show();
             m_gameController.PlayPressButtonSfx();
-        }
-
-        public void OnClickPlayBackButton()
-        {
-            m_gameplayView.Hide();
-            m_mainMenuView.Show();
-            m_gameController.PlayPressButtonSfx();
-        }
-
-        public void OnBrickTouchedFloor()
-        {
-            m_gameplayView.Hide();
-            m_multiplierView.Show();
-        }
-
-        public void OnClick1XButton()
-        {
-            m_gameModel.ScoreMultiplier = 1;
-            m_multiplierView.Hide();
-            m_leaderboardsView.Show();
-        }
-
-        public void OnClick3XButton()
-        {
-            m_gameModel.ScoreMultiplier = 3;
-            m_multiplierView.Hide();
-            m_leaderboardsView.Show();
-        }
-
-        public void OnClick5XButton()
-        {
-            m_gameModel.ScoreMultiplier = 5;
-            m_multiplierView.Hide();
-            m_leaderboardsView.Show();
         }
     }
 }
