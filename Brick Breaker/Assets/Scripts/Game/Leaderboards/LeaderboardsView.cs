@@ -13,7 +13,9 @@ namespace JGM.Game
         [SerializeField] private Button m_quitButton;
         [SerializeField] private ScrollRect m_scrollRect;
         [SerializeField] private float m_cellHeight = 220f;
+
         [Inject] private LeaderboardCellView.Factory m_leaderboardCellFactory;
+        [Inject] private IHapticFeedbackService m_hapticFeedbackService;
 
         private const int m_totalEntries = 100;
         private const int m_visibleCellsCount = 10;
@@ -53,6 +55,7 @@ namespace JGM.Game
             InitializeLeaderboard();
             UpdateCells();
             StartCoroutine(DefaultScroll());
+            m_hapticFeedbackService.TriggerVibration();
         }
 
         private IEnumerator DefaultScroll()
@@ -124,7 +127,7 @@ namespace JGM.Game
                 {
                     bool isUserCell = (entryIndex == m_userIndex);
                     string textColor = isUserCell ? "blue" : "black";
-                    string text = $"<color={textColor}>Position {entryIndex + 1} - {m_entries[entryIndex].Name} - {m_entries[entryIndex].Score}</color>";
+                    string text = $"<color={textColor}>#{(entryIndex + 1).ToString("000")} {m_entries[entryIndex].Name} {m_entries[entryIndex].Score}</color>";
                     m_cellsPool[i].SetText(text);
                     m_cellsPool[i].transform.localPosition = new Vector3(m_cellsPool[i].transform.localPosition.x, -entryIndex * m_cellHeight, 0);
                 }
